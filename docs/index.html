@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A² Golf</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Golf sim software for Windows: play friends online, design your own course, and practise with a game that tells you why you missed. Works with Open Connect launch monitors.">
+<link rel="icon" href="img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: a full-bleed tee-box hero with the shot-data strip along its foot,
+   then features laid like scorecard rows - picture and words swapping sides -
+   a setup card, and the small print folded away. */
+:root {
+  --turf: #1f5a2e;        /* fairway green: bands, buttons' ground */
+  --turf-deep: #0f2e18;   /* the shade under the trees */
+  --flag: #ffd23f;        /* the flag yellow of the brand mark */
+  --tracer: #ff7a1a;      /* the ball tracer's orange */
+  --bg: #f3f6f0;          /* a pale green-white, like a scorecard */
+  --surface: #ffffff;
+  --fg: #142018;
+  --muted: #4a5a4f;
+  --line: #d5ded6;
+  --on-dark: #f3f7f1;
+  --display: "Anton", "Impact", "Arial Narrow Bold", sans-serif;
+  --body: "Work Sans", "Segoe UI", system-ui, sans-serif;
+  --data: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #0c1a11; --surface: #13261a; --fg: #e8f0e9; --muted: #a3b5a8; --line: #24402d; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #0c1a11; --surface: #13261a; --fg: #e8f0e9; --muted: #a3b5a8; --line: #24402d; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 17px/1.6 var(--body); }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--tracer); outline-offset: 3px; border-radius: 4px; }
+.wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: 0.01em; line-height: 1.02; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+.eyebrow { font: 700 13px/1 var(--body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--tracer); }
+
+/* The bar along the top. */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--turf-deep); }
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--turf-deep) 92%, transparent); backdrop-filter: blur(8px); color: var(--on-dark); }
+.top .wrap { display: flex; align-items: center; gap: 24px; min-height: 60px; }
+.brand { display: flex; align-items: center; gap: 10px; font: 700 19px/1 var(--body); text-decoration: none; }
+.mark { width: 34px; height: 34px; border-radius: 8px; background: var(--flag); color: #10150f; display: grid; place-items: center; font: 700 16px/1 var(--body); border: 3px solid #10150f; }
+.top nav { display: flex; gap: 22px; margin-left: auto; font-weight: 500; font-size: 15px; }
+.top nav a { text-decoration: none; opacity: 0.85; }
+.top nav a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 720px) { .top nav { display: none; } .top .btn { margin-left: auto; } }
+
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 22px; border-radius: 10px; font: 700 16px/1 var(--body); text-decoration: none; border: 3px solid #10150f; cursor: pointer; transition: transform 0.15s ease; }
+.btn:hover { transform: translateY(-2px); }
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } .btn:hover { transform: none; } }
+.btn-go { background: var(--flag); color: #10150f; box-shadow: 0 4px 0 #10150f; }
+.btn-quiet { background: transparent; color: var(--on-dark); border-color: color-mix(in srgb, var(--on-dark) 60%, transparent); }
+.btn-sm { padding: 9px 16px; font-size: 14px; box-shadow: 0 3px 0 #10150f; }
+
+/* The hero: the tee, the tracer, the headline. */
+.hero { position: relative; color: var(--on-dark); background: var(--turf-deep); overflow: hidden; }
+.hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6, 22, 11, 0.9) 0%, rgba(6, 22, 11, 0.62) 42%, rgba(6, 22, 11, 0.08) 75%), linear-gradient(0deg, rgba(6, 22, 11, 0.85) 0%, rgba(6, 22, 11, 0) 38%); }
+.hero svg.tracer { position: absolute; right: 8%; bottom: 0; width: min(46%, 520px); height: 90%; z-index: 1; }
+.tracer path { fill: none; stroke: var(--tracer); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: fly 2.4s cubic-bezier(.3,.6,.4,1) 0.4s forwards; }
+@keyframes fly { to { stroke-dashoffset: 0; } }
+@media (max-width: 720px) { .hero svg.tracer { display: none; } }
+@media (prefers-reduced-motion: reduce) { .tracer path { animation: none; stroke-dashoffset: 0; } }
+.hero .wrap { position: relative; z-index: 2; padding-block: clamp(56px, 10vw, 120px) 28px; display: grid; gap: 22px; }
+.hero h1 { font-size: clamp(52px, 9vw, 112px); max-width: 11ch; text-transform: uppercase; }
+.hero h1 span { color: var(--flag); display: block; }
+.hero .lede { font-size: clamp(17px, 2vw, 20px); max-width: 34rem; color: color-mix(in srgb, var(--on-dark) 92%, transparent); }
+.cta { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.cta small { font-size: 14px; color: color-mix(in srgb, var(--on-dark) 78%, transparent); }
+
+/* The shot as the game shows it: a strip of numbers along the hero's foot. */
+.shot { position: relative; z-index: 2; margin-top: clamp(28px, 6vw, 72px); display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border: 2px solid color-mix(in srgb, var(--on-dark) 30%, transparent); border-radius: 12px; background: rgba(6, 22, 11, 0.7); backdrop-filter: blur(6px); overflow: hidden; }
+.shot div { padding: 12px 14px; display: grid; gap: 2px; border-left: 1px solid color-mix(in srgb, var(--on-dark) 18%, transparent); }
+.shot div:first-child { border-left: 0; }
+.shot dt { font: 700 11px/1.2 var(--body); letter-spacing: 0.12em; text-transform: uppercase; color: color-mix(in srgb, var(--on-dark) 70%, transparent); }
+.shot dd { margin: 0; font: 700 clamp(18px, 2.4vw, 26px)/1.1 var(--data); font-variant-numeric: tabular-nums; }
+.shot dd small { font: 500 12px var(--body); margin-left: 3px; color: color-mix(in srgb, var(--on-dark) 75%, transparent); }
+.shot div.carry dd { color: var(--flag); }
+.shot-note { position: relative; z-index: 2; font-size: 13px; padding-block: 10px 0; color: color-mix(in srgb, var(--on-dark) 70%, transparent); }
+@media (max-width: 720px) { .shot { grid-template-columns: repeat(3, minmax(0, 1fr)); } .shot div:nth-child(4) { border-left: 0; } .shot div:nth-child(n + 4) { border-top: 1px solid color-mix(in srgb, var(--on-dark) 18%, transparent); } }
+
+/* Features: rows like a scorecard's holes, picture and words swapping sides. */
+section { padding-block: clamp(56px, 8vw, 96px); }
+.intro { display: grid; gap: 14px; max-width: 46rem; margin-bottom: 44px; }
+.intro h2 { font-size: clamp(38px, 5.5vw, 60px); text-transform: uppercase; }
+.intro p { color: var(--muted); font-size: 18px; }
+.rows { display: grid; gap: clamp(40px, 6vw, 72px); }
+.row { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
+.row:nth-child(even) .pic { order: 2; }
+.row > * { min-width: 0; }
+.pic { border-radius: 14px; overflow: hidden; border: 3px solid #10150f; box-shadow: 0 8px 0 color-mix(in srgb, var(--turf) 70%, #10150f); aspect-ratio: 16 / 9; max-width: 100%; }
+.pic img { width: 100%; height: 100%; object-fit: cover; }
+.words { display: grid; gap: 14px; }
+.words h3 { font-size: clamp(30px, 3.6vw, 42px); text-transform: uppercase; }
+.words ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.words li { padding-left: 28px; position: relative; }
+.words li::before { content: ""; position: absolute; left: 4px; top: 0.62em; width: 12px; height: 12px; border-radius: 50%; background: var(--surface); border: 3px solid var(--turf); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .words li::before { border-color: var(--flag); } }
+:root[data-theme="dark"] .words li::before { border-color: var(--flag); }
+@media (max-width: 820px) { .row { grid-template-columns: 1fr; } .row:nth-child(even) .pic { order: 0; } }
+
+/* Practice places: a strip of three. */
+.places { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 8px; }
+.places figure { margin: 0; display: grid; gap: 8px; }
+.places img { border-radius: 10px; aspect-ratio: 16 / 9; object-fit: cover; width: 100%; border: 2px solid var(--line); }
+.places figcaption { font-weight: 700; font-size: 15px; }
+@media (max-width: 640px) { .places { grid-template-columns: 1fr; } }
+
+/* Works with: a band of turf. */
+.band { background: var(--turf); color: var(--on-dark); }
+.band .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+.band .wrap > * { min-width: 0; }
+.band h2 { font-size: clamp(38px, 5.5vw, 60px); text-transform: uppercase; }
+.band h2 span { color: var(--flag); }
+.band p { color: color-mix(in srgb, var(--on-dark) 90%, transparent); }
+.ways { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.ways li { background: rgba(6, 22, 11, 0.32); border: 2px solid rgba(243, 247, 241, 0.2); border-radius: 12px; padding: 16px 18px; display: grid; gap: 4px; }
+.ways b { font-size: 18px; }
+.ways span { font-size: 15px; color: color-mix(in srgb, var(--on-dark) 82%, transparent); }
+@media (max-width: 820px) { .band .wrap { grid-template-columns: 1fr; } }
+
+/* Getting it: three steps (a real order), and what the PC needs. */
+.get { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+.get > * { min-width: 0; }
+.steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 18px; counter-reset: step; }
+.steps li { display: grid; grid-template-columns: 48px 1fr; gap: 16px; align-items: start; }
+.steps li::before { counter-increment: step; content: counter(step); font: 400 30px/48px var(--display); text-align: center; width: 48px; height: 48px; border-radius: 50%; background: var(--flag); color: #10150f; border: 3px solid #10150f; }
+.steps b { display: block; font-size: 18px; margin-bottom: 2px; }
+.steps p { color: var(--muted); }
+.card { background: var(--surface); border: 2px solid var(--line); border-radius: 14px; padding: 22px 24px; display: grid; gap: 14px; }
+.card h3 { font-size: 28px; text-transform: uppercase; }
+.card dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 10px 18px; font-size: 15px; }
+.card dt { font-weight: 700; }
+.card dd { margin: 0; color: var(--muted); min-width: 0; }
+@media (max-width: 820px) { .get { grid-template-columns: 1fr; } }
+@media (max-width: 420px) { .card dl { grid-template-columns: 1fr; gap: 2px; } .card dd { margin-bottom: 8px; } }
+
+/* The download, once more, and the small print. */
+.last { background: var(--turf-deep); color: var(--on-dark); text-align: left; }
+.last .wrap { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; }
+.last h2 { font-size: clamp(34px, 5vw, 54px); text-transform: uppercase; }
+.last h2 span { color: var(--flag); }
+footer { padding-block: 40px 56px; font-size: 14px; color: var(--muted); }
+footer .wrap { display: grid; gap: 18px; }
+.links { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+details { border-top: 1px solid var(--line); padding-block: 12px; }
+details summary { cursor: pointer; font-weight: 700; color: var(--fg); }
+details pre { margin: 12px 0 0; white-space: pre-wrap; font: 400 13px/1.55 var(--data); color: var(--muted); max-height: 420px; overflow: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="A² Golf, back to the top"><span class="mark">A²</span>A² Golf</a>
+    <nav aria-label="Sections">
+      <a href="#features">What you can do</a>
+      <a href="#works-with">Works with</a>
+      <a href="#get-it">Get it</a>
+    </nav>
+    <a class="btn btn-go btn-sm" href="https://github.com/apashton/Golf-Sim-releases/releases/latest">Download</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title" style="padding-block: 0">
+    <img src="img/course-tee.jpg" alt="The 3rd tee of a parkland course in A² Golf, a par 4 of 370 yards, the fairway striped ahead under a blue sky.">
+    <svg class="tracer" viewBox="0 0 520 600" preserveAspectRatio="none" aria-hidden="true"><path d="M 150 600 C 140 300, 120 120, 70 330"/></svg>
+    <div class="wrap">
+      <p class="eyebrow">Golf sim software for Windows</p>
+      <h1 id="hero-title">Your launch monitor. <span>A whole golf world.</span></h1>
+      <p class="lede">Play friends online without waiting your turn, design a course and play it the same evening, and practise with a game that tells you why you missed.</p>
+      <div class="cta">
+        <a class="btn btn-go" href="https://github.com/apashton/Golf-Sim-releases/releases/latest">Download for Windows</a>
+        <a class="btn btn-quiet" id="trailer" href="#" hidden>Watch the trailer</a>
+        <small>Windows 10 or 11 · updates itself</small>
+      </div>
+      <dl class="shot" aria-label="A 7 iron as the shot data screen shows it">
+        <div><dt>Club</dt><dd>7i</dd></div>
+        <div class="carry"><dt>Carry</dt><dd>162<small>yd</small></dd></div>
+        <div><dt>Ball speed</dt><dd>118<small>mph</small></dd></div>
+        <div><dt>Launch</dt><dd>16.3<small>°</small></dd></div>
+        <div><dt>Spin</dt><dd>6,820<small>rpm</small></dd></div>
+        <div><dt>Peak</dt><dd>31<small>yd</small></dd></div>
+      </dl>
+      <p class="shot-note">Every shot's numbers, as the shot data screen shows them - on the picture, or on a second screen of their own.</p>
+    </div>
+  </section>
+
+  <section id="features" aria-labelledby="features-title">
+    <div class="wrap">
+      <div class="intro">
+        <p class="eyebrow">What you can do</p>
+        <h2 id="features-title">More golf than one bay can hold</h2>
+        <p>A² Golf is built for the golfer with a net, a mat and a launch monitor in the garage, the spare room or the shed.</p>
+      </div>
+      <div class="rows">
+        <article class="row">
+          <div class="pic"><img src="img/pong.jpg" alt="Golf pong on the putting green: cups set out across the green, a ball on its way." loading="lazy"></div>
+          <div class="words">
+            <h3>Play friends online</h3>
+            <ul>
+              <li>Up to 8 players, on their own bays across the house or across the country.</li>
+              <li>Nobody waits a turn: everyone hits when they're ready, so a round takes about an hour.</li>
+              <li>Stroke play, Stableford, match play and skins, off handicaps. Better ball and scramble for teams.</li>
+              <li>Match ladders to climb, and golf pong on a real green.</li>
+              <li>No launch monitor at a friend's? They can swing with a mouse or a game controller.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="row">
+          <div class="pic"><img src="img/course-fairway.jpg" alt="The 4th tee of a course made in A² Golf's designer: a par 4 of 360 yards between stands of trees." loading="lazy"></div>
+          <div class="words">
+            <h3>Design your own course</h3>
+            <ul>
+              <li>A whole course in a few clicks: parkland, woodland, lakes or links, flat to mountain.</li>
+              <li>Type in a scorecard and every hole is laid out to match it.</li>
+              <li>Or play a real course from open map data, on its real ground with its real trees.</li>
+              <li>Change any hole: brush the fairway wider, drag the green, move the pin, add bunkers, water and trees, then play it.</li>
+              <li>Holes in the style of the great courses: Redans, Edens, Biarritz greens, the Alps.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="row">
+          <div class="pic"><img src="img/putting.jpg" alt="The putting green with its read grid: lines showing the slope, a ball 5 feet from the cup." loading="lazy"></div>
+          <div class="words">
+            <h3>Practise and get better</h3>
+            <ul>
+              <li>A putting green that reads the break and tells you what to change: the pace or the line.</li>
+              <li>A driving range with a tracer, every number, and a session view of every ball.</li>
+              <li>Stats that matter: handicap, strokes gained, every club's distance, and tips drawn from your own misses.</li>
+              <li>Challenges and ladders with a score to beat, and a plan for what to practise next.</li>
+              <li>Swing cameras with instant replay.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+      <div class="places" aria-label="The practice ground">
+        <figure><img src="img/range.jpg" alt="The driving range from the mat, distance boards out to 100 yards." loading="lazy"><figcaption>The driving range</figcaption></figure>
+        <figure><img src="img/chipping.jpg" alt="The chipping green with target rings around the flag." loading="lazy"><figcaption>The chipping green</figcaption></figure>
+        <figure><img src="img/putting.jpg" alt="The putting green." loading="lazy"><figcaption>The putting green</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="works-with" aria-labelledby="works-title">
+    <div class="wrap">
+      <div class="intro" style="margin: 0">
+        <p class="eyebrow" style="color: var(--flag)">Works with</p>
+        <h2 id="works-title">Bring the launch monitor <span>you already have</span></h2>
+        <p>A² Golf works with launch monitors that speak Open Connect, the way most home sim software talks to them. Connect yours, hit a shot, and the welcome screen shows it arrived.</p>
+      </div>
+      <ul class="ways">
+        <li><b>Open Connect launch monitors</b><span>Your monitor's own connector sends each shot to A² Golf, on this PC.</span></li>
+        <li><b>A mouse or a game controller</b><span>Swing with a pull and a push. Pick a level, from forgiving to tour.</span></li>
+        <li><b>One screen, a projector, or three</b><span>Bay view for a projector, the shot data on a second screen, and the controls on a third.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="get-it" aria-labelledby="get-title">
+    <div class="wrap get">
+      <div class="intro" style="margin: 0">
+        <p class="eyebrow">Get it</p>
+        <h2 id="get-title">On the tee in five minutes</h2>
+        <ol class="steps">
+          <li><div><b>Download the installer</b><p>A-Squared-Golf-Setup from the downloads page: the newest stable version is at the top.</p></div></li>
+          <li><div><b>Run it</b><p>Windows may say it doesn't know the publisher yet. Choose More info, then Run anyway. It installs for your user, with no admin needed.</p></div></li>
+          <li><div><b>Hit a shot</b><p>The welcome screen checks your launch monitor is talking, then you're on the range. From then on A² Golf keeps itself up to date.</p></div></li>
+        </ol>
+      </div>
+      <div class="card" aria-labelledby="needs-title">
+        <h3 id="needs-title">What your PC needs</h3>
+        <dl>
+          <dt>Windows</dt><dd>Windows 10 or 11, 64-bit</dd>
+          <dt>Graphics</dt><dd>A graphics card that runs 3D games. Settings from Standard to Ultra to suit it, and a speed test that picks for you.</dd>
+          <dt>To swing</dt><dd>An Open Connect launch monitor, or a mouse or game controller</dd>
+          <dt>Online play</dt><dd>An internet connection. No account to make.</dd>
+          <dt>Screens</dt><dd>One or more: a monitor, a TV or a projector</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="last" aria-labelledby="last-title" style="padding-block: clamp(44px, 6vw, 72px)">
+    <div class="wrap">
+      <h2 id="last-title">Ready to <span>tee off?</span></h2>
+      <a class="btn btn-go" href="https://github.com/apashton/Golf-Sim-releases/releases/latest">Download for Windows</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="https://github.com/apashton/Golf-Sim-releases/releases/latest">Downloads</a>
+      <a href="https://github.com/apashton/Golf-Sim-releases/issues">Support and feedback</a>
+      <a href="#licence">Licence</a>
+      <a href="#privacy">Privacy</a>
+    </div>
+    <p>In the game, Menu → System → Feedback saves a report of what happened and opens the support page for you. Launch monitor names belong to their makers; A² Golf isn't connected with or endorsed by them.</p>
+    <details id="privacy"><summary>Privacy</summary><pre><!-- legal:privacy -->A-SQUARED GOLF - PRIVACY NOTICE
+
+Short version: the game has no accounts and no adverts, and it doesn't
+track you. Your shots, stats, recordings and courses stay on your own
+computer. It only sends something over the internet when you use a
+feature that needs to, as listed below.
+
+WHO WE ARE
+A2 Games, the makers of A-Squared Golf ("we"). Contact us through Menu -&gt;
+System -&gt; Feedback in the game, or
+https://github.com/apashton/Golf-Sim-releases/issues
+
+WHAT STAYS ON YOUR COMPUTER
+- Players' names, shots, stats, rounds and scorecards.
+- Settings, courses you make or import, hole edits.
+- Webcam replays, recordings and pictures.
+- Logs of the launch monitor connection, kept to help fix problems.
+These are in the game's own folder on your PC (System -&gt; When something's
+stuck shows where). We never see them unless you send them to us. Removing
+the game and that folder removes them.
+
+WHAT IS SENT, AND WHEN
+
+1. Online play (only when you host or join an online game).
+   The game's code, the players' names, the shots and scores of the
+   game, and messages and reactions in it are passed between the bays
+   through our relay, run on Cloudflare. The relay keeps nothing about a
+   game once its players have left. Your internet address is seen by
+   Cloudflare while you're connected, as with any website. Online match
+   ladders keep what their players report - names, challenges, scores and
+   rounds - for as long as the ladder is in use.
+
+2. Linking a phone (only when you link one).
+   Stats from a linked phone wait on the relay until your PC collects
+   them, then they're removed from there. The PC leaves its players'
+   names, handicaps and stats summed up there for its phones to collect.
+   Ending the link from the PC removes it and everything waiting on it.
+
+3. Updates.
+   The game asks GitHub (github.com) if there's a new version, and
+   downloads it from there. GitHub sees your internet address, as with any
+   download.
+
+4. Course maps (only when you import a course or search for a place).
+   The place you search for and the area you import are sent to public
+   map services: OpenStreetMap's search and data services (Nominatim,
+   Photon, Overpass), and ground height services (such as the
+   Environment Agency, Scottish and Welsh Government LiDAR, the US
+   National Map, and Amazon's open terrain tiles). They see your internet
+   address and the area, under their own privacy policies.
+
+5. Feedback (only when you choose to send it).
+   Menu -&gt; System -&gt; Feedback saves a report on your PC - your note, the
+   version, your settings, the screens, the graphics card, the launch
+   monitor's connection log and recent errors - and opens a page where you
+   can post it. Read it before you post: on GitHub's issues it is public.
+   Nothing is sent until you post it yourself.
+
+6. Online play from other houses with Tailscale (only if you set it up).
+   Tailscale is a separate program with its own privacy policy.
+
+WHAT WE DON'T DO
+- No accounts, no adverts, no analytics or tracking.
+- We don't sell or share anything about you.
+- Voice commands are heard by Windows' own speech recogniser on your PC;
+  no sound leaves your computer.
+- Webcams are used only on your PC, for replays and recordings.
+
+CHILDREN
+The game has no accounts and collects nothing about who you are. Online,
+players see the names you type in: use a nickname if you'd rather.
+
+YOUR RIGHTS
+If you live in the UK or the EU you have rights over data about you
+(to see it, correct it, or have it removed). As almost everything stays on
+your own PC, you can see and remove it yourself. For anything held on the
+relay (an online ladder), contact us and we'll help.
+
+CHANGES
+If this notice changes, the new one comes with the update that changes
+it, and is in Menu -&gt; Help -&gt; About.<!-- /legal --></pre></details>
+    <details id="licence"><summary>Licence agreement</summary><pre><!-- legal:licence -->A-SQUARED GOLF - END USER LICENCE AGREEMENT
+
+Please read this before installing. By installing or using A-Squared Golf
+("the game") you agree to these terms. If you don't agree, don't install
+it, and remove it if you already have.
+
+1. Who this is between
+   This agreement is between you and A2 Games, the makers of A-Squared
+   Golf ("we", "us").
+
+2. What you may do
+   We give you a personal, non-exclusive, non-transferable licence to
+   install and use the game on the computers and phones you own or
+   control, for playing, practising and recording your own golf.
+   You may share recordings, pictures and videos you make with the game.
+
+3. What you may not do
+   You may not:
+   - sell, rent, lend or sublicense the game, or pass it on as part of
+     another product;
+   - copy the game except as needed to install and use it, and to keep a
+     backup;
+   - take the game apart, decompile it or undo its scrambling, except
+     where the law allows you to whatever this agreement says;
+   - remove or change any notice of ownership or credit in the game;
+   - use the online play service to harm, harass or deceive other
+     players, or to overload or attack the service.
+
+4. Ownership
+   The game is licensed to you, not sold. We (and the people we license
+   from) keep all rights in it. Parts of the game are other people's work,
+   used under their own licences: see "Third-party notices" (in the game:
+   Menu -&gt; Help -&gt; About). Those licences
+   apply to those parts, and nothing here limits your rights under them.
+
+5. Launch monitors and other products
+   The game works with launch monitors and other products made by other
+   companies. We are not connected with, sponsored or endorsed by those
+   companies, and their names belong to them. A launch monitor's readings
+   are its own: we don't promise any device works with the game, or that
+   the game's flights match any other program's.
+
+6. Online play and course maps
+   Online play uses a service we run, which we may change, limit or stop
+   at any time. Course maps and ground heights you import come from public
+   map services (such as OpenStreetMap), under their own terms and
+   credits; you are responsible for what you import and share.
+
+7. Updates
+   The game checks for updates and installs them. Some updates may be
+   needed to keep playing online. These terms apply to every update.
+
+8. Safety
+   Golf in a simulator means swinging a club indoors. Make sure the space
+   is big enough, the screen and projector are protected, and no one is
+   near you when you swing. You use the game at your own risk.
+
+9. No warranty
+   The game is provided "as is". As far as the law allows, we give no
+   promise that it will work without errors or interruption, or that it
+   suits any particular purpose.
+
+10. Our liability
+   As far as the law allows, we are not liable for any loss of data,
+   profit or business, or for any indirect loss, arising from the game.
+   Nothing in this agreement limits liability that the law does not allow
+   to be limited, such as for death or personal injury caused by
+   negligence, or fraud, and nothing takes away your statutory rights as
+   a consumer.
+
+11. Ending
+   This licence ends if you break these terms. When it ends you must stop
+   using the game and remove it. You may end it at any time by removing
+   the game.
+
+12. Privacy
+   What the game keeps and what it sends is described in the privacy
+   note (in the game: Menu -&gt; Help -&gt; About).
+
+13. Law
+   This agreement is governed by the law of England and Wales, and its
+   courts have jurisdiction, unless the law where you live gives you the
+   right to bring a claim there.
+
+14. Changes
+   We may change these terms for later versions. The version that comes
+   with each version of the game is the one that applies to it.
+
+Questions and feedback: Menu -&gt; System -&gt; Feedback in the game, or
+https://github.com/apashton/Golf-Sim-releases/issues
+
+Copyright (c) 2026 A2 Games, the makers of A-Squared Golf.
+All rights reserved.<!-- /legal --></pre></details>
+    <p>© 2026 A2 Games, the makers of A-Squared Golf.</p>
+  </div>
+</footer>
+
+<script>
+  // The trailer's YouTube address, once it's up: the button shows itself.
+  const TRAILER_URL = "";
+  const t = document.getElementById("trailer");
+  if (TRAILER_URL) { t.href = TRAILER_URL; t.hidden = false; }
+  // A link to the small print opens it.
+  const openFromHash = () => { const d = document.getElementById(location.hash.slice(1)); if (d && d.tagName === "DETAILS") d.open = true; };
+  addEventListener("hashchange", openFromHash);
+  openFromHash();
+</script>
+</body>
+</html>
