@@ -140,6 +140,10 @@ section { padding-block: clamp(56px, 8vw, 96px); }
 .steps li::before { counter-increment: step; content: counter(step); font: 400 30px/48px var(--display); text-align: center; width: 48px; height: 48px; border-radius: 50%; background: var(--flag); color: #10150f; border: 3px solid #10150f; }
 .steps b { display: block; font-size: 18px; margin-bottom: 2px; }
 .steps p { color: var(--muted); }
+.android { margin-top: 30px; padding-top: 24px; border-top: 2px solid var(--line); display: grid; gap: 12px; justify-items: start; }
+.android h3 { font-size: 28px; text-transform: uppercase; }
+.android p, .android-steps { color: var(--muted); }
+.android-steps { margin: 0; padding-left: 22px; display: grid; gap: 6px; }
 .card { background: var(--surface); border: 2px solid var(--line); border-radius: 14px; padding: 22px 24px; display: grid; gap: 14px; }
 .card h3 { font-size: 28px; text-transform: uppercase; }
 .card dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 10px 18px; font-size: 15px; }
@@ -194,7 +198,7 @@ details pre { margin: 12px 0 0; white-space: pre-wrap; font: 400 13px/1.55 var(-
       <div class="cta">
         <a class="btn btn-go" href="https://github.com/apashton/Golf-Sim-releases/releases/latest">Download for Windows</a>
         <a class="btn btn-quiet" id="trailer" href="#" hidden>Watch the trailer</a>
-        <small>Windows 10 or 11 · updates itself</small>
+        <small>Windows 10 or 11 · updates itself · <a href="#android">Android test app</a></small>
       </div>
       <dl class="shot" aria-label="A 7 iron as the shot data screen shows it">
         <div><dt>Club</dt><dd>7i</dd></div>
@@ -289,6 +293,16 @@ details pre { margin: 12px 0 0; white-space: pre-wrap; font: 400 13px/1.55 var(-
           <li><div><b>Run it</b><p>Windows may say it doesn't know the publisher yet. Choose More info, then Run anyway. It installs for your user, with no admin needed.</p></div></li>
           <li><div><b>Hit a shot</b><p>The welcome screen checks your launch monitor is talking, then you're on the range. From then on A² Golf keeps itself up to date.</p></div></li>
         </ol>
+        <div class="android" id="android">
+          <h3>On an Android phone</h3>
+          <p>A² Golf on your phone, swung with a finger: rounds, the range and the greens, and online games with friends on their phones and PCs. It's a test version, installed from the file rather than the Play Store.</p>
+          <ol class="android-steps">
+            <li>On the phone, tap <b>Download for Android</b> below.</li>
+            <li>Open the downloaded file. Android asks to allow your browser to install apps: allow it, then tap Install. If Play Protect says it doesn't know the app, choose More details, then Install anyway.</li>
+            <li>Open A² Golf. Updates come the same way, and install over the top, keeping your rounds.</li>
+          </ol>
+          <a class="btn btn-go btn-sm" href="https://github.com/apashton/Golf-Sim-releases/releases/latest/download/A-Squared-Golf-Android.apk">Download for Android</a>
+        </div>
       </div>
       <div class="card" aria-labelledby="needs-title">
         <h3 id="needs-title">What your PC needs</h3>
@@ -511,7 +525,7 @@ All rights reserved.<!-- /legal --></pre></details>
 
 <script>
   // The trailer's YouTube address, once it's up: the button shows itself.
-  const TRAILER_URL = "";
+  const TRAILER_URL = "https://youtu.be/XTr7K4cyA4s";
   const t = document.getElementById("trailer");
   if (TRAILER_URL) { t.href = TRAILER_URL; t.hidden = false; }
   // A link to the small print opens it.
