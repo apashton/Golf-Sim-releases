@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>A² Golf</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Golf sim software for Windows: play friends online, design your own course, and practise with a game that tells you why you missed. Works with Open Connect launch monitors.">
+<meta name="description" content="A golf game for Windows and Android: play alone or with friends, swung with a finger, a mouse or a controller - or with your Open Connect launch monitor, in every course, game and challenge.">
 <link rel="icon" href="img/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -119,6 +119,31 @@ section { padding-block: clamp(56px, 8vw, 96px); }
 .places figcaption { font-weight: 700; font-size: 15px; }
 @media (max-width: 640px) { .places { grid-template-columns: 1fr; } }
 
+/* Two ways to play: two panels side by side. */
+.ways2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.way { background: var(--surface); border: 2px solid var(--line); border-radius: 16px; padding: 24px 26px; display: grid; gap: 10px; align-content: start; }
+.way-lm { border-color: var(--turf); }
+.way-icon { width: 46px; height: 46px; fill: none; stroke: var(--turf); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.way h3 { font-size: clamp(28px, 3.4vw, 38px); text-transform: uppercase; }
+.way-line { font-weight: 700; color: var(--tracer); }
+.way ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.way li { padding-left: 26px; position: relative; color: var(--muted); }
+.way li::before { content: ""; position: absolute; left: 4px; top: 0.62em; width: 10px; height: 10px; border-radius: 50%; background: var(--flag); border: 2px solid #10150f; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .way-icon { stroke: var(--flag); } :root:not([data-theme="light"]) .way-lm { border-color: var(--flag); } }
+:root[data-theme="dark"] .way-icon { stroke: var(--flag); }
+:root[data-theme="dark"] .way-lm { border-color: var(--flag); }
+@media (max-width: 760px) { .ways2 { grid-template-columns: 1fr; } }
+#two-ways { padding-bottom: 0; }
+
+/* Play together: four ways to swing. */
+.swingers { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.swingers li { background: rgba(6, 22, 11, 0.32); border: 2px solid rgba(243, 247, 241, 0.2); border-radius: 12px; padding: 16px; display: grid; gap: 4px; align-content: start; }
+.swingers svg { width: 40px; height: 40px; fill: none; stroke: var(--flag); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 4px; }
+.swingers b { font-size: 17px; }
+.swingers span { font-size: 14px; color: color-mix(in srgb, var(--on-dark) 82%, transparent); }
+.band .small { font-size: 14px; }
+@media (max-width: 420px) { .swingers { grid-template-columns: 1fr; } }
+
 /* Works with: a band of turf. */
 .band { background: var(--turf); color: var(--on-dark); }
 .band .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
@@ -126,10 +151,6 @@ section { padding-block: clamp(56px, 8vw, 96px); }
 .band h2 { font-size: clamp(38px, 5.5vw, 60px); text-transform: uppercase; }
 .band h2 span { color: var(--flag); }
 .band p { color: color-mix(in srgb, var(--on-dark) 90%, transparent); }
-.ways { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
-.ways li { background: rgba(6, 22, 11, 0.32); border: 2px solid rgba(243, 247, 241, 0.2); border-radius: 12px; padding: 16px 18px; display: grid; gap: 4px; }
-.ways b { font-size: 18px; }
-.ways span { font-size: 15px; color: color-mix(in srgb, var(--on-dark) 82%, transparent); }
 @media (max-width: 820px) { .band .wrap { grid-template-columns: 1fr; } }
 
 /* Getting it: three steps (a real order), and what the PC needs. */
@@ -179,8 +200,9 @@ details pre { margin: 12px 0 0; white-space: pre-wrap; font: 400 13px/1.55 var(-
   <div class="wrap">
     <a class="brand" href="#top" aria-label="A² Golf, back to the top"><span class="mark">A²</span>A² Golf</a>
     <nav aria-label="Sections">
-      <a href="#features">What you can do</a>
-      <a href="#works-with">Works with</a>
+      <a href="#two-ways">Two ways to play</a>
+      <a href="#together">Play together</a>
+      <a href="#features">What's in it</a>
       <a href="#get-it">Get it</a>
     </nav>
     <a class="btn btn-go btn-sm" href="https://github.com/apashton/Golf-Sim-releases/releases/latest">Download</a>
@@ -192,9 +214,9 @@ details pre { margin: 12px 0 0; white-space: pre-wrap; font: 400 13px/1.55 var(-
     <img src="img/course-tee.jpg" alt="The 3rd tee of a parkland course in A² Golf, a par 4 of 370 yards, the fairway striped ahead under a blue sky.">
     <svg class="tracer" viewBox="0 0 520 600" preserveAspectRatio="none" aria-hidden="true"><path d="M 150 600 C 140 300, 120 120, 70 330"/></svg>
     <div class="wrap">
-      <p class="eyebrow">Golf sim software for Windows and Android</p>
-      <h1 id="hero-title">Your launch monitor. <span>A whole golf world.</span></h1>
-      <p class="lede">Play friends online without waiting your turn, design a course and play it the same evening, and practise with a game that tells you why you missed.</p>
+      <p class="eyebrow">A golf game for Windows and Android</p>
+      <h1 id="hero-title">Play it as a game. <span>Or with your launch monitor.</span></h1>
+      <p class="lede">A real golf game to play alone or with friends, swung with a finger, a mouse or a controller. Got a launch monitor? Every course, game and challenge works with it too.</p>
       <div class="cta">
         <a class="btn btn-go" href="https://github.com/apashton/Golf-Sim-releases/releases/latest">Download for Windows</a>
         <a class="btn btn-quiet" href="https://github.com/apashton/Golf-Sim-releases/releases/latest/download/A-Squared-Golf-Android.apk">Download for Android</a>
@@ -209,16 +231,50 @@ details pre { margin: 12px 0 0; white-space: pre-wrap; font: 400 13px/1.55 var(-
         <div><dt>Spin</dt><dd>6,820<small>rpm</small></dd></div>
         <div><dt>Peak</dt><dd>31<small>yd</small></dd></div>
       </dl>
-      <p class="shot-note">Every shot's numbers, as the shot data screen shows them - on the picture, or on a second screen of their own.</p>
+      <p class="shot-note">With a launch monitor, every shot's numbers, as the shot data screen shows them - on the picture, or on a second screen of their own.</p>
+    </div>
+  </section>
+
+  <section id="two-ways" aria-labelledby="two-title">
+    <div class="wrap">
+      <div class="intro">
+        <p class="eyebrow">Two ways to play</p>
+        <h2 id="two-title">The same golf, however you swing</h2>
+        <p>The same courses, games, challenges and friends either way. Start as a game tonight; plug in a launch monitor when you have one.</p>
+      </div>
+      <div class="ways2">
+        <article class="way">
+          <svg class="way-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="13" y="4" width="22" height="40" rx="4"/><circle cx="24" cy="30" r="5"/><path d="M24 35v6"/></svg>
+          <h3>As a golf game</h3>
+          <p class="way-line">No launch monitor needed.</p>
+          <ul>
+            <li>Swing with a finger on your phone, or a mouse or game controller on your PC: pull back, push through.</li>
+            <li>Pick your level, Beginner to Tour: forgiving and shorter, or demanding and long. Two good rounds and you move up.</li>
+            <li>Full rounds on the courses that come with it, the range, the greens and the challenges.</li>
+            <li>Play friends online, on their phones and PCs.</li>
+          </ul>
+        </article>
+        <article class="way way-lm">
+          <svg class="way-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="4" y="30" width="16" height="12" rx="2"/><circle cx="37" cy="14" r="5"/><path d="M21 31c5-7 10-11 15-13M25 39c6-8 13-13 20-15" stroke-dasharray="3 4"/></svg>
+          <h3>With your launch monitor</h3>
+          <p class="way-line">Open Connect launch monitors, in your bay.</p>
+          <ul>
+            <li>Your real swing: each shot's ball speed, launch and spin fly the ball.</li>
+            <li>Every number on the picture, or on a second screen of their own.</li>
+            <li>Stats from your real shots: handicap, strokes gained, every club's distance, and tips from your own misses.</li>
+            <li>Swing cameras with instant replay, and bay view for a projector.</li>
+          </ul>
+        </article>
+      </div>
     </div>
   </section>
 
   <section id="features" aria-labelledby="features-title">
     <div class="wrap">
       <div class="intro">
-        <p class="eyebrow">What you can do</p>
+        <p class="eyebrow">What's in it</p>
         <h2 id="features-title">More golf than one bay can hold</h2>
-        <p>A² Golf is built for the golfer with a net, a mat and a launch monitor in the garage, the spare room or the shed.</p>
+        <p>Everything here works whichever way you swing.</p>
       </div>
       <div class="rows">
         <article class="row">
@@ -226,11 +282,10 @@ details pre { margin: 12px 0 0; white-space: pre-wrap; font: 400 13px/1.55 var(-
           <div class="words">
             <h3>Play friends online</h3>
             <ul>
-              <li>Up to 8 players, on their own bays across the house or across the country.</li>
+              <li>Up to 8 players, on their own PCs and phones, across the house or across the country.</li>
               <li>Nobody waits a turn: everyone hits when they're ready, so a round takes about an hour.</li>
               <li>Stroke play, Stableford, match play and skins, off handicaps. Better ball and scramble for teams.</li>
               <li>Match ladders to climb, and golf pong on a real green.</li>
-              <li>No launch monitor at a friend's? They can swing with a mouse or a game controller.</li>
             </ul>
           </div>
         </article>
@@ -254,9 +309,9 @@ details pre { margin: 12px 0 0; white-space: pre-wrap; font: 400 13px/1.55 var(-
             <ul>
               <li>A putting green that reads the break and tells you what to change: the pace or the line.</li>
               <li>A driving range with a tracer, every number, and a session view of every ball.</li>
-              <li>Stats that matter: handicap, strokes gained, every club's distance, and tips drawn from your own misses.</li>
+              <li>With a launch monitor, stats that matter: handicap, strokes gained, every club's distance, and tips drawn from your own misses.</li>
               <li>Challenges and ladders with a score to beat, and a plan for what to practise next.</li>
-              <li>Swing cameras with instant replay.</li>
+              <li>Your level and skill points grow as you play.</li>
             </ul>
           </div>
         </article>
@@ -269,17 +324,19 @@ details pre { margin: 12px 0 0; white-space: pre-wrap; font: 400 13px/1.55 var(-
     </div>
   </section>
 
-  <section class="band" id="works-with" aria-labelledby="works-title">
+  <section class="band" id="together" aria-labelledby="together-title">
     <div class="wrap">
       <div class="intro" style="margin: 0">
-        <p class="eyebrow" style="color: var(--flag)">Works with</p>
-        <h2 id="works-title">Bring the launch monitor <span>you already have</span></h2>
-        <p>A² Golf works with launch monitors that speak Open Connect, the way most home sim software talks to them. Connect yours, hit a shot, and the welcome screen shows it arrived.</p>
+        <p class="eyebrow" style="color: var(--flag)">Play together</p>
+        <h2 id="together-title">Friends play friends, <span>however they swing</span></h2>
+        <p>One online game can hold a bay with a launch monitor, a friend on a phone, and another on the sofa with a controller. Everyone hits when they're ready, from wherever they are.</p>
+        <p class="small">Launch monitor shots count in your stats and handicap. Swings with a finger, mouse or controller are for the game, at the level each player picks.</p>
       </div>
-      <ul class="ways">
-        <li><b>Open Connect launch monitors</b><span>Your monitor's own connector sends each shot to A² Golf, on this PC.</span></li>
-        <li><b>A mouse or a game controller</b><span>Swing with a pull and a push. Pick a level, from forgiving to tour.</span></li>
-        <li><b>One screen, a projector, or three</b><span>Bay view for a projector, the shot data on a second screen, and the controls on a third.</span></li>
+      <ul class="swingers" aria-label="The ways to swing">
+        <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="4" y="30" width="16" height="12" rx="2"/><circle cx="37" cy="14" r="5"/><path d="M21 31c5-7 10-11 15-13" stroke-dasharray="3 4"/></svg><b>Launch monitor</b><span>A real club and ball, in the bay</span></li>
+        <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="13" y="4" width="22" height="40" rx="4"/><circle cx="24" cy="30" r="5"/><path d="M24 35v6"/></svg><b>Touch</b><span>A finger on the phone's swing pad</span></li>
+        <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 16h24a8 8 0 0 1 8 8v6a6 6 0 0 1-11 3l-3-4H18l-3 4a6 6 0 0 1-11-3v-6a8 8 0 0 1 8-8z"/><path d="M13 22v6M10 25h6"/><circle cx="33" cy="23" r="1.5"/><circle cx="36" cy="27" r="1.5"/></svg><b>Game controller</b><span>The right stick, back and through</span></li>
+        <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="13" y="6" width="22" height="36" rx="11"/><path d="M24 6v12M13 18h22"/></svg><b>Mouse</b><span>A pull and a push on the PC</span></li>
       </ul>
     </div>
   </section>
@@ -292,7 +349,7 @@ details pre { margin: 12px 0 0; white-space: pre-wrap; font: 400 13px/1.55 var(-
         <ol class="steps">
           <li><div><b>Download the installer</b><p>A-Squared-Golf-Setup from the downloads page: the newest stable version is at the top.</p></div></li>
           <li><div><b>Run it</b><p>Windows may say it doesn't know the publisher yet. Choose More info, then Run anyway. It installs for your user, with no admin needed.</p></div></li>
-          <li><div><b>Hit a shot</b><p>The welcome screen checks your launch monitor is talking, then you're on the range. From then on A² Golf keeps itself up to date.</p></div></li>
+          <li><div><b>Hit a shot</b><p>With a launch monitor, the welcome screen checks it's talking. Without one, swing with a game controller's right stick, or turn on the mouse swing (Menu, Swing pad &amp; controller). From then on A² Golf keeps itself up to date.</p></div></li>
         </ol>
         <div class="android" id="android">
           <h3>On an Android phone</h3>
