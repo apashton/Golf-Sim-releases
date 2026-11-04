@@ -205,7 +205,7 @@ details pre { margin: 12px 0 0; white-space: pre-wrap; font: 400 13px/1.55 var(-
       <a href="#features">What's in it</a>
       <a href="#get-it">Get it</a>
     </nav>
-    <a class="btn btn-go btn-sm" href="https://github.com/apashton/Golf-Sim-releases/releases/latest">Download</a>
+    <a data-goatcounter-click="download-windows-top-bar" class="btn btn-go btn-sm" href="https://github.com/apashton/Golf-Sim-releases/releases/latest">Download</a>
   </div>
 </header>
 
@@ -218,10 +218,10 @@ details pre { margin: 12px 0 0; white-space: pre-wrap; font: 400 13px/1.55 var(-
       <h1 id="hero-title">Play it as a game. <span>Or with your launch monitor.</span></h1>
       <p class="lede">A real golf game to play alone or with friends, swung with a finger, a mouse or a controller. Got a launch monitor? Every course, game and challenge works with it too.</p>
       <div class="cta">
-        <a class="btn btn-go" href="https://github.com/apashton/Golf-Sim-releases/releases/latest">Download for Windows</a>
-        <a class="btn btn-quiet" href="https://github.com/apashton/Golf-Sim-releases/releases/latest/download/A-Squared-Golf-Android.apk">Download for Android</a>
-        <a class="btn btn-quiet" id="trailer" href="#" hidden>Watch the trailer</a>
-        <small>Windows 10 or 11, updates itself · Android: a test version, <a href="#android">how to install it</a></small>
+        <a data-goatcounter-click="download-windows-hero" class="btn btn-go" href="https://github.com/apashton/Golf-Sim-releases/releases/latest">Download for Windows</a>
+        <a data-goatcounter-click="download-android-hero" class="btn btn-quiet" href="https://github.com/apashton/Golf-Sim-releases/releases/latest/download/A-Squared-Golf-Android.apk">Download for Android</a>
+        <a data-goatcounter-click="trailer" class="btn btn-quiet" id="trailer" href="#" hidden>Watch the trailer</a>
+        <small>Windows 10 or 11, updates itself · Android: a test version, <a href="#android" data-goatcounter-click="how-to-install-android">how to install it</a></small>
       </div>
       <dl class="shot" aria-label="A 7 iron as the shot data screen shows it">
         <div><dt>Club</dt><dd>7i</dd></div>
@@ -359,7 +359,7 @@ details pre { margin: 12px 0 0; white-space: pre-wrap; font: 400 13px/1.55 var(-
             <li>Open the downloaded file. Android asks to allow your browser to install apps: allow it, then tap Install. If Play Protect says it doesn't know the app, choose More details, then Install anyway.</li>
             <li>Open A² Golf. When a newer version is out, the app says so: download it the same way and it installs over the top, keeping your rounds.</li>
           </ol>
-          <a class="btn btn-go btn-sm" href="https://github.com/apashton/Golf-Sim-releases/releases/latest/download/A-Squared-Golf-Android.apk">Download for Android</a>
+          <a data-goatcounter-click="download-android-install" class="btn btn-go btn-sm" href="https://github.com/apashton/Golf-Sim-releases/releases/latest/download/A-Squared-Golf-Android.apk">Download for Android</a>
         </div>
       </div>
       <div class="card" aria-labelledby="needs-title">
@@ -390,8 +390,8 @@ details pre { margin: 12px 0 0; white-space: pre-wrap; font: 400 13px/1.55 var(-
     <div class="wrap">
       <h2 id="last-title">Ready to <span>tee off?</span></h2>
       <div class="cta">
-        <a class="btn btn-go" href="https://github.com/apashton/Golf-Sim-releases/releases/latest">Download for Windows</a>
-        <a class="btn btn-quiet" href="https://github.com/apashton/Golf-Sim-releases/releases/latest/download/A-Squared-Golf-Android.apk">Download for Android</a>
+        <a data-goatcounter-click="download-windows-end" class="btn btn-go" href="https://github.com/apashton/Golf-Sim-releases/releases/latest">Download for Windows</a>
+        <a data-goatcounter-click="download-android-end" class="btn btn-quiet" href="https://github.com/apashton/Golf-Sim-releases/releases/latest/download/A-Squared-Golf-Android.apk">Download for Android</a>
       </div>
     </div>
   </section>
@@ -400,8 +400,8 @@ details pre { margin: 12px 0 0; white-space: pre-wrap; font: 400 13px/1.55 var(-
 <footer>
   <div class="wrap">
     <div class="links">
-      <a href="https://github.com/apashton/Golf-Sim-releases/releases/latest">Downloads</a>
-      <a href="https://github.com/apashton/Golf-Sim-releases/issues">Support and feedback</a>
+      <a data-goatcounter-click="downloads-footer" href="https://github.com/apashton/Golf-Sim-releases/releases/latest">Downloads</a>
+      <a data-goatcounter-click="support-footer" href="https://github.com/apashton/Golf-Sim-releases/issues">Support and feedback</a>
       <a href="#licence">Licence</a>
       <a href="#privacy">Privacy</a>
     </div>
@@ -467,8 +467,16 @@ WHAT IS SENT, AND WHEN
 6. Online play from other houses with Tailscale (only if you set it up).
    Tailscale is a separate program with its own privacy policy.
 
+7. The website (apashton.github.io/Golf-Sim-releases).
+   It counts visits and which of its links are clicked (the downloads,
+   the trailer) with GoatCounter, which sets no cookies and keeps nothing
+   that says who you are: the page, where you came from, your browser's
+   kind and screen size, and your country, counted. GitHub hosts the
+   site and the downloads, and counts how often each download is taken.
+
 WHAT WE DON'T DO
-- No accounts, no adverts, no analytics or tracking.
+- No accounts, no adverts, no tracking. The game itself counts nothing
+  about you; the website counts visits, as above.
 - We don't sell or share anything about you.
 - Voice commands are heard by Windows' own speech recogniser on your PC;
   no sound leaves your computer.
@@ -587,6 +595,18 @@ All rights reserved.<!-- /legal --></pre></details>
 <script>
   // The trailer's YouTube address, once it's up: the button shows itself.
   const TRAILER_URL = "https://youtu.be/XTr7K4cyA4s";
+  // Visits and link clicks counted by GoatCounter (no cookies, nothing
+  // kept that says who you are): its code - "a2golf" for a2golf.goatcounter.com
+  // - goes here, and until it does nothing is counted or loaded. Each link
+  // counted has a data-goatcounter-click name (download-windows-hero...).
+  const GOATCOUNTER = "";
+  if (GOATCOUNTER && location.protocol.startsWith("http")) {
+    const gc = document.createElement("script");
+    gc.async = true;
+    gc.src = "https://gc.zgo.at/count.js";
+    gc.dataset.goatcounter = `https://${GOATCOUNTER}.goatcounter.com/count`;
+    document.body.append(gc);
+  }
   const t = document.getElementById("trailer");
   if (TRAILER_URL) { t.href = TRAILER_URL; t.hidden = false; }
   // A link to the small print opens it.
