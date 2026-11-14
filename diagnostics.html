@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- No icon file: an empty one stops the browser asking for one (a 404 in the console on every load). -->
+    <link rel="icon" href="data:," />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Connection Diagnostics</title>
+    <!-- No icon of its own: this stops the browser asking for /favicon.ico. -->
+    <link rel="icon" href="data:," />
+    <!-- First, so JavaScript errors anywhere on the page are caught (for reports to Claude). -->
+    <script src="errorreport.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="diagnostics.css" />
+    <link rel="stylesheet" href="theme.css" />
+  </head>
+  <body class="diag">
+    <header>
+      <h1>Connection diagnostics</h1>
+      <span id="app-version" class="muted"></span>
+      <a href="/" class="button">Back to the sim</a>
+    </header>
+    <div class="diag-body">
+      <section class="checks" id="checks"></section>
+      <section class="advice" id="advice"></section>
+      <section class="tools">
+        <div>
+          <h3>Tell the launch monitor the club</h3>
+          <p class="muted" id="club-help">What changing club does: the Omni over Bluetooth, or a connector, is told the club. The putter should switch the Omni into putting mode.</p>
+          <button data-club="DR">Driver</button>
+          <button data-club="7I">7 iron</button>
+          <button data-club="PW">Wedge</button>
+          <button data-club="PT">Putter</button>
+        </div>
+        <div id="omni-tool">
+          <h3>Omni over Bluetooth</h3>
+          <p class="muted">The Windows app connects to the Omni itself. In Chrome or Edge, connect by hand here.</p>
+          <a href="/omni.html" class="button">Omni Bluetooth page</a>
+        </div>
+        <div>
+          <h3>This PC</h3>
+          <div id="addresses" class="muted"></div>
+        </div>
+        <div class="send-report">
+          <h3>Send to Claude</h3>
+          <p class="muted">
+            Sends this log, the connection state, settings and recent errors to the developer as a report, instead of a
+            photo of the screen. Needs the Windows app, with reports set up in its menu (M, System).
+          </p>
+          <textarea id="report-note" rows="2" maxlength="5000" placeholder="What happened? (optional)"></textarea>
+          <button id="send-report" class="primary">Send to Claude</button>
+          <p id="report-result" class="small"></p>
+        </div>
+      </section>
+      <section class="log">
+        <div class="log-bar">
+          <h3>Everything on the connection <small id="log-count"></small></h3>
+          <label class="check"><input type="checkbox" id="hide-heartbeats" checked /> Hide heartbeats</label>
+          <label class="check"><input type="checkbox" id="pretty" checked /> Tidy JSON</label>
+          <button id="pause">Pause</button>
+          <button id="copy">Copy all</button>
+          <button id="clear">Clear</button>
+        </div>
+        <p class="muted small">
+          Arrows: <span class="k-in">&larr; from the connector or the Omni</span>, <span class="k-out">&rarr; our reply</span>,
+          <span class="k-info">&bull; events</span>. Also saved to <code>shots/wire-&lt;date&gt;.log</code> in the
+          Golf Sim folder.
+        </p>
+        <table id="log"></table>
+      </section>
+    </div>
+    <script type="module" src="diagnostics.js"></script>
+  </body>
+</html>

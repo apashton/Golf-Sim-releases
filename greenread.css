@@ -1,0 +1,58 @@
+/* Looking along a putt's line a section at a time (public/sectionview.js):
+   the stops' buttons and the line's profile in the side panel (which can be
+   in the controls window, so controls.html has this sheet too), and the
+   profile big over the picture on the game screen while looking from a
+   stop. */
+
+.line-read[hidden] {
+  display: none;
+}
+.line-stops {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.line-stops button {
+  flex: 1;
+  min-width: 0;
+  padding: 5px 0;
+  font-size: 12px;
+}
+.line-stops button.active {
+  background: var(--accent);
+  color: #1b1b1b;
+  border-color: var(--accent);
+}
+.line-profile svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Over the picture at the bottom left, above the numbers: clear of the
+   line itself, which runs up the middle of the picture from any stop (or
+   across the middle, side-on, above it), of the course's hole map on the
+   right, and of the words - the lines down the left under the note, as
+   many and as big as the game window has them, and the guide lines
+   centred over the numbers in one window. On a dark plate, as everything
+   written over the picture is. */
+.green-profile {
+  position: absolute;
+  left: 2%;
+  bottom: 19%;
+  width: min(30%, 600px);
+  padding: 0.5vw 0.7vw;
+  border-radius: 10px;
+  background: rgba(10, 20, 12, 0.72);
+  pointer-events: none;
+}
+.green-profile svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* Only on the game screen: in the normal window the panel has it. */
+body:not(.bay) .green-profile,
+.green-profile[hidden] {
+  display: none;
+}

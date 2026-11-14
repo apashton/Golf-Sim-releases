@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- No icon file: an empty one stops the browser asking for one (a 404 in the console on every load). -->
+    <link rel="icon" href="data:," />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Omni Bluetooth</title>
+    <!-- No icon of its own: this stops the browser asking for /favicon.ico. -->
+    <link rel="icon" href="data:," />
+    <!-- First, so JavaScript errors anywhere on the page are caught (for reports to Claude). -->
+    <script src="errorreport.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="diagnostics.css" />
+    <link rel="stylesheet" href="theme.css" />
+  </head>
+  <body class="diag">
+    <header>
+      <h1>Omni over Bluetooth</h1>
+      <a href="/diagnostics.html" class="button">Diagnostics</a>
+      <a href="/" class="button">Back to the sim</a>
+    </header>
+    <div class="diag-body">
+      <section class="tools">
+        <div>
+          <h3 id="omni-state">Not started</h3>
+          <p id="omni-detail" class="muted"></p>
+          <button id="omni-connect" class="primary">Connect to the Omni</button>
+          <button id="omni-stop">Let go of the Omni</button>
+        </div>
+        <div>
+          <h3>How it works</h3>
+          <p class="muted small">
+            A² Golf talks to the Omni itself, over Bluetooth. The Omni talks to one program at a time, so close any
+            other program using it first. The Windows app does this on its own in the background; this page is for
+            connecting by hand from Chrome or Edge.
+          </p>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="omnipage.js"></script>
+  </body>
+</html>

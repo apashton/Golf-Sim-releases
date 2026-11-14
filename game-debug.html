@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script>window.a2web = true;</script>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0b1a12" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="A² Golf" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!-- No icon file: an empty one stops the browser asking for one (a 404 in the console on every load). -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>A² Golf</title>
+    <!-- No icon of its own: this stops the browser asking for /favicon.ico. -->
+    <!-- First, so JavaScript errors anywhere on the page are caught (for reports to Claude). -->
+    <script src="/pocket/start.js"></script>
+    <script src="errorreport.js"></script>
+    <!-- The loading screen steps aside if the game fails to start (loadguard.js). -->
+    <script src="loadguard.js"></script>
+    <!-- With separate windows, the command centre's window opened before anything else (earlyscreens.js). -->
+    <script src="earlyscreens.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="menu.css" />
+    <link rel="stylesheet" href="greenread.css" />
+    <link rel="stylesheet" href="fps.css" />
+    <!-- Finding a course: the course panel's picker (coursefinder.js). -->
+    <link rel="stylesheet" href="coursefinder.css" />
+    <link rel="stylesheet" href="theme.css" />
+    <!-- The menus' and buttons' new style, over the rest (uistyle.js). -->
+    <link rel="stylesheet" href="uistyle.css" />
+    <!-- The phone app's play screen (html.pocket), over the rest. -->
+    <link rel="stylesheet" href="phoneplay.css" />
+    <!-- The phone app held upright (upright.js). -->
+    <link rel="stylesheet" href="upright.css" />
+    <!-- The phone app's start screen and its routes' homes (phonehome.js). -->
+    <link rel="stylesheet" href="phonehome.css" />
+    <link rel="stylesheet" href="loading.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "/vendor/three/build/three.module.js",
+          "three/webgpu": "/vendor/three/build/three.webgpu.js",
+          "three/tsl": "/vendor/three/build/three.tsl.js",
+          "three/addons/": "/vendor/three/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <!-- The phone app's start screen, over the game as it loads
+         (phonehome.js; pocket/start.js shows it from the first paint). -->
+    <div id="phone-home" class="phone-home" hidden></div>
+    <!-- The loading screen (loading.js): up from the first paint, gone once
+         the first whole picture is drawn. -->
+    <div id="loading" class="loading" role="status" aria-live="polite">
+      <div class="loading-card">
+        <span class="brand-mark loading-mark" aria-hidden="true">A²</span>
+        <div class="loading-name">Golf</div>
+        <div class="loading-bar"><div class="loading-fill"></div></div>
+        <div class="loading-words">Starting...</div>
+      </div>
+    </div>
+    <header class="topbar">
+      <!-- Two halves: one row in the one window; in the controls window each
+           half is a box of its own, either side of a blank area (arrange.js). -->
+      <div class="bar-group bar-main">
+      <!-- Once an online game's started: back to its lobby (lobbybutton.js). -->
+      <button id="lobby-open" class="lobby-open" title="Stop the game - everyone back to the lobby" aria-label="Lobby" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3 12l6 8v-5h5a6 6 0 0 0 6-6V4h-3v5a3 3 0 0 1-3 3H9z"/></svg><span>Lobby</span></button>
+      <h1 aria-label="A² Golf"><span class="brand-mark" aria-hidden="true">A²</span><span class="brand-name">Golf</span></h1>
+      <!-- The phone in the new style (uistyle.js): the modes folded into one button. -->
+      <button id="mode-pick" class="mode-pick" title="Where to play" aria-haspopup="true" aria-expanded="false"><b>Range</b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9l5 5 5-5z"/></svg></button>
+      <nav>
+        <button data-mode="range" title="Driving range (R)">Range</button>
+        <button data-mode="putting" title="Putting green (P)">Putting</button>
+        <button data-mode="chipping" title="Chipping green (C)">Chipping</button>
+        <button data-mode="course" title="Play a course (O)">Course</button>
+        <button data-mode="challenges" title="Challenges (X)">Challenges</button>
+        <!-- Online: play with friends on other bays - the Online panel (netplay.js, onlinetabs.js). -->
+        <button id="online-tab" class="online-tab" data-online title="Online - play with friends on other bays: host or join a game, online match ladders, the host's rules" aria-pressed="false">Online<span class="online-badge" hidden></span></button>
+      </nav>
+      <label id="club-wrap" title="Club (↑ ↓)"><span class="wide-only">Club </span><select id="club"></select></label>
+      <label id="hitter-wrap" title="Who's hitting? Whose shots these are, for their stats (U)"><span class="wide-only">Hitting </span><select id="hitter"></select></label>
+      <label id="rec-wrap" title="Recording (Shift + R)"><span class="rec-face" aria-hidden="true"></span><select id="recording" aria-label="Recording"></select></label>
+      </div>
+      <div class="bar-group bar-tools">
+      <a id="status" class="status off" href="diagnostics.html" target="_blank" title="The launch monitor's connection - click for the Launch monitor page">Starting...</a>
+      <!-- The laptop's time, in the command centre (barclock.js). -->
+      <span id="bar-clock" class="bar-clock" title="The laptop's time"></span>
+      <button id="voice-toggle" class="voice off" title="Voice: off - say 'club picked seven iron' or 'change club to seven iron' to change club (L)" aria-label="Voice: off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V21h2v-3.1a7 7 0 0 0 6-6.9z"/></svg></button>
+      <button id="sound-toggle" class="sound on" title="Sound - volumes, wind, birds, water (Shift + A)" aria-label="Sound"></button>
+      <button id="video-rec" class="video-rec" title="Record video (Shift + V)" aria-label="Record video"><span class="rec-dot"></span><span class="rec-time">Rec</span></button>
+      <button id="arrange-toggle" title="Arrange this window: every box by name to find, put away or show again, the side drawer, Tidy up - and moving and sizing them, adding numbers or the flight path (Shift + B)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h8v8H3zM13 3h8v5h-8zM13 10h8v11h-8zM3 13h8v8H3z"/></svg><span>Arrange ▾</span></button>
+      <button id="menu-open" class="menu-button" title="Menu: every setting, grouped - screens, ball flight, greens, cameras, sound, stats and system (M)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg><span>Menu</span></button>
+      <!-- The Windows app only (app.js shows it): full screen has no window frame, so no X - this is where it would be. -->
+      <button id="quit-app" class="quit-button" title="Quit A² Golf - it asks first (Alt + F4 too)" aria-label="Quit A² Golf" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.88 6.04A8.5 8.5 0 1 1 7.12 6.04a1 1 0 0 1 1.15 1.64 6.5 6.5 0 1 0 7.46 0 1 1 0 0 1 1.15-1.64zM11 3a1 1 0 0 1 2 0v8a1 1 0 0 1-2 0z"/></svg></button>
+      </div>
+    </header>
+    <main>
+      <div id="view"></div>
+      <aside>
+        <div id="panel-range"></div>
+        <div id="panel-putting" hidden></div>
+        <div id="panel-chipping" hidden></div>
+        <div id="panel-course" hidden></div>
+        <div id="panel-challenges" hidden></div>
+      </aside>
+    </main>
+    <dialog id="who-dialog" class="small-dialog who-dialog">
+      <form method="dialog">
+        <h3>Who's playing?</h3>
+        <p class="small">Tap who's playing, in the order they'll hit. A guest's shots play as anyone's but go in nobody's stats.</p>
+        <div class="who-list"></div>
+        <div class="who-row"><button type="button" class="who-guest">+ Guest</button><input type="text" class="who-new" maxlength="20" autocomplete="off" placeholder="A new player's name" aria-label="A new player's name"><button type="button" class="who-add">Add</button></div>
+        <p class="small who-now"></p>
+        <div class="dialog-buttons"><button type="button" class="who-edit">Saved players...</button><button value="skip">Skip - play as Guest</button><button value="play" class="primary">Play</button></div>
+      </form>
+    </dialog>
+    <dialog id="who-check" class="small-dialog who-check">
+      <form method="dialog">
+        <p class="who-check-text"></p>
+        <div class="dialog-buttons"><button value="change">No - change</button><button value="yes" class="primary">Yes</button></div>
+      </form>
+    </dialog>
+    <dialog id="players-dialog" class="small-dialog players-dialog">
+      <form method="dialog">
+        <h3>Saved players</h3>
+        <p class="small">Everyone who keeps stats here: a name, a colour, which hand they play with (a left-hander's draw and fade are the other way round in the tips), a handicap index, their <b>level</b> with the mouse or a game controller (Beginner to Tour - blank plays at the menu's) and <b>Simple</b> for young children - their shots are kept, but nothing asks about them. Renaming someone takes their stats with them; removing someone keeps their stats.</p>
+        <div class="pd-list"></div>
+        <button type="button" class="pd-add">+ Add a player</button>
+        <div class="dialog-buttons"><button value="save" class="primary">Save</button><button value="cancel">Cancel</button></div>
+      </form>
+    </dialog>
+    <script type="module" src="loadingpic.js"></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

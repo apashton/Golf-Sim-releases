@@ -1,0 +1,26 @@
+{
+  "name": "A² Golf",
+  "short_name": "A² Golf",
+  "description": "A golf game you swing with a finger, the mouse or a controller - play a round, the range and online with friends.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#0b1a12",
+  "theme_color": "#0b1a12",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "version": "web-10"
+}

@@ -1,0 +1,480 @@
+/* The shot data screen: made for a second monitor across the room, so big
+   numbers, strong colours and nothing to click. */
+body.shotscreen {
+  display: grid;
+  grid-template-rows: auto auto 1fr 1fr;
+  gap: 10px;
+  padding: 10px 14px;
+  height: 100vh;
+  overflow: hidden;
+  font-size: 15px;
+}
+.ss-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0;
+  border: 0;
+}
+.ss-club {
+  min-width: 64px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font: 800 30px/1 system-ui, sans-serif;
+  text-align: center;
+  color: #111;
+  background: #fff;
+}
+/* (Before the first shot there's no club to name: no empty white badge.) */
+.ss-club:empty {
+  display: none;
+}
+.ss-title {
+  flex: 1;
+}
+.ss-shape {
+  font: 800 34px/1.1 system-ui, sans-serif;
+}
+.ss-badge {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  border: 2px solid var(--line);
+}
+.ss-badge.measured {
+  border-color: var(--ok);
+  color: var(--ok);
+}
+.ss-badge.estimated {
+  border-color: var(--warn);
+  color: var(--warn);
+}
+.ss-full {
+  white-space: nowrap;
+}
+/* A note said about the shot: its tags as chips, then its words. */
+.ss-note-line {
+  margin-top: 4px;
+  font-size: 18px;
+}
+.ss-note-line q {
+  font-style: italic;
+}
+.ss-tag {
+  display: inline-block;
+  padding: 1px 10px;
+  margin-right: 6px;
+  border-radius: 999px;
+  border: 2px solid var(--line);
+  font-weight: 700;
+  font-size: 15px;
+}
+.ss-tag.strike {
+  border-color: var(--warn);
+  color: var(--warn);
+}
+.ss-tag.shape {
+  border-color: #3cc4ff;
+  color: #3cc4ff;
+}
+.ss-tag.type {
+  border-color: #c7a6ff;
+  color: #c7a6ff;
+}
+.ss-tag.feel {
+  border-color: var(--ok);
+  color: var(--ok);
+}
+/* How the stats judged the strike: only when it wasn't a good one. */
+.ss-badge.strike {
+  border-color: var(--warn);
+  background: var(--warn);
+  color: #1b1b1b;
+}
+.ss-link {
+  text-align: right;
+  max-width: 30ch;
+}
+/* All twelve numbers on one row down to a 1366 px screen, so the pictures
+   below keep their height (and their labels stay readable); a narrower
+   window wraps them. */
+.ss-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  gap: 6px;
+}
+.ss-tile {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 6px 8px;
+  min-width: 0;
+}
+.ss-tile .k {
+  color: var(--muted);
+  font-size: clamp(11px, 0.7vw, 13px);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ss-tile .v {
+  /* Sized to fit its tile, twelve to a row at 1366 px and at 1920:
+     "205.9" at the old size touched both sides. */
+  font: 800 clamp(18px, 1.9vw, 40px) / 1.1 system-ui, sans-serif;
+  color: var(--accent);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.ss-tile .u {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  /* One line whatever it says, so the boxes stay where they are between a
+     drive and a putt (a stream crops each one). */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ss-tile.missing .v {
+  color: var(--off);
+}
+.ss-panels {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  min-height: 0;
+}
+.ss-wide {
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(min-content, 1.4fr);
+}
+.ss-panel {
+  margin: 0;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+/* Before the first shot: each box says what it's waiting for, rather than
+   standing blank. */
+.ss-panel {
+  position: relative;
+}
+.ss-panel:has(> svg:empty)::after,
+.ss-panel:has(> table:empty)::after {
+  content: "Shown after your first shot";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 0 12px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  opacity: 0.7;
+  pointer-events: none;
+}
+.ss-panel figcaption {
+  color: var(--muted);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ss-panel svg {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+.ss-note {
+  font-size: 15px;
+  min-height: 2.6em;
+}
+.ss-note b {
+  color: var(--accent);
+}
+.ss-panel svg text {
+  fill: var(--text);
+  font: 600 13px system-ui, sans-serif;
+}
+.ss-panel svg .muted {
+  fill: var(--muted);
+}
+.ss-table-wrap {
+  overflow-x: auto;
+}
+.ss-table {
+  width: 100%;
+  font-size: clamp(11px, 0.72vw, 15px);
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+.ss-table th,
+.ss-table td {
+  padding: 3px 4px;
+  white-space: nowrap;
+  text-align: right;
+  border-bottom: 1px solid var(--line);
+}
+.ss-table th:first-child,
+.ss-table td:first-child {
+  text-align: left;
+}
+.ss-table th {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 12px;
+}
+.ss-table tr.latest td {
+  color: var(--accent);
+  font-weight: 700;
+}
+.ss-table tr.avg td {
+  color: var(--muted);
+  font-style: italic;
+  border-top: 2px solid var(--line);
+}
+/* On a 1366 px screen the session table gets more of the bottom row and
+   tighter cells, so Path and Face still fit. */
+@media (max-width: 1500px) {
+  .ss-wide {
+    grid-template-columns: minmax(0, 1.8fr) minmax(0, 0.8fr) minmax(min-content, 1.7fr);
+  }
+  .ss-table,
+  .ss-table th {
+    font-size: 11px;
+  }
+  .ss-table th,
+  .ss-table td {
+    padding: 3px 2px;
+  }
+  /* Under the cameras, narrower still. */
+  .ss-cams .ss-table,
+  .ss-cams .ss-table th {
+    font-size: 10px;
+  }
+  .ss-cams .ss-table th,
+  .ss-cams .ss-table td {
+    padding: 2px 1px;
+  }
+}
+/* ---- The cameras (shotcams.js) and the shot history drawer --------------------- */
+
+/* With a camera chosen: a column down the right, below the header and the
+   numbers, with each camera's picture - its own shape, turned and cropped
+   as the Cameras panel has it - and the session table under them when
+   there's room - always there, so nothing moves between a drive and a
+   putt. The pictures and the flight beside it are narrower for it. Its
+   width and where each picture goes are shotcams.js's (--ss-cam-w). */
+body.shotscreen.with-cams {
+  grid-template-columns: minmax(0, 1fr) var(--ss-cam-w, 30vw);
+}
+body.with-cams > .ss-head,
+body.with-cams > .ss-tiles {
+  grid-column: 1 / -1;
+}
+body.with-cams > .ss-panels {
+  grid-column: 1;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+/* The session table as wide as its columns need (the owner: "some shot
+   data hid behind a scroll bar ... can shrink the other areas"): the
+   flight and the dispersion beside it take what's left. */
+body.with-cams > .ss-wide {
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(min-content, 2fr);
+}
+body.with-cams .ss-wide .ss-table th,
+body.with-cams .ss-wide .ss-table td {
+  padding: 3px 3px;
+}
+body.with-cams.table-under-cams .ss-wide {
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+}
+.ss-cams {
+  grid-column: 2;
+  grid-row: 3 / span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+}
+.ss-cams[hidden] {
+  display: none;
+}
+.ss-cam-area {
+  position: relative;
+  flex: none;
+}
+.ss-cam {
+  position: absolute;
+  box-sizing: border-box;
+  padding: 0;
+  overflow: hidden;
+  background: #000;
+}
+/* The camera's name and what it's showing, over the top of its picture. */
+.ss-cam figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0 8px;
+  padding: 4px 8px 10px;
+  white-space: normal;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), transparent);
+}
+.ss-cam-x {
+  margin-left: auto;
+  padding: 0 6px;
+  line-height: 1.3;
+  background: rgba(0, 0, 0, 0.5);
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.ss-cam-state {
+  color: var(--ok);
+  font-weight: 700;
+}
+.ss-cam.replaying .ss-cam-state {
+  color: var(--accent);
+}
+.ss-cam-pic {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #000;
+}
+.ss-cam-pic video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.ss-cam-pic video[hidden] {
+  display: none;
+}
+/* The session table under the cameras: what's left of the column. */
+.ss-cams > .ss-table-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* The shot history: over the right of the screen while it's wanted. */
+.ss-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  width: min(760px, 92vw);
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border-left: 2px solid var(--accent);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+}
+.ss-drawer[hidden] {
+  display: none;
+}
+.ss-drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  font-size: 18px;
+}
+.ss-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 14px 14px;
+}
+.ss-drawer-body h3 {
+  margin: 12px 0 4px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+.ss-drawer .ss-table {
+  font-size: 14px;
+}
+.ss-table tr.putt td:last-child {
+  text-align: left;
+}
+
+@media (max-width: 1100px) {
+  body.shotscreen {
+    height: auto;
+    overflow: auto;
+    grid-template-rows: none;
+  }
+  .ss-panels,
+  .ss-wide {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+  .ss-table-wrap {
+    overflow-x: auto;
+  }
+  body.shotscreen.with-cams {
+    grid-template-columns: none;
+  }
+  body.with-cams > .ss-head,
+  body.with-cams > .ss-tiles,
+  body.with-cams > .ss-panels,
+  .ss-cams {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+/* A shot's Replay, and - while the game can still change it - its club and
+   marks, as in the command centre's Shot history (shotscreen.js shotTools). */
+.ss-edit {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+  justify-content: flex-start;
+  white-space: normal;
+  padding: 2px 0 4px;
+}
+.ss-table td .ss-edit {
+  text-align: left;
+}
+.ss-edit button,
+.ss-edit select {
+  font: inherit;
+  font-size: 12px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+}
+.ss-edit button.on {
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 700;
+}
+.ss-edit button.out.on {
+  border-color: var(--warn);
+  color: var(--warn);
+}
+.ss-edit-why {
+  color: var(--muted);
+  font-size: 12px;
+}

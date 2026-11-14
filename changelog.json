@@ -1,0 +1,1058 @@
+{
+  "unreleased": [],
+  "versions": [
+    {
+      "version": "3.0.683",
+      "date": "2026-11-14",
+      "notes": [
+        "The phone app: Menu, What's new has a new Check for updates - it looks for a newer version there and then, and tells you what it found. The app also looks by itself more often: when you open it and whenever you come back to it, up to once an hour (it was once every 6 hours, and only as it opened)."
+      ]
+    },
+    {
+      "version": "3.0.682",
+      "date": "2026-11-14",
+      "notes": [
+        "The course designer is in the web version: press Course designer in the Course tab (or New course... in the course picker) to make a course in a few clicks or from a scorecard, change any hole, and play it - on a computer, a tablet or a phone. The courses you make are kept in that browser, and Share... gives one a code to send to your PC, the phone app or a friend. Real courses from the map are still made on the PC.",
+        "Friends' courses on the phone app and the web version are now kept where there's far more room, so even a big course on hills is kept.",
+        "Keep the courses you make in your own Google Drive, if you like: Google Drive... in the Course tab (and under Your courses in the designer) turns it on - it's off unless you do. A course made or changed on one PC or browser is then on every other one you've turned it on in; one deleted goes to Google Drive's bin. On the PC it uses the Google sign-in from My stats; the web version asks Google when you turn it on.",
+        "The phone app has the course designer too: Course designer on Home, in the Course tab, or New course... in the course picker. Make a course in a few taps or from a scorecard, change any hole by touch, play it, and Share... it by a code. The courses you make are kept on the phone.",
+        "In the designer on a phone's screen, Your courses now folds under its heading, so the course you're making is the first thing you see."
+      ]
+    },
+    {
+      "version": "3.0.681",
+      "date": "2026-11-14",
+      "notes": [
+        "On a phone you can drive the cart between holes: tap Drive it, then the arrows under your thumb are its speed and its steering. Held upright, the cart's bar now goes neatly across the picture instead of wrapping over the shot's numbers, and the scorecard on the cart's screen is big enough to read.",
+        "The cart between holes waits for you now instead of setting off: choose Auto drive and it takes itself to the next tee, or Drive it and take the wheel - and swap between the two whenever you like (handed back, it finds its way from wherever you've got to). While you drive, an arrow on the bar points the way to the next tee and says how far it is. Next hole is there the whole time."
+      ]
+    },
+    {
+      "version": "3.0.680",
+      "date": "2026-11-13",
+      "notes": [
+        "A round's first hole is ready sooner: the game draws it in the background while you're on the range, so starting a round no longer waits for it (it could take five seconds). On the PC.",
+        "Lighter on the top graphics setting: the beech, birch, hawthorn, poplar and Scots pine rebuilt earlier this week had become heavier to draw close up, where most trees are drawn on that setting. They're back to what they were, and look the same.",
+        "You can drive the cart yourself between holes: choose Watch the drive, press ↑ and the cart is yours - ↑ and ↓ for faster, slower and reverse, ← and → to steer - anywhere round the hole, over the grass and along the paths. Water, bunkers, trees and signs stop it, and Next hole plays on from wherever you've got to. First go at it: the keyboard, or a controller's D-pad.",
+        "The horse chestnut's flower candles are smaller and slimmer and take the light of the side of the tree they're on, instead of standing out as flat cream shapes; its leaves are a touch lighter, so its shaded side isn't black."
+      ]
+    },
+    {
+      "version": "3.0.678",
+      "date": "2026-11-12",
+      "notes": [
+        "The Scots pine has a wider, flatter, lopsided head instead of a tidy cone, and the beech's trunk forks into boughs under its crown, as the ordinary broadleaf's does.",
+        "Faster with the picture's centre moved: the game was being drawn a third wider than the screen all the time the command centre's video monitor box was showing - only a recording needs that - which cost about ten frames a second on the range. It's drawn wide only while recording or laying out the video now.",
+        "The solid shapes under a tree's leaves no longer show as dark balls: they're lit as part of the whole tree and are nearer the leaves' own colour - most on the beech, the holly and the willow's top. The beech is also lighter to draw.",
+        "The speed test's links hole no longer has dunes standing through the other holes' fairways as it flies over them."
+      ]
+    },
+    {
+      "version": "3.0.675",
+      "date": "2026-11-12",
+      "notes": [
+        "Every kind of tree is more its own: hollies have spiny, glossy leaves and bunches of red berries; hawthorns have small lobed leaves, are white with blossom in spring and carry red haws from summer; beeches have flat sprays of pointed leaves; and spruces, Scots pines and cedars each have needles of their own instead of sharing the pine's.",
+        "Broadleaved trees look fuller and deeper: the ends of their shoots stand out from the crown, and what shows between the leaves is more leaves in shade, not a plain green shape. They also take less to draw than before. On Medium graphics and up.",
+        "Horse chestnuts look like horse chestnuts: big hand-shaped leaves of five to seven leaflets in a deep green, and candles of white flowers standing over the crown - now and then pink - on most of them, though not in autumn. On High and Ultra the ends of its shoots stand out from the crown as rosettes of leaves, drooping at their tips, so it has depth close to. On Medium graphics and up; the first of the trees being made more their own.",
+        "The phone app signs in with Google: on the sign-in card press Continue with Google, sign in on the page that opens in your phone's browser, and you're brought back into the game as you. Email and password work as before.",
+        "The phone app: the Open in the A² Golf app button on the page for linking a phone to your PC now opens the app, with the code typed in.",
+        "Lighter on the graphics card: trees a pitch shot or more away are drawn with simpler trunks (they look the same from there), and the picture's effects only take the card's memory when they're switched on - on High at 4K that's about 160 MB less. Nothing should look different.",
+        "On a 1440p or 4K screen the club, the numbers and the messages over the picture keep their size against the screen (they used to stop growing, so on a 4K projector they were half as big as they should be), and the menu, the Online panel and the cards that ask something are drawn larger too rather than as a small box in the middle. Nothing changes at 1080p.",
+        "Tidier menus and screens: on a small laptop screen the menu's last page (Help) is no longer half hidden; the menu's drop-down lists line up down the page; in bay view the player, club, result and connection sit on one line; in the side panel the game buttons (Practice, Distance challenge, Golf pong and the like) are neat single-line pills and a setting's name stays on one line beside its list; and the shot data window says what each box is waiting for before the first shot instead of showing an empty badge and blank boxes.",
+        "New in Menu, Screens (on a screen bigger than 1080p): Bigger top bar and side panel - draws them larger on a 1440p or 4K screen, as the menu is there. Off unless you turn it on.",
+        "On trial: the long grass right round you is drawn a third lighter. It should look the same - Menu, Graphics, Lighter long grass round you switches it off and on where you stand, to compare.",
+        "More of the trees lining a hole are drawn at their best - their branches and finer leaves - on High graphics: out to 140 m ahead of you, where it was 110. The game no longer spends that detail on trees behind where you're standing, which you never see, and gives it to the ones ahead.",
+        "Tree trunks stand in the shade of their own crowns: darker and cooler up into the leaves, instead of evenly lit orange posts - a wood down the side of a hole reads as shaded. A birch's white bark stays pale.",
+        "Small things on the trees, closer to the real thing: the tips of the shoots are this year's lighter, yellower green; there's moss up one side of a trunk's foot; crowns are a little deeper underneath and vary more from bough to bough; and the beech's leaves no longer show flat dark shapes between them.",
+        "Five kinds of tree rebuilt after a hard look at each: the beech is a full, leafy tree with a pale grey trunk instead of dark balls on a post; the ordinary broadleaf's trunk forks into boughs that carry its crown, so it's no longer a ball on a stick; the hawthorn is one dense dome; the birch has enough leaves to be a tree; the poplar is fuller. Medium graphics and up.",
+        "Behind the scenes: the game keeps in memory only the kinds of tree in use - those of the range, the practice greens and the course you're playing - and lets go of tree parts it never draws: about 11 MB less on High and Ultra, and up to 20 MB more on a course with few kinds of tree. Nothing should look or play differently."
+      ]
+    },
+    {
+      "version": "3.0.665",
+      "date": "2026-11-11",
+      "notes": [
+        "Share a course you've made with friends: pick it in the Course tab and press Share... for its code, a link and a QR code. They press Friend's course... - on their PC, the phone app or the web version - type the code or paste the link, and it's theirs to play, their rounds and bests on it their own. The course picker lists them under From: Friends' courses.",
+        "A season by post can go round your own courses and friends' too (Courses: Those and my other courses when you make it): each is shared as the season's made, and anyone who hasn't got it has it fetched when they play that event.",
+        "Five new kinds of tree: beeches (now and then a deep purple copper beech), horse chestnuts, great flat-layered cedars of Lebanon, dark glossy hollies and small twisted hawthorns - near and far, in the woods and along the hedges.",
+        "Each hole now grows a few kinds of tree rather than a bit of everything, in stands - a patch of beeches beside a patch of oaks, a group of hollies - with most kinds carrying on into the next hole and the odd new one coming in along the round. Holes you've already played keep their trees until you grow them afresh in the hole editor.",
+        "Some holes have a signature tree: a big lone oak, cedar, beech or horse chestnut at the corner of the landing area or beside the approach. The hole editor shows it ringed in gold and can take it away or put it back.",
+        "The hole editor keeps planting natural: the kinds already on the hole are listed first, a hole takes at most five kinds, and it won't plant a third kind in among two that already mix - it says why and what would fit instead.",
+        "Safer online and at home: a game found on your home network, another player's name or a host's course can no longer slip anything onto your screen but plain text - a name with odd characters in it just shows as typed.",
+        "In the Windows app, links to other websites open in your browser as before, but nothing else (a file or another program) is opened from a link; and a program to start with A² Golf can only be added with its Browse button.",
+        "Behind the scenes: the game's own server on your PC now only answers A² Golf's own pages, and a few more checks on what it's sent. Nothing should play differently.",
+        "Postal ladder: Watch the round shows again after the reveal - their shots hole by hole beside yours.",
+        "On the course: a gimme is never given on your tenth stroke, so a tenth shot scores ten whether it finished close or not; a mulligan after a hole's scorecard came up takes the card down; and pressing N twice no longer starts two rounds.",
+        "Trying one hole from the course designer no longer saves it as a round of the course.",
+        "In an online, ladder or season round, Start round and adding or removing players are refused with a word why (they'd have thrown the round away), and renaming a player renames the right one.",
+        "A ladder result that couldn't be sent (no connection) is kept and sent again the next time you open the ladder or press Refresh, instead of being lost.",
+        "Typing a name or a code in the online and ladder panels is no longer wiped by the panel redrawing itself.",
+        "A mouse or controller chip still rolling when a real shot comes in is now kept as the made-up swing it was, and the real shot as real (it could get them the wrong way round).",
+        "If a shot can't be saved to your stats, it's tried once more and then you're told, and Delete no longer takes out the shot before it by mistake.",
+        "A session recording that can't be saved carries on in a new file rather than quietly filling memory.",
+        "A player whose very first stats line was a long round now shows in the player lists again.",
+        "Behind the scenes: renaming a player, saving map tiles and reading what the game's pages send are all done more safely, and a few things are tidied away when a round or the app stops. Nothing should play differently.",
+        "\"Plays like\" (beside the wind on the course and the range target) now comes from the game's own ball flight: into the wind it says more for a short iron than before (a 7-iron into 20 mph plays about a third longer, not a fifth), and warm air takes off only a yard or two, not ten.",
+        "A soft chip landing on a barely sloping green now checks up as it does on a flat one - it lost speed it shouldn't have.",
+        "Stroke play scores part way through a round are ranked on how far over or under par each player is, so someone a hole behind isn't shown leading just for having fewer strokes.",
+        "A launch monitor sending numbers no golf shot has (a 400 mph ball, a launch straight up) is ignored rather than played, and a stray character on the connection no longer stops every shot after it getting through.",
+        "Behind the scenes: missing numbers in a shot or a green's speed can no longer break a flight or a putt, and old shots are judged against your counted shots only. Nothing should play differently.",
+        "Some saved courses change a little where they were wrong, and are now the same for everyone and every load: a tree standing on a fairway you added by hand to another hole goes, a path between holes moves round a pond or bunker you added where it ran (and taking a hole's own paths out no longer takes those with it), and another hole's woods look the same whichever hole you see them from.",
+        "A par 4 or 5 given a very short length no longer turns back on itself behind the tee.",
+        "Behind the scenes: courses load the same way every time (a routing remembered from earlier in a session is no longer used for a slightly different course), hand edits far off a hole or a damaged course file can't stall the game, and working out the holes around you is quicker. Nothing should play differently.",
+        "Handicaps on a course of fewer than 18 holes (other than 9) now give that share of the strokes, as ladder matches already did, and strokes always fall on the same holes when only some have a stroke index.",
+        "A ladder handicap no longer says \"held back from rising too fast\" for ever once it has been.",
+        "On an online ladder you can challenge the same player at most three times a day (taking a challenge back and sending it again sent them an alert each time).",
+        "Behind the scenes: the online play relay makes its codes more securely, answers bad requests properly, keeps its pages at the edge better, stops a connection that floods it with messages, and no longer stores anything when someone asks about a code nobody has. Nothing should play differently.",
+        "Windows app: Go back to the previous version is only offered while that version can still be downloaded, and if going back fails a window says so (before, nothing seemed to happen).",
+        "Windows app: a program to start with A² Golf that's a .bat or .cmd file in a folder with spaces in its name now starts, and one that stops straight away says it didn't start rather than that it did.",
+        "Windows app: a game page that keeps crashing as it loads is tried again less and less often instead of every second, and the app starting a second time no longer touches the first one's settings.",
+        "Behind the scenes: the build and release steps are stricter about failing loudly and about what they're allowed to change. Nothing should play differently.",
+        "Behind the scenes: tidying - every script is now checked by the tests (and by ESLint for names used that don't exist), line endings are fixed in place, a stray recording is gone from the code, and the online play tests pick free ports. Nothing should play differently.",
+        "The game starts up more smoothly the first time you click: its sounds are got ready a few at a time, and the long background loops (water, wind, rain, the outdoor bed) only when they're first heard. Those loops now go round without a seam, as the cart's already did.",
+        "Behind the scenes: a little graphics memory that wasn't given back now is (the sky's reflection, some repeated shapes), a warning if the 3D library ever changes the sky in a way the game doesn't expect, and tidier tests. Nothing should look or play differently.",
+        "Online play: if the host's connection hiccups, the other bays now join back in their own places by themselves instead of being stuck on \"join again\", and a dropped host's game code can only be taken over by a bay from that game.",
+        "Behind the scenes: the online play relay now shares its free daily allowance more fairly (an idle host costs very little, and one connection can't use it all up), forgets ladders, seasons and phone links nobody has used for a long time, and keeps what a browser hands your PC until the PC has it. Nothing should play differently."
+      ]
+    },
+    {
+      "version": "3.0.658",
+      "date": "2026-11-10",
+      "notes": [
+        "A shot that's plainly another club - a drive with the 7 iron still picked - is now counted as the club it flew like straight away, and on the range that club is picked for your next shot too. Z, or saying \"undo\", puts both back.",
+        "A distance you leave unanswered no longer becomes a club's normal when it's another of your clubs' distance, and a club with another club's shots mixed into it is judged by a typical bag until it's sorted - so wrong ones keep being caught.",
+        "My stats has a new Wrong club? section: it looks through all your shots for ones that flew like another club, groups a session of them together, and moves them, keeps them, or marks them bad hits or misreads in one tap - with Undo. The shots put right by themselves are listed there too, to put back.",
+        "Voice is simpler: to begin with it's just for changing club, the last shot - \"Caddie, last shot seven iron\", \"last shot mishit\", \"good\", \"misread\" - and answering what's asked, each done straight away with no \"say confirm\". Notes, powers, replays, scenes, the putting green and the rest are under Menu, Sound & voice, More voice commands.",
+        "With voice on, a shot that flew like another club asks - \"Your 7 iron flew like a driver - the driver? Say yes, no or mishit\" - and you just answer out loud, no wake word needed.",
+        "Keep your stats in your own Google Drive: on My stats, under Your Google account, sign in with Google and each player's stats are kept there and in step on every computer they sign in on - shots played with no internet go once it's back. For now only for testers the game's owner has added.",
+        "Sign in to play: the first time A² Golf opens it asks you to sign in - with Google (your stats and players then go with you to the phone and the web) or an email and password - then which player you are. After that it opens straight into you every time. Click the player's name to switch to someone else signed in, sign another person in, add friends and guests (no sign-in needed for them), or sign out."
+      ]
+    },
+    {
+      "version": "3.0.656",
+      "date": "2026-11-09",
+      "notes": [
+        "Behind the scenes: holes get ready quicker again - working out the holes round the one you are playing takes about half the time it did after the last update, building a hole about a fifth less, and a hole from a real course map lays out its grass a quarter quicker. Nothing should play or look differently.",
+        "Behind the scenes: the web test of A² Golf now has a home - the online play relay's own address. Nothing should play differently.",
+        "The cart between holes no longer drives through signs, benches, bins, the windsock, gorse bushes or rocks - including the arrow pointing on to the next tee - on the path or off it, and parks clear of them."
+      ]
+    },
+    {
+      "version": "3.0.655",
+      "date": "2026-11-09",
+      "notes": [
+        "Behind the scenes: a first test of A² Golf in a web browser, for iPhones and anyone without the app. Nothing should play differently.",
+        "Behind the scenes: holes get ready quicker - working out the other holes and woods round the one you're playing takes about half the time it did, and building a hole about a fifth less. Nothing should play or look differently."
+      ]
+    },
+    {
+      "version": "3.0.654",
+      "date": "2026-11-07",
+      "notes": [
+        "Seasons by post: a season for friends who aren't on at the same time. Make one in the Online tab's Seasons - how many events, how many days each stays open, 9 or 18 holes, gross or net - and send its link in WhatsApp or an email, or show its QR code. Anyone with it joins in a tap.",
+        "Each event in a season by post is open for its days: play your round whenever you like before it closes, in one go, with the same tees, cups, weather and bounces as everyone else. Its leaderboard fills up as the rounds come in, and the season's table adds up the points as each event closes.",
+        "A season by post has its own web page anyone can open from its link - the events with their deadlines, the leaderboards and the table - with a button that opens A² Golf ready to join.",
+        "The Online tab no longer empties a form you're filling in on Ladders or Seasons a few seconds after it opens."
+      ]
+    },
+    {
+      "version": "3.0.653",
+      "date": "2026-11-07",
+      "notes": [
+        "Online ladders can now wait to fill up: give a new Live or Postal ladder 4, 6, 8, 12 or 16 places, and everyone who joins gets a place straight away - nobody has to let them in. When the last place goes the ladder starts by itself, with the rungs drawn, and everyone with alerts hears it's under way. The ladder's maker can start it sooner with Start now.",
+        "New on the Online tab's Ladders: Open ladders - ladders anyone playing A² Golf can join, made with Who can join: Anyone. Find one that suits how you swing and your handicap, and press Join to take a place. Strangers only see names, and can only say the set lines.",
+        "Every online ladder now has its own page on the web, the link Share the link sends. It works on any phone or computer with no app, showing the places filled or the ladder, the matches waiting and the latest results, with buttons to open it in the phone app or in A² Golf on your PC.",
+        "Sign a phone's browser in to your PC (On the web, on the Online tab's Ladders, then scan the QR code) and that browser shows your ladders. From a ladder's page you can join as one of your players, or answer a Live challenge, and it goes on your PC the next time A² Golf is open.",
+        "On Windows, a match ladder's or an online game's link clicked in WhatsApp, an email or a browser now opens A² Golf at it, ready to join."
+      ]
+    },
+    {
+      "version": "3.0.652",
+      "date": "2026-11-06",
+      "notes": [
+        "Watch highlights now shows each highlight on its own hole with just that shot: before, every clip flew the round's last hole's shots again first, so they all looked like the same hole.",
+        "Phone app: Turns with the phone (Menu, Screens) now does what it says - the app was never actually told your choice, so it went on turning every way.",
+        "Fixed an error behind the scenes when the putting line's setting was changed before the putting green had been visited.",
+        "Behind the scenes: a report now says which part of the game a slow moment was spent in (the cart ride, the putt's read, the recording and so on), and after a crash it lists more of what was going on when it happened, so slowdowns and crashes can be tracked down. Nothing should play differently."
+      ]
+    },
+    {
+      "version": "3.0.650",
+      "date": "2026-11-05",
+      "notes": [
+        "Choosing a course is now a course picker: press the course in the Course tab, then type any part of its name or what kind of course you want (links, hilly, by the sea, 9 holes) and narrow it with filters for holes, look, ground, the sea, where it came from and whether you have played it - each showing how many courses it leaves - in the order you like.",
+        "New course and Real course from the map are at the foot of the course picker, and the course designer's own list of courses can be searched and filtered the same way.",
+        "The Course tab no longer has anything for online play: hosting, joining and the online ladders are all on the Online tab.",
+        "On the phone, the Course tab no longer offers the course designer, which only showed an error there.",
+        "On the phone, the app tells you when a newer version is out, with a Download button - it installs over the old one and keeps your rounds.",
+        "On the phone, the game now turns with you: hold the phone upright and the picture fills the top of the screen, with the swing pad and the buttons in a dock underneath, under your thumb. Turn it back sideways any time - your round, putt or session carries on.",
+        "Held upright, the camera stands back a little so you can still see down the hole, the shot numbers run across the bottom of the picture, and the side panel comes up where the swing pad was.",
+        "New in Menu, Screens: Turns with the phone - keep the game sideways only or upright only, so a tilt while you swing never turns it.",
+        "On the phone held upright, the loading screen is now in the middle of the screen.",
+        "Online seasons, played together: in the Online tab's new Seasons, make a season of 4 to 10 events on your courses, gross or net, and play each event with your friends from the lobby. Everyone in the game sees the standings - 500 points for a win, 300 for second and so on.",
+        "The graphics settings have new names, one step down: Standard is now Very low, Medium is Low, High is Standard and Ultra is Medium. Your setting is the same picture under its new name (the game says so once), and it makes room above for a new High and Ultra later.",
+        "Trees along the front of a wood now grow towards the light, as real ones do: their crowns fuller and reaching out on the open side over the rough towards the fairway - and a ball meets them just where they're drawn. They never reach out over another hole.",
+        "New trees: clumps of two to four silver birches from one base, alders grown in a clump of stems (mostly by the water), old pines gone flat across the top and low, broad-headed broadleaves under the big trees. Holes you've already played keep their trees as they were; the new ones grow on holes you haven't played yet, or after Grow its trees afresh in the hole editor.",
+        "When a round counted for something, the standings come up beside the round card at the end: your season, an online season, the online match over several games or a match ladder - the top five and your players, in gold. The recording's Finish scene shows them too.",
+        "Behind the scenes: the green and the ground under it are drawn with less wasted work round the cup, and the next hole is built ahead in smaller pieces, so the picture stays smoother while you play. Nothing should play differently.",
+        "Heathland courses' bunkers are now fingered: long fingers of sand reaching up the bunker's face into the turf, with tongues of grass between them, as at Sunningdale or Pine Valley - and now and then a parkland green has one too. They play exactly as they're drawn, down to each finger.",
+        "Cross bunkers: a three-shot par 5's bunker across the lay-up is now a row of bunkers right across the fairway - carry it or lay up - and on heathland and links holes now and then a row waits where the long hitters' drives finish, with a gap at one end on the hole's better side.",
+        "Waste areas - big stretches of sandy, scrubby ground with heather, gorse, stones and tufts - now play as their own lie, Waste area: firm sand the ball sits up on, no bunker rules, nearly a fairway shot. They're on heathland holes and now and then out in a links hole's rough.",
+        "On the range, lie practice can hit from a waste area too.",
+        "The ready-made courses are given again with the new bunkers and waste areas where they fit (one you've changed is kept as your copy).",
+        "Behind the scenes: the WebGPU test (Menu, Screens) now draws the whole driving range with the new renderer just as the game draws it today - the screen effects, the sand and spray a ball throws up and, on Medium, the living water and the trees mirrored in it, the clouds in three dimensions and the motes in the sunlight - so the frame rates it shows compare like with like. Nothing should play differently.",
+        "The frame rate on the PC now shows just the frames a second, as on the phone, so it no longer stretches across the top of the picture. Click it for the rest - the frame time, the slowest frame, what each frame draws, the picture and the setting - and click again to shut it."
+      ]
+    },
+    {
+      "version": "3.0.648",
+      "date": "2026-11-03",
+      "notes": [
+        "Feedback for everyone: Menu, System, Feedback saves a report of what happened on your PC and opens the support page with your note filled in - drag the report on and post it. Nothing is sent until you do.",
+        "The installer now shows the licence agreement, and is called A-Squared-Golf-Setup. The licence, a privacy note saying what stays on your PC and what's sent when, and the credits for everything the game is built with are in Menu, Help, About.",
+        "Feedback has sensible limits: a note needs a sentence, there's a short wait between reports, and up to 5 a day.",
+        "On the phone, the app opens straight into the game - no Play or At the range screen to get past first, so you're playing sooner. It always opens for playing on the phone with your finger. For a range session with your launch monitor, go to Menu, Play, Range session; End range session (in the menu, or on the Session card) takes you back to phone play."
+      ]
+    },
+    {
+      "version": "3.0.647",
+      "date": "2026-11-03",
+      "notes": [
+        "Grass no longer stands on the cart paths, on the phone as well as the PC: every tuft and clump of long grass, and the heather, gorse and flowers, keep off each path right where it's drawn - the next hole's path the cart drives along, the joined-up bends and the gravel ends included.",
+        "The cart between holes minds its manners: it no longer drives down or across the fairway of the hole you've just played - where it has to cross over to the next hole it goes round the back of the green, out of the way of players behind. It takes a clear gap through the trees instead of going a long way round them, and no longer goes a long way back down the cart path when the next tee is the other way."
+      ]
+    },
+    {
+      "version": "3.0.646",
+      "date": "2026-11-03",
+      "notes": [
+        "The frame rate is back on the game screen if it had gone missing: anything moved off the picture is brought back onto it. On the game screen the frame rate now sits under the top line on the right, with the hole map and messages below it, so the microphone and connection stay at the right end of the top line.",
+        "Arranging the game screen (Shift + B) now lists everything that can show there - what's showing, what's off and when the rest appear - so you can turn the frame rate or key tips back on, or put anything back where it started.",
+        "In the command centre, Arrange lists the boxes you've taken out (a camera, the Last shot, Shot history, Keys or Game screen) - tick one to bring it back.",
+        "The Online tab has a cleaner look: one size of text, the sections along the top with a close button, Host and Join side by side, and the ladders and host rules laid out neatly.",
+        "The game starts much quicker, above all on Ultra: the graphics it prepares as it starts are kept from one start to the next and used again, where before they were made afresh every time the sun had moved (the first start after this update still makes them once). The range is built a little quicker too, and preparing the picture starts sooner.",
+        "Cart paths that meet now join as one path: where one path carries on from the end of another - a hole's own, one between holes, the next hole's - it's drawn as one continuous path, its edges and kerbs lining up, and where one runs into the side of another the kerbs open and the tarmac runs on from one to the other. Paths no longer have rounded ends: where a path stops, the tarmac breaks up into gravel that thins out into the grass. The worn grass along a path fades away where it meets a fairway, a tee or another path, instead of stopping square. Tight bends in a path are drawn as smooth curves, so their inside edge no longer folds over.",
+        "Marram grass and rabbit scrapes on links holes keep off the cart paths, as the rest of the grass does.",
+        "Trees: two new shapes each for pines and broadleaves, the commonest trees - a wind-shorn pine, a tall narrow spire, a broadleaf grown from an old coppice and a tall upright one - so a wood has more variety. Trees from a real course's measurements, or planted as a kind, now vary a little in height and in how wide they spread, rather than every one standing exactly as measured.",
+        "A new picture effect, Finer leaves (on High and Ultra): the trees near you are drawn with more, smaller leaves, so a close tree reads as leaves rather than as cards of them. Turn it off for fewer, larger cards, as before.",
+        "A new picture effect on Ultra, Fewer pixels, built up over time (with Smooth edges over time on): the picture is drawn at two-thirds of its size each way and the full-size picture is built up from the last few frames - nearly as sharp, for under half the drawing.",
+        "On the phone, the small pieces of each hole's ground, bunkers and paths that look alike are drawn together, so there is less for the phone to send to its graphics chip each frame."
+      ]
+    },
+    {
+      "version": "3.0.645",
+      "date": "2026-11-02",
+      "notes": [
+        "With the frame rate showing, the line along the top of the game screen - the player, the club, the result, the microphone and the connection - now stops short of it, so nothing is hidden under the frame rate box.",
+        "The command centre's top bar fits on one row again on a 1440 px screen now there's an Online tab, and if yours slipped onto two rows it goes back to one by itself (unless you placed it by hand)."
+      ]
+    },
+    {
+      "version": "3.0.644",
+      "date": "2026-11-02",
+      "notes": [
+        "Recording: the Swing review and YouTube layouts are new. Swing review has every number along the bottom, eight to a row, and no title box. YouTube edges the game in yellow, moves who's hitting to the top right, and shows eight big numbers down the left once the ball lands. A Swing review or YouTube layout you never changed becomes the new one by itself; one you changed stays as it is."
+      ]
+    },
+    {
+      "version": "3.0.643",
+      "date": "2026-11-01",
+      "notes": [
+        "Water and unplayable balls: every option the Rules of Golf give you is marked on the hole before you choose - back where you played from, back on the line from the hole, or within two club-lengths (red water and unplayable balls). Then you pick the spot yourself: as far back on the line as you like, or anywhere in the two club-lengths, with the arrows, a click, a finger or the controller. The card tells you the lie, whether trees are in the way and the yards to go before you drop. Out of the water you now choose too, instead of the game dropping it for you.",
+        "The game's own drop out of the water (in a scramble, or for another bay's ball) no longer lands in the long grass or trees just behind the water when there's grass a few yards further back.",
+        "The cart between holes now drives all the way to the next tee - the one you are playing from - along the cart paths wherever they go its way, and parks beside the tee box. It waits by the green you have just played, never somewhere random, and on a long way it drives a little quicker so it is always there in time.",
+        "A new Online tab in the top bar, after Challenges, holds everything you play against other people online. Play now is where you host or join a game. Ladders has your online match ladders, live or by post, and a new one starts as Live. Host rules has the rules for a game you host: line reads, the mouse and controller level, skill points and carry adjustments, moved there from the course panel. A number on the tab says when something's waiting on your ladders. The course panel keeps your round, seasons and the ladders you play at the bay or against made-up golfers. On the phone, Play's Play with friends and Match ladders tiles are now one Online tile.",
+        "Making an online ladder when the game can't reach the online server now tells you so, instead of quietly making a ladder against made-up golfers.",
+        "Match ladders: the game's questions (delete a ladder, play a match, end a round or a season) now ask in the game's own box, so the New ladder form no longer gets stuck after you say no - you can start a Live ladder straight away. Online ladders have Leave: you come off the ladder for everyone, an admin hands it over to another player first, and the last one out ends it. A ladder match you left or that's already played no longer turns your next online game into that match.",
+        "Your phone and your PC now share players and stats. Link the phone once: on the PC, My stats then Your phones then Link a phone shows a code and a QR code; on the phone, open My stats (on Play and At the range) and scan the QR code or type the code. After that they keep in step by themselves, even when they are never on at the same time: the shots and rounds you play on the phone go into your PC's stats, and your PC's players, handicaps, skill points, club distances and last rounds come to the phone. The same name is the same player on both, and a player you add on the phone joins your PC's saved players. Up to six phones, and either side can unlink. This replaces the phone's Send to your PC and the code you typed each time.",
+        "Recording designer: pick several boxes (Shift + click) and change them all at once - text size, backing, colours, outline, corners, border - or, for a box in a group, its whole group or just it.",
+        "Recording designer: exact numbers beside every size - text size, outline and border thickness, corners in pixels, how solid as a percentage - so every border can be exactly 5 pixels, say.",
+        "Recording designer: put boxes in a container (Down, Across or A grid) and they are laid out evenly inside it, the same size with an even gap and padding you can set in pixels; size or move the container and they follow.",
+        "Recording designer: crop the game or a camera as in OBS - hold Alt and drag an edge to cut the picture there without moving it (a square part of a 4:3 game, say), or type how much to cut from each side; Whole picture puts it back.",
+        "Recordings keep the game picture centred on the target line even when the picture centre is moved for play ([ and ]), while the game screen stays exactly as it is. Turn it off with the Game view setting Centred on the target line."
+      ]
+    },
+    {
+      "version": "3.0.641",
+      "date": "2026-11-01",
+      "notes": [
+        "On the phone: Ultra's clouds are soft puffs instead of speckled 3D clouds; when it's running slowly the graphics ease themselves down much sooner, and say so; and no keyboard keys are shown or mentioned anywhere on its screens.",
+        "The replay card after a hole is now just a small Replay button, and it fades away 10 seconds after you finish the hole (J still replays it until your next shot).",
+        "Fixes you can see: on Ultra, the grass on a bank by the green no longer shows as light patches with straight edges - each clump is lit like the slope it grows on; no grass on the cart path as the cart drives to the next tee; and on Sea Links' 2nd the two overlapping pot bunkers on the left are one bunker.",
+        "When the Omni's Bluetooth drops, it comes back sooner: one quick try to reconnect, then a fresh search straight away. It used to spend about 20 more seconds on a second try that never worked.",
+        "Reports to Claude after a graphics crash now say what crashed and which graphics driver your PC has, from Windows' own crash file. That file stays on your PC; nothing extra is sent.",
+        "Match ladders on the phone: Play's Match ladders tile opens your ladders in the side panel, the same as on the PC - challenge, answer, play and see results - and says when something's waiting for you.",
+        "Join an online ladder by QR code: QR code by the ladder's code shows one to point a phone's camera at, or Share the link to send. The phone app opens on the join with the code typed in.",
+        "Say something with a challenge - one of a few set lines like Good luck! or Rematch? - on a match waiting to be played, and after a result. Both players see it under the match.",
+        "Postal ladder: once both rounds are in, Watch their round lists the other player's shots hole by hole beside yours.",
+        "Phone alerts for ladders (a challenge, an answer, a line said, a Postal round in), once they're switched on for the app - until then the app works as before.",
+        "The cart ride between holes no longer gets stuck on Loading: the next hole gets ready much faster while you watch the cart, Next hole always works, and if the hole isn't quite ready a short loading card finishes it.",
+        "Android app: before a round the side panel comes out by itself with the course, the game, your ladders and Start round, and the touch strip and swing pad stay out of the way until there's a ball to hit. Fewer boxes on top of each other: the range's Session button sits in the touch strip, the strip stays below the top bar, and the swing pad moves aside when the side panel is open.",
+        "Android app: the top bar comes back with a tap or a pull down on its tab, now bigger and just below the top edge - swiping down from the very top edge is left to Android's own notifications.",
+        "Android app: the side panel's sections fold away to their headings until you tap one, so it opens as a short list with Match ladder near the top - and a folded Match ladder says how many things are waiting there.",
+        "Android app: the next hole is built much sooner while you stand over the ball - every moment the picture is still goes on it, starting a second or two into each hole - so far fewer loading cards between holes.",
+        "Smoother graphics with nothing looking different: the ground under the fairway, green and tee is no longer coloured twice (once for the rough beneath it), the sky is only worked out where you can see it, High and Ultra no longer work out the soft shadows on the ground in front of you twice over, and on Ultra the edge smoothing is lighter where the picture is already smoothed twice - which also frees some of the graphics card's memory.",
+        "The Replay button after a hole has a ring round it that runs down to nothing as its 10 seconds go, so you can see when it'll disappear."
+      ]
+    },
+    {
+      "version": "3.0.639",
+      "date": "2026-11-01",
+      "notes": [
+        "Pick the time of day beside the sky - Morning, Midday, Afternoon, Late afternoon, From the clock, or Any for a surprise each round (the range has the same choice) - and it moves on about 15 minutes a hole, the sun with it: each hole says the time, and the round card shows when you teed off and finished. Nobody plays in the dark: From the clock tees off now unless the round would run past sunset, then starts earlier so your last hole ends as the light goes (by the real sunset for the date in the UK), and Late afternoon always ends at dusk.",
+        "The sky is no longer always blue: as evening sets in the horizon turns gold and orange towards the sun, with pink and mauve on the far side, the clouds and the haze warm and the sunlight goes golden; an early round starts in a paler, pinker dawn that fades to blue as the sun climbs.",
+        "The sky changes from round to round: a clear day can have no clouds at all, and on a day of sunny spells there might be a few clouds or plenty, their shadows drifting over the course to match (the range has its own each visit). The clouds look softer too - each puff's edge broken up, and a cloud that's going thins away as a whole instead of leaving rings of puffs.",
+        "Everything looks more natural: the grass is a real fairway's green instead of a bright neon one, the trees and leaves softer, the sky still blue and the flags red, and the darkest shade under the trees and in the rough keeps its detail rather than going black.",
+        "Each round the course is in its own season and kept its own way: today's season most rounds and the one either side on others, and anywhere from lush and green to dry and browning - drier on a links or with firm fairways, lusher after rain - with the greens and tees always kept watered.",
+        "Water looks real: the sea reflects the sky out to a crisp horizon; ponds are glassy in the shelter of the bank and choppier out on open water, and never turn pitch black on a calm day; burns and brooks run downstream over a stony bed, their cut banks broken earth with the turf slumping over; and the ponds on the holes around you reflect the sky too.",
+        "New: match ladders, in the course panel's Match ladder section. Play one against one, match play, on a ladder of rungs: challenge someone up to three rungs above you, and if you beat them you take their rung. Play friends at the bay, taking turns, or play a solo ladder against nine made-up golfers around your handicap, who also play each other every week.",
+        "Before a ladder match a card shows the odds, who gets strokes and on which holes, and the rung at stake. The match is over as soon as it's decided (5&4), with the ladder's own gimmes and level, no mulligans and no skill points. Afterwards everyone's rating moves, and a handicap ladder keeps a handicap made only from ladder matches. Each month's champion is whoever's on rung 1 at the end.",
+        "New: online match ladders - the Live ladder. Make one in the Match ladder section (Play: Live) and send its code to friends in other houses; they join with it and you let them in. Challenge someone, they accept on a course of their choice, then they host the match as an online game straight from the ladder and you join it from yours. When it's decided, both bays send the result and it goes on the ladder.",
+        "New: the Postal ladder - an online ladder where each of you plays the match on your own, whenever you like within the week. The one challenged picks the course when they accept, and you both play the very same round: the same tees, cups and weather, and even the same luck shot for shot. It is one go, with no restarts (if the game closes part way, carry on from the next hole). Neither sees the other's scores until both rounds are in - then the reveal shows both, hole by hole, with the match as it went.",
+        "Match ladders: an honours board of every season's champion, and rivalries - the card before a match says your head-to-head, and a result can say more: a giant-killing, a third defence in a row, a third win in a row. On an online ladder you can say you're away for up to four weeks (no challenges, no slipping), the panel warns you after two weeks without a match, and when the game opens a message says if a challenge or a match is waiting for you.",
+        "Online play by code: a friend joining a game on a large course could be left waiting for the course and never start the round. Big courses now reach every bay.",
+        "The shot setup is now two pictures: a ball with a dot for the spin and the curve (drag it left or right to curve the shot, lower for more backspin) and a bar for the height, any amount rather than set steps. Each is green in the middle, then amber, then red, with the risk said under it: a little costs nothing, and the further out you go the more a crooked swing is punished. Open it with the little Shot ball beside the swing pad (phone and mouse) or Y on a controller - the left stick moves the dot, the D-pad changes the height, A is done and X puts it back to a plain shot.",
+        "Swinging with a finger, the mouse or a controller is much easier at Beginner and Amateur - more room either side of where to stop, a little wobble forgiven, fewer bad strikes and less scatter - and Pro and Tour are a bit harder, where pulling too far now costs a lot. Half power (½) lasts for one swing, so the next drive isn't a half one by mistake.",
+        "Two lines on the swing pad at Beginner and Amateur: a dashed white one for the flag as if it were flat, still and from the fairway, and a blue one for where to stop as the shot really plays - into or with the wind, up or downhill, in cold or warm air, out of the rough - with the reason at the foot of the pad; on the green, the hole's line and the putt's pace. They show on the course, on the range when you aim at a target and in the approach challenges, and never ask for more than a full swing.",
+        "Your level is always on show at the top of the swing pad, green for Beginner through to red for Tour; tap it to see the four side by side - Beginner and Amateur forgive mistakes but hit shorter, Pro and Tour punish them but hit further. Two good rounds at your level and you move up one by itself (1 of 2 good rounds towards Amateur shows under Level, on the phone's Your level and in Saved players); go back down any time, or turn it off in Menu, Swing pad & controller. Before a round the card says each player's level, with Change level.",
+        "Test shot has gone - the top bar button, the space bar, the menu item and the controller and phone buttons. To play without a launch monitor, swing with the mouse on the swing pad, a finger or a game controller; the shot data screen says mouse swing or controller swing under those shots, and the course panel's online rule for them is now called Mouse and controller online.",
+        "Online play has 25 reactions, picked from a wheel that puts the ones that fit first - Get up! while a friend's ball is in the air, Birdie! or Hole in one! when it drops, Splash!, Timber! or Beach day!, So close!, Good luck! and Good game. Tap the button and then one, or press, slide and let go. They stay on screen for 20 seconds and stack at the right of the picture. With separate screens the lobby opens on the command centre, with the reactions button in its top bar.",
+        "Online play: watch a friend's shot from where they stand. Watch beside their name in the side panel puts your camera behind their ball and follows the shot through the air; Next goes to the next friend and Back to my ball comes back - as it does by itself when you swing, when they finish the hole and at the next hole.",
+        "Online play's lobby shows everyone's level beside their name, with Levels... to change yours before the start, and the host's rules - including the easiest level anyone plays at - for everyone who's joined. With separate screens the levels card opens in the command centre, and the host's Play list no longer runs off the panel.",
+        "The cart ride between holes now follows the cart as it drives to the next tee, instead of going straight in to its screen. Press Scorecard, or tap the picture, to look up at the scorecard on the cart's screen, and Watch the drive to go back out.",
+        "Android app: Home has moved into the menu, at the top, and the home screens have Back to the game. The top bar slides out of the way while you play, so the game has the whole screen - pull down from the top, or tap the little tab, to bring it back, or turn on Top bar always shown in Menu, Screens.",
+        "The phone app runs more smoothly, drawing less of what its small screen can't show - simpler range balls, lighter tree shading, full-detail trees only near you and the ball's flight - so on the range it draws about half as much while you line up. The PC's range balls are simpler too, at no difference you can see.",
+        "Phone app, at the range: a Session button shows your session so far - every shot, each club's distances (average carry, shortest to longest, how wide) and, when you finish, a summary: shots and minutes, your longest, your straightest club, and any two clubs that go the same distance or leave a big gap.",
+        "Phone app: the Omni comes back by itself if it drops - straight back to the one you had, and at once when you return to the app - and the top bar says Reconnecting to the Omni meanwhile (on the PC too).",
+        "Recording designer (and the scene designer page): the Add list shows each number, tile and piece of information as it looks in the game; Before the shot, In flight and After it lands hide what isn't shown then; Preview shows the scene full size; and better framing - Thirds and Safe area guides that boxes snap to, Frame it buttons for a half, a corner, a strip or the whole picture, and Even gaps and matching Borders and corners for several boxes.",
+        "The boxes over the picture keep out of each other's way at every screen size, on one screen and on the separate game screen: the frame rate box is in the top right corner clear of your strokes and score, the messages symbol off the hole map, the hole's note and lie lines beside the swing pad, the bar for watching a friend just above the numbers, a ladder challenge's ladder beside a left-hand swing pad, and on the phone the card before a round and the words along the top clear of the Shot and ½ buttons.",
+        "Fixes you can see: bunkers that overlap are one bunker, with no line across the sand and no sky showing through where they meet (as on Nine Oaks' 1st and Sea Links' 2nd), and no slits of sky at the tight ends of long bunkers; from above, parkland hay no longer looks like rows of pale bricks and other holes' bunkers don't show their fairway through the sand; the next hole's cart path is no longer hidden under the grass until close, and from Links by the Sea's 7th it crosses the burn on a bridge; and on Ultra the frame rate box's draws and triangles no longer jump about beside a pond."
+      ]
+    },
+    {
+      "version": "3.0.631",
+      "date": "2026-10-29",
+      "notes": [
+        "Playing online, a Lobby button now sits at the start of the top bar once the game has started (next to Home on the phone), whatever you're playing. If you're hosting, it stops the game and takes everyone back to the lobby to pick the next game - it asks first, unless the round is over. On everyone else's screen it opens the online play panel, to see who's playing or leave the game. On a phone held upright, the top bar now always fits on the screen: who's playing and where you are get cut short rather than the menu going off the edge.",
+        "On parkland holes the long grass and the pale, waist-high hay are now always there, however far off or high up the camera is, instead of growing up out of the ground as the camera comes towards them. They're drawn very simply far off, so it costs little.",
+        "Online play has a lot more to it. In the lobby each bay presses I'm ready, the host sees who they're still waiting for, and Start counts down five seconds on every screen so nobody is still finding their club. Once a game's over the host can press Rematch to play the same again.",
+        "Quick reactions when playing online: a button at the bottom left of the picture sends Nice shot!, Great shot!, Unlucky!, a laugh, Wow! or Good game to every bay's screen. Each bay can send one every 30 seconds.",
+        "In an online round the scores beside the map are now a live leaderboard, everyone in order with their places. Bars beside each player in the online play panel show how good their connection is.",
+        "The host can pause an online game for everyone, and carry on when ready. They can also save the game they've set up by name to pick again next time, and start a match over several games, with a points table everyone can see.",
+        "If the host's connection goes for good in a game played by code, the next bay takes over as host and the game carries on. If a bay's game restarts part way through a round it picks up where it was, and after the app starts again the online play panel offers to rejoin the game.",
+        "The host's code now comes with a QR code: a friend points their phone's camera at it to open the game's code in the A² Golf phone app.",
+        "On parkland holes the ground under the drifts of hay is now straw-coloured as well, so a drift reads clearly as hay from far away."
+      ]
+    },
+    {
+      "version": "3.0.629",
+      "date": "2026-10-29",
+      "notes": [
+        "Oaks near you are each their own tree now too, with their own boughs, as the broadleaves have been. Every tree's colour is now its own: the same tree is the same shade from its own hole and from the next, and no longer changes when trees round it are added or cleared. A ball now brushes the leaves on a tree's boughs where they reach out past the rest of its crown.",
+        "The golf cart now sounds like a real one, still quietly: its wheels rolling and its electric motor humming, a touch higher and louder the faster it goes and duller on the grass than on the path, and now and then the clubs rattling in the bag on the back, never on a beat. You can add your own in the sounds folder: in the folders cart (rolling), cart-motor (the motor) and cart-rattle (the clubs).",
+        "A course's trees now stay as they are from one game to the next. The first time you play a hole, where each of its trees stands and how it grew (its kind, shape, size and lean), its bushes and the trees behind its green are kept with the course on your PC, and the hole is grown from them every time after - so a new version of the game no longer moves or changes them. Only how trees are drawn (their leaves and boughs) gets better with new versions. Changes you make in the hole editor still go on top; a hole remade in the designer, or given its trees from LiDAR, grows afresh and is kept again. Online, everyone sees the host's trees.",
+        "Silver birches near you are each their own tree now too: slender boughs rise steeply off their limbs and arch over, their fine twigs hanging in loose clouds of small leaves, with the white branches showing between them - so each birch has its own outline and none is the same as the next.",
+        "Pines, Scots pines and spruces near you are each their own tree now too: sprays of needles reach out from the trunk to the edge of each tier, more or fewer, further or less, all round or crowded to one side, so no two have the same outline. A ball meets their needles just as before.",
+        "The golf cart between holes now waits right by the green you've just played and makes a short drive on towards the next tee, stopping beside it when it's near, instead of driving all the way there. It keeps well away from trees and long grass, at least 4 metres from both wherever it can, and no longer cuts across the long grass round a green or under the edges of trees. Holes that used to have no cart ride now get one.",
+        "Cart paths now join up from one hole to the next: where a hole's path ends past its green and the next hole's path starts behind its tee, a path now runs between them, round greens, tees and sand, over a brook on a little bridge rather than round it, along a path that's there already rather than beside it, and never across another hole's play. Where the way between them would be long or would cross another hole, the one path simply ends and the next starts again, and the carts drive over the grass. The courses that come with the game have these paths between holes now, as new courses always did.",
+        "Cart paths look tidier: a path now crosses a brook or burn straight over on a bridge instead of going all the way round its end, two holes' paths running side by side a few metres apart now share one path, and a hole's path no longer runs over another hole's tee, green or bunkers (it goes round them, or stops short and starts again past them). The grass either side of every path is kept short for 2 metres instead of long grass growing right up to its edge, and no tree hangs out over a path. A few trees whose crowns reached over a path have been taken away, on courses you've played before too.",
+        "In the hole editor, Trees (with no trees picked) has a new Grow its trees afresh button: the next time you play the hole, its trees, bushes and the trees behind its green grow as this version of the game grows them, and are kept that way from then on. Undo puts the old ones back until you play it.",
+        "Every other tree and shrub near you is its own now too: a Lombardy poplar's short, upright boughs run all the way up its column; a weeping willow's boughs arch out of its dome, each hanging its own curtain of leaves; bushes and flowering shrubs have small sprigs poking out of them here and there; a dark column conifer has the odd tuft poking out of its side; and a dead tree has bare boughs of its own forking off its branches.",
+        "On High and Ultra each tree now keeps its own outline at any distance: from the tee you see the same boughs, crowded to the same side, as when you walk past it, instead of one of a few standard shapes until you get close. The trees in the far woods out in the country have boughs in their pictures too.",
+        "Close up, an oak's or plane tree's boughs now wear its own leaves instead of a jumble of tiny leaves of every kind.",
+        "On High, trees hidden behind the ones lining the hole keep their plain shape further off, which saves drawing. They put on their own boughs as soon as you line up a shot that could go near them, before the ball gets there.",
+        "The paths between holes, and each hole's own paths as you play them, are now kept with the course: worked out once - when you save a course in the designer, when a course that comes with the game is first added, or the first time you play any other - and the same every time after, so a new version of the game no longer moves them. They're worked out again only when you change the holes they join.",
+        "In the hole editor the Paths tool now shows the paths to and from the holes either side, in yellow, and you can change them from either hole: tap one, then drag its line to bend it or a white dot to move that bit, take a bend out, put it back as worked out, or have no path between those two holes (a button brings it back). A path between holes still can't go over a tee, a green or sand, or along water rather than over it on a bridge.",
+        "A tee box no longer sits on another hole's green: on Sea Links the 9th's white tee was on the 8th green, so you saw it there as you played into that green. Where there's no room behind a tee for its white box, the whites play from the yellow tee.",
+        "The game's own videos are replaced by one: Menu, Cameras & video, Record the A² Golf video (or say \"record the show reel\"). The game plays it by itself and records it, just under four minutes long: a tee shot on each kind of hole, approaches and putts, a hole in one, four friends playing a hole online - their drives coming straight at you, then all four putting at once - and the course designer changing a hole in a few taps. Nothing it does is kept, and the game is back as it was when it ends. Esc stops it."
+      ]
+    },
+    {
+      "version": "3.0.619",
+      "date": "2026-10-27",
+      "notes": [
+        "The golf cart no longer whines. It now plays a recording of a real electric golf cart, quietly, a touch higher and louder the faster it goes; until a cart recording is in the game, you only hear its tyres. You can add your own cart recordings in the sounds folder, in a folder called cart.",
+        "Finish for YouTube's trailer.mp4 is no longer a black screen in Windows' own video player: the picture is now made H.264, which every player and YouTube take, whatever format the game recorded in.",
+        "Broadleaves near you are each their own tree now (a first try): instead of eight shapes turned and sized, each grows its own boughs off its limbs - more or fewer, reaching further or less, high or low, even all round or crowded to one side - each ending in big clumps of leaves of its own shade. It takes a little more than a megabyte of memory."
+      ]
+    },
+    {
+      "version": "3.0.617",
+      "date": "2026-10-27",
+      "notes": [
+        "Trees: more variety, at no cost to the frame rate. Trees near each other now share a cast, one stand a little yellower and lighter and the next bluer and darker, carrying on into the woods behind; a tree out in the open is a little lighter and warmer than one deep in a wood; every crown is mottled its own way; there are more shades of green (lime, blue-green, a silver-blue spruce, a silvery poplar and more); and about one tree in seven is a young one, smaller and slimmer.",
+        "The golf cart between holes now drives like one: its wheels turn as it goes and the front two steer round the bends, and you can hear it - an electric cart's whine rising as it picks up speed and dying away as it coasts to a stop, and its tyres hissing along the path or swishing through the grass. Still no one in it but you.",
+        "Trees play more like real trees. A crown is mostly air: a ball can go right through one barely touched, glance off a branch and carry on, kick up, out to the side or back off it, or - in the thick of a big tree - be knocked down. The leaves alone no longer take most of its speed, and the edge of a tree hardly slows it. The result line says which (\"Off a branch\", \"Through the leaves\"), and the warning before a shot from under the trees now says how likely the branches are to catch it."
+      ]
+    },
+    {
+      "version": "3.0.616",
+      "date": "2026-10-27",
+      "notes": [
+        "Finish for YouTube (Menu, Play, Videos, or the button after the Launch trailer is recorded): puts your music under the trailer, cuts four upright Shorts and writes the description with chapters and your download link - all in the game, in a folder beside the recording. It needs ffmpeg once: in PowerShell, winget install ffmpeg.",
+        "Online play: a friend's shot now flies on your screen as they hit it, not once it has landed at their end - no more waiting a few seconds to see it.",
+        "Online play: everyone goes on to the next hole together. Next hole (or the scorecard or cart ride moving on by itself) says you're ready, and the next hole starts for everyone once all are - till then the card says who you're waiting for.",
+        "Online play: the host can stop the game and take everyone back to the lobby, still in with the same code, then start the next game - another course, putting, chipping, golf pong or a Challenge - and everyone is taken to it.",
+        "Online play: at the end of the round the host's scorecard has Back to the lobby, taking everyone back to pick the next game; everyone else's says who they're waiting for.",
+        "Online play: you're told when someone joins, drops out, comes back or leaves, and joining no longer waits while your handicaps are looked up. Everyone needs this version to play together - the PC app and the phone app alike.",
+        "Cart paths no longer run through trees: trees that belonged to a neighbouring hole could stand right on a hole's cart path (the cart drove round them, the path went through). Every hole's trees now keep off every cart path, and off the tee boxes of other holes - the back and forward tees as well as the main one.",
+        "The next tee looks the same from the hole before as it does when you get there: its tee boxes, striped and mown round as they really are; the hole's sign with its card, out to the side where it stands (not a board in the middle of the tee); the tee markers in your colour; the windsock, bench, ball washer and bin; and the cart path beside it."
+      ]
+    },
+    {
+      "version": "3.0.614",
+      "date": "2026-10-26",
+      "notes": [
+        "Golf cart: it no longer drives through trees. It now keeps clear of every tree you can see on the way to the next tee - the woods in the distance and the other holes' trees included, and on the cart path as well as off it - going the long way round if it has to. Where there's no way round, you get the scorecard instead of a ride.",
+        "Courses: the green's read comes with the putter wherever you pick it - from the fringe, the fairway or the first cut, the grid and slope shading (with them switched on) now show on the green, lined up from your ball to the hole. And on the fringe they show whatever club you have, so you can read the green before a chip too.",
+        "Greens: a new Colours on the grid switch (in the course's and the putting green's options, and the menu) turns the grid's coloured dots plain white while keeping the grid - its lines and the dots rolling downhill still show the slopes, without the colours.",
+        "Recording: the scorecard between holes is in the video now, as the game screen shows it - the card after each hole, and on the cart ride the card on the cart's screen with the picture blurred round it. The same in the command centre's box showing the recording."
+      ]
+    },
+    {
+      "version": "3.0.613",
+      "date": "2026-10-26",
+      "notes": [
+        "Swing pad: letting go before you push back up through the ball now plays the shot 10% shorter instead of half a shot or less - and the pad says so plainly: it turns orange with \"Let go early - 10% shorter\", a phone buzzes three times, and the shot's words start with it.",
+        "Swing pad: the ½ (half power) button has moved off the pad, beside its middle on the picture's side and bigger, so a finger starting a swing at the ball no longer catches it.",
+        "Replay: with no swing camera - always the case on the phone - Replay (or Q) after a shot on a course now flies that shot again, its tracer drawn as it goes, then brings you back. Where there's nothing to replay, the Replay button isn't offered.",
+        "The golf cart keeps out of the very long grass: it no longer drives through it or parks in it by the next tee (it had mistaken it for the next hole's rough), never parks with its wheels in it, and stays out of the waist-high hay most of all.",
+        "Graphics: every picture effect now says what it typically costs (heavy, some, light or next to nothing), so you can choose what to turn off first - and, once the speed test has run on your PC, what it measured there.",
+        "Android app: the game fills the whole screen, round the camera's hole too, with the swing pad and buttons kept clear of it; and the hole's Replay card sits between the touch strip and the swing pad instead of hidden under the strip.",
+        "Android app: the game now loads while you're on the start screen and your route's home - by the time you've picked, it's well on its way - and the house at the top left takes you back to them at any time, with your round or session still there to go back into, nothing loading again. The phone's back button steps back the same way.",
+        "Your level now shows what each level hits: on the phone each level's button has its drives (Amateur drives 213-260), and the one picked says how far a full swing drives and a 7 iron carries to start, how far with Power maxed (skill points), and your own with your Power points. On the PC it's under Menu → Mouse and controller → Level.",
+        "The cart ride on the PC: with the picture's centre moved over (for hitting down one side of the net), the cart's screen was drawn off to the side and cut off at the edge, the scorecard with it, and scroll bars came up on the window. The screen now comes up in the middle of the picture - the centre goes back where you set it for the next hole - the scorecard always fits the window, and the scroll bars are gone.",
+        "Courses: you can putt from off the green if you want to - from the fringe, the fairway or the first cut, go down past the lob wedge to the putter (or say \"putter\"). It's then played and read as a putt, rolling slower over the grass until it reaches the green, and the read allows for that.",
+        "Command centre: between holes, Watch the drive and Next hole are in the heading of the Course box too, so you can go on from the laptop without moving the mouse to the game screen.",
+        "Golf cart: you don't have to press Next hole - 40 seconds into the ride the next hole starts by itself, or if the cart is still driving then, once it has been parked by the tee for 5 seconds. The cart's screen counts down the last 10 seconds."
+      ]
+    },
+    {
+      "version": "3.0.612",
+      "date": "2026-10-26",
+      "notes": [
+        "Swing pad and controller: pulling too far or over-swinging now costs much less at the easier levels - hardly anything at Beginner, a little at Amateur, more at Pro and most at Tour - and a pull to 113% still carries close to a full shot (about 88% even at Tour) instead of sometimes only half. The pad gives a little more room past 105% before it counts as too far.",
+        "Android app: the game opens much faster - on a slow phone the loading screen goes in about half the time - and a hole you have played before builds in about half the time too, because the phone now keeps each hole once it is built (Menu → Graphics → Holes kept for loading, up to 500 MB).",
+        "Android app: lighter graphics made for a phone screen - the effects start on Performance, which on the phone also leaves out the finest grass, sand grains and wet-ground shine; shadows, leaf pictures and textures are smaller; trees switch to their simpler versions sooner; and the picture is drawn at most 60 times a second, even on a 90 or 120 Hz screen. It looks much the same at phone size, with less heat, battery and memory used.",
+        "The game starts a little faster after the first time: the trees are kept with the holes kept for loading rather than made again at every start."
+      ]
+    },
+    {
+      "version": "3.0.611",
+      "date": "2026-10-25",
+      "notes": [
+        "The cart between holes now waits on flat short grass by the green and stops on the flat by the next tee - no more parking in a bunker or on a slant - and drives round trees (well clear of their branches), sand, water, greens and tee boxes on every hole, keeping out of very long grass and off steep banks unless there's no other way.",
+        "Chipping on the touch screen (or with the mouse): the new ½ button on the swing pad makes its gold line a 50% swing, so every percent takes twice the pull - a short chip gets a line long enough to draw to. Press ½ again for full power.",
+        "Seasons now start against golfers at your own level: the field is drawn round your handicap. If you haven't played enough rounds to have one yet, the Season panel asks for yours and plays off it until your rounds give you one - for the launch monitor and for mouse, touch or controller play separately.",
+        "In a season event two of the field play with you: a box over the picture shows everyone's strokes on the hole you're on (friends' too, in any round with others), and the leaderboard so far shows on the scorecard between holes and on the cart's screen.",
+        "The phone app now keeps your stats: every shot and round you play on it, at the range with a launch monitor or on the swing pad. At the range, Send to your PC puts them into your PC's My stats - press Get the phone's stats there and type the code it shows on the phone. They go in at the times you hit them, and sending again only sends what's new.",
+        "Your handicaps come back to the phone with each send - the launch monitor's, and the swing pad's and a controller's at each level, each kept apart - and the phone plays off them on its courses.",
+        "Skill points for the swing pad and controllers: rounds and challenges played with them earn XP, and XP earns points to spend on eleven skills - Power, Accuracy, Curve control, Consistency, Feel, Tempo, Strike, Trajectory, Short game, Putting and Recovery. 75 points at most, and past 60 they're far harder to earn, so pick what you want to be good at (Menu, Swing pad & controller, Skill points). Moving points is free below level 5, then once a season.",
+        "A shot set up before you swing - higher, lower, more spin, a draw or a fade - is now harder to hit: a crooked swing goes more crooked and the window round the flag's mark is narrower. A stock shot plays as before, the shot setup card says the price, and the Trajectory skill takes back what a height or spin adds.",
+        "Swing pad and controller distances now depend on your level: a good drive (carry and roll) goes 180 yards at Beginner, 213 at Amateur, 245 at Pro and 262 at Tour, and Power skill points take it up to 220, 260, 300 and 320 - every club with it (a long hitter's irons a little less: a Tour player's 7 iron carries about 180), and the club suggested fits. Custom picks which level's distances it plays.",
+        "A new swing pad or controller player's handicap now starts as the golfer their level is named after - Beginner 28, Amateur 15, Pro 5, Tour scratch - so a Tour player gives a Beginner strokes. After three rounds your own scores take over.",
+        "Online, the host can play with each player's skill points or none (Skill points online, on the course panel).",
+        "Phone app: the screen while you play is much less busy. The words over the picture sit between the touch buttons and the swing pad, a short line each (the hole, what the lie does to your carry, the slope), and the numbers along the bottom stay clear of the swing pad, so the lie and the rest are always readable. The whole sentences are in the side panel.",
+        "Phone app: the swing pad stands clear of the side panel's tab, so the tab is easy to open, and no keyboard keys are mentioned - the card before a round just says Start a round.",
+        "Phone app: the frame rate, if you show it, is just the number at the top of the picture. Tap it to see the rest.",
+        "Phone app: before a round, each course that comes with the app plays a flyover film of its first hole straight away, while the hole itself gets ready behind it. A course of your own shows a flyover of another hole until its own is ready.",
+        "Beside a bunker with a raised lip, the fairway now runs cleanly up to the sand: the dark, saw-toothed patches that showed on the fairway next to some bunkers (Golf Sim Links' 2nd among them) are gone."
+      ]
+    },
+    {
+      "version": "3.0.606",
+      "date": "2026-10-25",
+      "notes": [
+        "Mouse and controller swings now have set club distances: a full swing (100%) carries each club its own distance - the driver 230 yds, a 7 iron 150 - and a 90% swing 90% of it, down to a little chip with a wedge. As you pull back, the swing pad shows the swing's size and how far it carries (or a putt's feet).",
+        "You can overswing, but only to 105%: a little further, and every percent past 100 makes a crooked swing more crooked and the shot less predictable. On a controller a full swing is just short of the stick's edge and 105% is right at it, with a tap of rumble at each (Controller rumble in the menu turns it off).",
+        "The swing's rhythm counts too: pull back about three times as long as you push through for a smooth swing - rushed or snatched, the shot comes out shorter and more crooked. What the shot did says its size, its line and its rhythm.",
+        "Shot setup: before a full shot or a chip, press Y on the controller (or Shot on the swing pad) to curve it left or right, hit it lower (a punch, or a bump and run near the green) or higher (a flop with a wedge), and put more or less spin on it. A curving shot still lands where you aim. It lasts the one shot.",
+        "Levels for the mouse and the controller: Beginner (a mark on the pad where to stop for the flag, close enough counts, putts read for you), Amateur, Pro (your own distances and reads) and Tour (every fault shows), or Custom with each help a switch. Each saved player can have their own (Saved players); the old How forgiving setting carries over.",
+        "Controller and mouse players now get a handicap of their own for each level, kept apart from their real one, so they can play fairly against someone on a launch monitor: in a round each player plays off the handicap for how they're swinging, and the round card says which. Until you've played three rounds at a level it starts from that level's own figure.",
+        "Online, the host's mouse and controller rule now sets the easiest level anyone may swing at (Amateur, Pro or Tour), and Y on the controller is now the shot setup - the camera's follow / stay put is on the controller panel (View).",
+        "Calibration is gone: the flight is close to the launch monitor's own carries without any setting up, so the calibration panel (Shift + C), its page, Calibrate in Shot history and saying \"calibrate\" have all been taken out.",
+        "Carry adjustment (Menu, Ball flight) is still there if you want every club a little further or shorter: 0 is A² Golf's own flight.",
+        "Online, everyone sees each bay's carry adjustment: beside the bay in Online play, when the game starts, and if it's changed during the game. The host can have everyone play A² Golf's own carries instead (Carry adjustments online, in the course panel); each bay's adjustment comes back when the game ends.",
+        "Bunkers with a raised far face no longer show a dark crack or a thin line of sky along the top of the face.",
+        "Ponds: the bright green line along the top of a pond's bank is gone. The grass now runs down the bank towards the water - nearly to it on gentle stretches, over pale silt and gravel, and stopping at a short worn bank of earth on steeper ones - so each stretch of shore looks different, and the water is muddy and shallow where it meets the bank.",
+        "Bunker edges vary: some cut clean with a thin dark line of soil, some with the grass thinning softly into the sand, some ragged and worn - a mix on parkland courses, mostly clean-cut on modern ones.",
+        "The mown grass flows as a mower leaves it: no thin strips of rough left between the fairway and the grass round the green, the first cut goes on round the ends of the fairway, and tee boxes close together share one mown surround.",
+        "Hay: waist-high grass gone to seed, past a links hole's long grass where a ball would be lost, and in drifts by the trees on some parkland holes. It plays as deep rough.",
+        "Links burns now run in a channel of their own below the grass, the fairway mown right down their banks to the water, instead of a flat ribbon of water lying on the grass - and you can change one in the hole editor just like a brook.",
+        "Brooks and burns have banks worn by their water: a short face of earth under a ragged lip of turf on the outside of a bend, a narrow muddy margin with the grass nearly to the water elsewhere. They stop short of any bunker beside them.",
+        "Brooks and burns lie deeper, in a proper channel with steeper banks: from the fairway you see the far bank's face, lit by the sun or in shade, and the water shows the sky along the near side and the far bank mirrored along the far side - no longer a flat dark green stripe.",
+        "Water seen low from close by keeps its soft sheen of the sky instead of going very dark; a pond seen almost edge on from the tee still reads as dark water.",
+        "The hay has seed heads now - spikes and nodding plumes - close to and far off.",
+        "The long grass round you looks fuller: each tuft grows out of the ground in the ground's own colour with no dark foot, the tufts spread a little wider close to the camera, and the ground between them is a bolder grass.",
+        "Every tree's leaves fall in patches of light and shade of its own, so two trees of the same shape side by side no longer look like the same tree.",
+        "On courses made from a map, thin strips and corners of rough left between a fairway, a tee and a green are mown, as a mower leaves them.",
+        "Behind the scenes: the ground round a hole's bunkers, and the mower's line, are worked out quicker and a part at a time while the next hole is made ready, for fewer hitches. Nothing should play differently.",
+        "Behind the scenes: the first steps towards an Android version - a test app that plays the game on a phone with no PC, on the touch screen or with the Omni over the phone's Bluetooth. Nothing should play differently.",
+        "The side panel folds away: the tab on the picture's right edge hides it and brings it back, and it folds by itself when you hit a shot or start a round, so the picture has the whole width - the shot's numbers along the bottom of the picture instead. The pin under the tab keeps it open while you play (also Menu, Screens, Side panel pinned open).",
+        "Playing with a finger on a phone or tablet: a strip on the other side of the picture from the swing pad has the club (a longer or shorter one), the aim (tap or hold the arrows, or draw a finger sideways across the picture) and buttons for what's useful just then - Read and New putt on the green, Ball view in the trees, Next hole, Skip a flyover, Replay - with More for everything else. On a phone the top bar keeps to one row and the swing pad no longer covers the menu.",
+        "Mouse, finger and controller swings are no longer the same every time: even a perfect swing now has a golfer's own spread - a few yards longer or shorter, a little left or right, and now and then one off the middle that comes up well short. Least at Beginner, most at Tour. Putts vary a little too.",
+        "The swing pad shows its lines before you touch it - where to stop for the flag, a full swing and the most - with what the flag's swing carries, so you can see the swing to make before you start it.",
+        "The strike feels immediate: the pad flashes as you strike, and on a phone it gives a short buzz as the pull reaches 100% and 105%, and as it strikes.",
+        "Quicker between shots, most of all on a phone: the ball goes the moment you strike, coming onto a green no longer stops or slows the picture while the putt is read, and played with a finger the side panel starts folded away.",
+        "The game no longer assumes you have a Square Omni: the loading screen, the welcome, the tips and the phone's choices talk about your launch monitor.",
+        "The swing pad draws the way your finger (or mouse) went - the pull down and the push back up through the ball - so when you push across the line to hook or slice it, you see the curve you drew. The bar stays at the swing's size while you push.",
+        "Pulling far past 105% now hurts: the pad goes red and says Too far!, and the shot is over the top - shorter, sprayed off line, and often badly mishit. A touch past 105% is let go.",
+        "The phone app now opens on a choice of two: Play (golf with your finger - a round, the range and greens, the challenges, your level) or At the range (with your launch monitor - a range session or a course). The one you used last comes first, and Menu, Change route goes back to it. The phone's menu leaves out what's only for a PC bay.",
+        "Smoother on a phone: the phone app draws the 3D picture at far fewer pixels - about a third as many on Medium - and stretches it to fill the screen, with the words and buttons still sharp.",
+        "The frame rate's line (Show the frame rate) now says the picture's size in pixels as well.",
+        "The loading screen's picture of a course's tee shows the tee again, not a dark screen.",
+        "Play with friends on the phone app: from Play, host a game and give your friends its code, or type theirs to join - phones and PC bays play the same round together, each hitting their own shots. The phone plays online by code only (no home network or Tailscale).",
+        "The first cut now runs right up to the long grass. Where it curves round to meet the mown grass by the green, and beside the ends of the fairway, a dark wedge of bare ground used to show between them.",
+        "A new look for the menus and buttons. The menu's pages are sorted by subject in three groups - Play (Play, Players, Swing pad & controller, Ball flight, Greens), Set up (Launch monitor, Screens, Graphics, Cameras & video, Sound & voice) and More (Stats, Help, System) - and each setting says what it does in two lines, with More for the rest.",
+        "On the phone the menu is a page at a time: a list of big tiles, tap one, and Menu at the top goes back - every switch and button big enough for a thumb. The top bar is a few big buttons: where you are (tap it for the five places to play), the club, who's hitting, sound and Menu.",
+        "Prefer the old look? Menu, Screens, Menus and buttons: Legacy puts the menus and buttons back as they were, and New brings this one back."
+      ]
+    },
+    {
+      "version": "3.0.597",
+      "date": "2026-10-23",
+      "notes": [
+        "Island greens can now be made on a par 3: a pond grown right round the green is no longer stopped by the cart path beside it - where the path meets the water it crosses on a timber bridge (or ends on a little jetty).",
+        "Course designer: Play this hole plays just that hole, then shows its scorecard and takes you back to the designer on the same hole - it no longer carries on round the rest of the course, and it isn't kept as a round.",
+        "Hole editor: change a pond's shape - pick it and drag the blue marks round its edge to push the shore out or pull it in, with the edge running smoothly between them. Its own shape again puts it back.",
+        "Hole editor: the Fairway tool's new Add and move puts more fairway on a hole - tap anywhere (in front of a par 3's green, behind it, out to one side), then drag it, size it with its white dot or shape it with the blue marks round its edge. It plays as fairway with its first cut round it, and the hole's own trees are cleared off it.",
+        "An island green's causeway now runs onto a fairway if there's one near - so with the whole front of a par 3 under water and a fairway behind the green, the walk off goes out the back onto that fairway.",
+        "Hole editor: water can now be as big as a lake needs and come right up to the tee box, and the causeway to an island green reaches however far the land is. When a pond can't go somewhere, the red outline now says why (on the tee, off this hole's ground, as big as it goes).",
+        "Hole editor: shape an island green's causeway with the Fairway tool's new Causeway - make it wider (up to 30 m), flare its ends out where they meet the green and the land, or drag the yellow dot at its end to turn it round the green and run it further onto the land.",
+        "Voice no longer puts a \"did you say this?\" box over the game, in any mode. When it hears something other than a club, it says what it heard in the messages - say \"confirm\" or press Y to do it, or just carry on and nothing happens.",
+        "Menu, Screens: the new WebGPU test flies the same 20 seconds round the driving range drawn three ways - today's WebGL and the new WebGPU renderer on WebGL 2 and on WebGPU - and shows each one's frames a second with a picture of it, to see what WebGPU would do on your PC. Send to Claude passes the results on. (The new renderer draws nearly all of the range as the game does now - the grass, sand, water, sky, haze, clouds, nets, far woods, the tufts in the rough, the trees and plants swaying in the wind with the sun coming through their leaves, the bark, flags, rocks, cart paths, the water's sparkle, the rain and the balls' shine; only the sand and spray a ball throws up is still to come.)",
+        "Between holes, a cart ride to the next tee: a cart waits by the green, the camera gets in and looks up at the screen under its roof - the scorecard on it, the course blurred round it - while it drives to the next tee and the next hole finishes loading. Next hole once it is ready, or Watch the drive to follow the cart to the tee first. (Menu, Play: Ride the cart to the next tee - off, the scorecard over the picture as before.)",
+        "On High and Ultra graphics the cart between holes is now a proper golf cart: a rounded cream body with headlamps, tail lamps and a pinstripe, tyres with tread on silver spoked wheels, padded seats with grab rails, a steering wheel and dash, an arched canopy over a clear windscreen, and the bags with their headcovers and irons on the back. Standard and Medium keep the simpler cart."
+      ]
+    },
+    {
+      "version": "3.0.575",
+      "date": "2026-10-22",
+      "notes": [
+        "Three screens: the command centre opens straight away as A² Golf starts, beside the game and the shot data, showing the loading card until its controls come in - as soon as the game has made them, while the picture's still getting ready.",
+        "Island greens: a green with water all round now gets a strip of fairway across to the nearest land, built by itself. It plays as fairway, the water stops at its edges, and it's there for as long as the green's an island - move the pond or the green to the shore and it goes.",
+        "Island greens: no tree, bush or decoration stands on the strip of fairway out to the green, or right beside it - any that was there goes while the green's an island, and the hole editor won't plant one there.",
+        "Trees take about 28 MB less memory on Ultra (about 23 MB on High), and if the graphics card ever resets the picture, the far tree line comes back with it - before, it stayed empty for the rest of the game. A hole from a map gets ready a little quicker as the one before it is played.",
+        "Trees: no more large gaps where the sky shows through a crown, and no leaves hanging in the air off it - the crown fills out its leaves, near and close up, on tall trees too. Close up, a tree's branches are plainer, hidden in its fuller crown (a birch keeps its twigs).",
+        "Trees: a birch's leaves now have branches to them further off too, not only close up - a plain branch from its trunk into each clump of leaves.",
+        "Smoother play on parkland courses: the glimpses of the course's other holes are now built in small steps while the next hole gets ready, so they no longer cause a brief pause."
+      ]
+    },
+    {
+      "version": "3.0.566",
+      "date": "2026-10-21",
+      "notes": [
+        "Trees close up: each leaf has its side veins and lays a soft shadow on the leaves under it, with the lightest on top, so a crown looks layered rather than flat. The far tree line is as full as the trees in front of it, and the leaves take about 34 MB less memory on Ultra.",
+        "Setup steps, connection messages and the guide no longer name other golf software: where it matters, they just say to close any other program connected to your launch monitor.",
+        "Command centre: when the mode's buttons don't fit on one row (putting's tabs and cup buttons on a smaller window), the mode's box gives them two rows instead of hiding the first under the top bar.",
+        "Command centre, arranging (Shift + B): the boxes in the mode's box can now be dragged anywhere inside it and sized by their edges, and stay where you put them - the rest fit round them. Tidy up packs them again.",
+        "Command centre, arranging: the big Arrange panel minimises to a small strip (its Minimise button, or H) so it's out of the way of the boxes you're moving - Show the panel brings it back, and it stays as you left it.",
+        "Problem reports: when the same problem happens again, the update to its report now says what was going on that time too (how long the game had been running, the memory, the recording and the graphics), so it can be tracked down without sending a report by hand.",
+        "Recording: if the graphics card crashes while you record, the video now holds the game's last picture with \"The game's picture is coming back...\" instead of carrying on with the game missing, and if the picture doesn't come back by itself the game reopens to get it back, the recording carrying on in its next file.",
+        "Command centre: the Messages box stays in its drawer tab when a message or card comes in - a number on the tab says how many are new, and goes when you open it.",
+        "Fewer messages: aiming, stepping along the putt's line, a flat green and changing club or mode no longer each leave a message - what changed is on the screen already.",
+        "The view behind the ball is lower and closer, like a golfer standing behind it - no longer like looking down from somewhere tall - with a lens closer to your own eye's, so the hole ahead looks bigger. The range's view from the tee is the same.",
+        "The mini map and the course designer show brown links holes as brown dunes - khaki rough, straw long grass, a yellower fairway, with the sandy and heather patches - as they look in the game, not all green.",
+        "Recordings get 10 GB of disk to begin with (it was 5) - about two hours at 1080p60 - with the oldest still deleted first to make room. A size you've set yourself stays as it is.",
+        "Three screens: the projector (or any screen) not yet on as the game starts no longer loses its window for good - the window waits elsewhere and goes back when the screen comes on, the shot data included - and the controls window gets longer to open while the game loads, so three screens don't come back as two.",
+        "Who's playing opens on the command centre screen at start-up, waiting for it to open, rather than on the projector.",
+        "A new video, the Launch trailer (Menu, Play, Videos): A² Golf in about four minutes for YouTube - friends online, designing your own course, practising and getting better, the weather and an ace. Every video's recording now has a cue sheet beside it, and a tool that comes with the code lays your music under the trailer, adds YouTube chapters and cuts four upright Shorts from it.",
+        "Trees are cheaper to draw and to hold, and look just as they did: each leaf card is trimmed to the leaves on it, so the busiest woods take about a fifth less drawing, and all the trees on the course now share one copy of the tree shapes - about 45 MB less memory on Ultra once the next hole is built (and as much less graphics memory), with 20 MB less graphics memory for the far woods' pictures.",
+        "Reflections in ponds on Ultra are a little cheaper on a calm day: only what the ripples could actually bend into view is drawn for them, by how rough the water is just now, rather than as much as the roughest water ever needs. In a gale with rain the reflection no longer misses the odd speck at its edge.",
+        "Bunkers and water react to the ball: sand puffs up where a ball lands in a bunker, and a bunker shot blasts a fan of sand out ahead of it with a haze of dust - more from a ball plugged in the sand. A ball going into water throws up a splash of drops and white water, and if it goes in close to the edge it splashes the bank dark for a while. On Ultra the ball also leaves its marks in the sand: a dent where it lands, the scoop a bunker shot takes, and the crater round a plugged ball. On Medium and up, on the course and the range.",
+        "New courses have more natural bunkers and water: now and then a greenside bunker curves round the green, bunkers come in a wider spread of sizes - small ones, big ones and long ones down the edge of a fairway - and some have a flashed face, the sand climbing the far side to a raised lip of grass you can see from the fairway (a ball on it runs back down into the bunker). Some ponds off the side of a hole are natural lakes, and a lake's far shore can be a wetland of wide, muddy shallows thick with reeds. The ready-made courses are given again with them; any you've changed is kept too, as \"your copy\". Courses you made before stay as they were.",
+        "Two bunkers that overlap are one patch of sand again, dug once: no grass edge across the sand between them, and the sand where they meet no deeper than either.",
+        "The green always comes first: a pond or lake that runs onto a green - a course made from a map could draw one right across it - now stops at the edge of the green's fringe, with its muddy shore there, and the green and fringe play, putt and look as they should. A pond's bank no longer digs into a green beside it either. Water that stops short of a green, like a pond walled up to it, is just as it was.",
+        "In the hole editor a pond can now go over a green, or all the way round it for an island green (a brook or a pond with a wall still can't reach the green).",
+        "No more short pauses while the next hole is got ready in the background: on a links hole with deep pot bunkers the longest was nearly two seconds, and now each piece of the work takes under a fifth of a second. The holes come out exactly as before.",
+        "Blind shots on courses on hills have an aiming post: where you can't see where your drive will land from the tee, a tall red and cream post stands on top of the rise that hides it, on the line to the landing - aim over it. A par 3 whose flag you can't see from the tee has one too, and the Alps hole has one on its ridge, on the line to the flag. Every course on hills gets them, those you made before too.",
+        "Online golf pong in turn: when two players at the same bay putt one after the other, the other bays now see both putts roll, one after the other. The second used to be left out there - its cup just disappeared. In four-way, a putt at a cup round to the side of the rack beside you counts now: the host used to turn it down, and the bay that putted it showed the cup holed, then quietly put it back.",
+        "Online play by code: if the host turns down something your bay sent, you're told on the screen, as you are playing across the house - and golf pong goes back to how the host has the game."
+      ]
+    },
+    {
+      "version": "3.0.561",
+      "date": "2026-10-20",
+      "notes": [
+        "The Omni no longer flicks between connected and \"looking for the Omni\" in the top bar after the game has been left a while without it: a second, hidden connection to it was left open that kept saying it was still starting.",
+        "The frame rate box (Shift + F) counts the picture's own triangles, so the number holds steady instead of jumping each time the shadows are drawn again. While they keep being drawn again it says how often, and a report says what made them.",
+        "The Omni's \"Marking ball\" tick is gone from the menu: the Omni measures spin on any ball, so it's no longer a choice, and every shot is read just as before. The Launch monitor page now says so.",
+        "No more long freezes while the game gets holes ready in the background: on courses made from a map (Hillside Park, Nine Oaks Mountain) the long grass is worked out about ten times quicker on Ultra, and never in one go - one report showed the game frozen for nearly two minutes. Links holes get ready quicker too.",
+        "The speed test no longer freezes for several seconds while it gets each setting ready.",
+        "Ultra is smoother while the camera flies: following a ball through the air, flyovers and the look down the hole are drawn at your screen's own sharpness, and the extra sharpness comes back the moment the camera stops. Recordings keep theirs all the way through.",
+        "The game no longer takes more memory with every hole you play: each hole's trees, long grass and Ultra's grass across the hole are let go of with it (on Ultra that was about 30 MB a hole). And after watching the last hole again with J, its trees change from far to near as the camera comes close again."
+      ]
+    },
+    {
+      "version": "3.0.559",
+      "date": "2026-10-20",
+      "notes": [
+        "The dunes on a links course look like dunes from the air: their ridges wind and branch, where before they ran in straight lines and right angles that showed as terraces from a high camera. A ball in the dunes still kicks off the ridges and runs into the hollows.",
+        "A links hole full of pot bunkers is quicker to draw: the finely shaped ground round each pot now covers just the pot and its banks, not 80 metres round it hidden under the rest of the ground. Nothing looks or plays any differently.",
+        "Where the next tee is right beside the green you've just played, there's no longer a board for it standing there: you can see the tee.",
+        "On a links course the only sand is in the bunkers, on and beside the fairways and by the greens: the patches of bare sand out in the dunes, which played and looked like bunkers in odd places, are gone.",
+        "Following a ball through the air on Ultra is smoother, most on a links course: from up in the air the grass across the hole isn't drawn as far out (it fills in as the camera comes down to where the ball lands, where it's already grown), and reflections in the sea and in ponds are drawn every other frame while the camera glides, which halves what they cost. The grass a shot grows no longer shows up in the water for a moment as each shot is set up.",
+        "Recordings on Ultra are sharp again: the picture is supersampled while recording, as far as the recording can use - a 1280 x 800 game screen is drawn 1,080 lines tall for a 1080p recording - instead of not at all. If the picture can't keep up while recording, that's the first thing eased.",
+        "Making a course is quicker: laying it out on hills, routing its holes and finding the best holes (Best holes) all take less time, and the courses come out exactly as they did before.",
+        "Tidy up in the command centre no longer makes the game box so wide that the other boxes go off the bottom of the screen: it leaves room for them all beside it. A box in the game box that doesn't fit is made shorter rather than pushed out of sight.",
+        "On Golf Sim Links the 18th tee is no longer right beside the 17th green: the 17th now swings a little further round, so you walk off the green to a tee that's clear of it. Nine Oaks Mountain's 9th tee is off the 8th green too, and new courses you make keep each next tee a short walk from the green you've just played, not on top of it. (The ready-made courses are given again for this; any you've changed is kept as well, as \"your copy\".)",
+        "Trees look fuller and rounder: broad-leaved trees have more, finer leaves, and each crown is lit as one rounded mass in the sun rather than as a bunch of separate balls. They're cheaper to draw too - about a third fewer triangles a tree, every kind's leaves drawn together, and the branches of the trees close to you lighter - so a hole lined with trees runs a little smoother, most on High and Ultra.",
+        "Bunkers and ponds sit in the ground now instead of lying flat on it. Every bunker on a designed course is dug a little below the grass, deeper by the green, with a face from its rim down to the sand - so there's a small lip to clear (nearly any club with a little loft gets out). Ponds lie a foot or so below the grass, the grass rolling over the edge onto a bank of earth that runs down into the water. Pot bunkers, waste areas and courses from a map are as they were.",
+        "Reflections in ponds on Ultra are cheaper: only what could actually be seen in a pond from where you are is drawn for it, rather than the whole hole again - a quarter to a third less from up in the air as you follow a ball. What the pond shows is exactly the same.",
+        "More kinds of tree shape: every kind of tree now comes in two more shapes, each with a look of its own - pines grown tall in a wood with a small crown high on a long trunk, and young ones full to the ground; broad-leaved trees grown out from the edge of a wood, and parkland plane trees with a broad dome on a tall, clear trunk; weeping and broad old birches, willows leaning far over, slender and fuller poplars, young and forked Scots pines, upright and storm-bent oaks, slim cypresses and broad old yews, old spruces with their lower branches sweeping the ground, broken stumps and dead trees with bare branches only at the top. About one tree in four takes one of them; the rest keep the shape they had. A tree plays exactly as it looks, whichever shape it is, and in the hole editor you can give trees any of their kind's shapes.",
+        "Trees close to you have finer branches: on High and Ultra a broad-leaved tree's limbs branch on into twigs out to its leaves, with some of the leaves in sprays on the twigs, so the edge of the crown breaks up and you can see the branches through it from underneath. Plane trees have their own broad, five-pointed leaves, and each part of a tree's crown is its own shade of green, a little warmer or cooler than the next."
+      ]
+    },
+    {
+      "version": "3.0.558",
+      "date": "2026-10-19",
+      "notes": [
+        "The signs for the next hole no longer stand beside the green you've just played: the arrow on to the next tee now stands on the way there, at least 15 metres from the green, pointing at the tee, and the next tee's board is moved on past the tee to 15 metres from the green where the tee itself is closer than that.",
+        "No more trees standing right in front of the next hole's tee: the trees round a green were often planted in the next tee's view down to its fairway. Every hole's tee shot now has a clear view, as it always had of its own trees.",
+        "Links holes no longer have sand scrapes out on the beach: they stay in the hole's own dunes.",
+        "A burn across a links fairway now shows its water: it was drawn murky green from bank to bank, and from above looked like a dark streak across the fairway.",
+        "On courses on hills, another hole's fairway running past the back of the hole no longer has a dark strip of rough across it where the hole's ground ends."
+      ]
+    },
+    {
+      "version": "3.0.556",
+      "date": "2026-10-19",
+      "notes": [
+        "Recordings are about half the size: a new Format setting in the Recording panel (Recording and sound) records in H.265 where your graphics card can - much the same picture in a little over half the space, about 3 GB an hour at 1080p 60 on Best instead of 5.5. Windows' own Media Player needs Microsoft's HEVC Video Extensions to play these (VLC, YouTube, phones and the game play them as they are); choose Plays anywhere (H.264) for files every player opens.",
+        "Recordings also look a little better for their size: a whole picture every 4 seconds instead of every couple of seconds, with the frames between only what changed.",
+        "Every replay you have saved is now in one place: Menu, Cameras & video, Every saved replay (or Every saved replay... in the Cameras panel, or the Saved replays page in the Recording panel). Each saved shot is listed newest first with who hit it, the club and the carry; Watch plays all its camera angles side by side from the swing, in slow motion if you like, and Delete removes a shot you no longer want.",
+        "The sky is a clear blue again when the sun is high: it no longer washes out to a pale grey-blue at midday, the higher the sun the deeper the blue overhead, and the glow round the sun is smaller. The clouds stand out whiter against it. A sky at dusk looks as it did.",
+        "Every edge a mower makes is now a neat line: the fairway, the first cut, the tees and the greens. The long grass stands up in a straight, unbroken line right along each cut, with no blades straggling over it - only the deep rough and the grass round bunkers, water, paths and trees keep their natural edges. Every tee box has a strip of first cut round it and every green a channel of first cut past its fringe; these play as first cut and show on the hole map.",
+        "A crash no longer ends a recording: when the game opens again after a crash, the recording carries on by itself in a new file, kept with the rest of it, and says about how much is missing. The file that was cut off is saved as it was. Closing or reloading the game on purpose still ends the recording there and then.",
+        "On Ultra the blades of grass on the fairway and the tee now follow the mowing stripes: on a dark stripe they're dark, on a light one light, so the stripes run on through the grass instead of the blades showing up pale across the dark stripes. The tee's grass is the tee's own colour too."
+      ]
+    },
+    {
+      "version": "3.0.553",
+      "date": "2026-10-19",
+      "notes": [
+        "A new setting, Celebration effects (Menu, Screens, The picture): switch it off for no confetti, streamers or fireworks - just the score and the crowd cheering, with no other sounds.",
+        "A birdie, an eagle and a hole in one now get a real crowd round the green instead of a made-up fanfare: applause for a birdie, a cheer for an eagle, and the whole gallery roaring for a hole in one or an albatross. A different recording each time; the made-up fanfares come back if you turn recordings off in the Sound panel.",
+        "The celebrations look new too: confetti cannons either side of the flag fire confetti and paper streamers up over it, gold and silver foil flashes among the confetti, and the fireworks come in four kinds - a ball of sparks, a ring, a gold willow and crackling glitter. A birdie's confetti comes from the cannons one time and rains from the sky the next.",
+        "The command centre's side drawer now comes over the boxes instead of pushing them across: opening it moves nothing, and closing it shows the boxes underneath again. It starts closed; click a drawer tab to open it and click the same tab again to close it.",
+        "While arranging the command centre you can minimise the drawer (D, or its button) to lay out the boxes under it, then open it to drop boxes in and minimise it again. Dropping a box on one of its tabs on the edge puts it in that tab, and dropping one on + tab starts a new tab with it.",
+        "Boxes in the drawer can be sized now: while arranging, drag a box's bottom edge to make it taller or shorter, use − and + for its text, and drag the drawer's left edge to make it wider - each tab keeps its own width. A box on a tab of its own (the Options or the Keys, say) fills the whole drawer.",
+        "Fixed: a shot the launch monitor sent twice could be played twice - the ball moved to where the first one landed and the same shot went again from there. A shot that comes in twice is now only ever played once.",
+        "Mulligans: switch them on in the course's Options (or Menu, Play, The round) and Shift + M takes your last stroke back - in the air or after it's stopped - so you can play it again from where you were. Never in online play or a scramble, and off to begin with.",
+        "The crowd gets more excited the better the score: a birdie gets a round of applause, an eagle two cheers from either side of the green and louder, and a hole in one the whole gallery roaring - loudest of all.",
+        "The command centre is now the same screen whatever you're playing. This shot, the messages, the game screen and the rest stay where you put them, and each mode's own boxes - the scorecard, the map, the dispersion - go in one box, the mode's box, that stays in the same place and just changes what's in it when you change mode. Move and size it as one while arranging.",
+        "A second drawer down the left of the command centre holds the options for the mode you're in: Practice on the range, This putt on the putting green, the course, season and round options on the course, and so on. Open it from its tab on the left edge (A while arranging); the keys and the shot history stay in the drawer on the right. Any box can go in either drawer.",
+        "While arranging the command centre, every box now says whose it is - All modes in blue, or Course only (Putting only...) in green - and See each mode on the arrange bar shows how the window looks in each mode without the game going there, so you can check they all fit. Boxes for every mode, the top bar included, now never move unless you move them.",
+        "Golf Sim Links, Sea Links and Hillside Park are made again the way the course designer now makes a new course with Best holes: other designs of each weak hole tried and the best course kept - new designs of five of Golf Sim Links' holes and five of Hillside Park's - and the stroke indexes set from how the holes play. Your copies are replaced as the game starts; one you've changed is kept as your copy.",
+        "The game's videos are played on these new courses: every hole still the one picked for what it shows, and every shot found again on it. The Looks and sound video now shows the picture effects from behind the tee of Hillside Park's 9th, its lake right across the line in front.",
+        "Fixed: a course made on hills with Best holes on had its holes laid out as on flat ground. They're routed over the hills again, finding the land, as with Best holes off.",
+        "The command centre has a new This shot box for every mode, in place of the Shot details and each mode's own result, guide, lie, target and status boxes: who's hitting and with what (and the club the game suggests if you've picked another), the result and the note in full, the lie and putt guidance, the lie of the land drawn as on the game screen, the distance to the pin and the score - and Next shot buttons (Normal, Punch / low, Part swing, Something else, or a power from 25% to Full) to click instead of pressing E.",
+        "A Last shot box shows the last shot's numbers for every mode: the range's carry, total, launch and spin, the putt's ball speed, start line, the pace it needed and how far it finished, the chip's carry, landing, leave and roll - and on the course and in the Challenges the launch monitor's numbers with the flight the ball really flew.",
+        "Each mode's tabs and play buttons - Practice, Distance challenge, Golf pong, Start round, Start, Pick a game, New game, the putt's aim, Session view - are now along the top of the mode's box in the command centre, so they're never shut away in a closed drawer. The mode's boxes are drawn bigger when there's room, so the box isn't half empty.",
+        "Cards that want an answer (Odd shot?, the graphics question, the course's card before a round and the rest) now sit at the top of the Messages box in the command centre until they're answered, instead of sliding out of the drawer.",
+        "The Game screen box has Replay and Save for the last shot's replay on its heading; the club picker is in the top bar on the course and in the Challenges too; the shot history can mark a shot Something else; and golf pong's score has a box of its own.",
+        "Fixed: the flight path on recordings and in the command centre's flight boxes was the launch monitor's numbers flown again in still air, not the shot you saw. It's now the flight the game really flew - its wind, the lie, the air and, on a course, the ground it came down on - with that flight's carry, total, apex, hang time and descent.",
+        "The command centre's top bar now shows the laptop's time, so you can see it at a glance without reaching for your phone (the date is in its tooltip). For a bigger one, add a Clock box from the Arrange bar.",
+        "Trees no longer bleed light. Sunlight through the leaves is now a subtle glow only where the sun really reaches a leaf - along a crown's edge, on a leaf out on its own - never across a whole crown or one standing in another tree's shade, and the underside of a crown is no longer lit up from within.",
+        "Fixed the white blobs (sometimes red) that flashed on the screen: the sun's reflection in the ball and on ponds was far too bright for the bloom, which spread it into a hard white disc, and the sun itself could get into the bloom through the gaps in a swaying tree. Glints now bloom softly, the sky never does, and the picture's effects no longer pass on a bad pixel.",
+        "Trees read as rounded now, near and far: every crown is shaded darker in its heart and underneath and lightest outside and on top, as only the close-up trees were, so a tree is a round mass with light and shade in it rather than a flat green clump.",
+        "A new picture effect, Harder sunlight, on to begin with: a stronger sun and a softer light from the sky, as on a clear day, so shade is under a third as bright as the sun rather than half, and trees, slopes and bunker faces stand out - less so as the sun gets low, so an evening round isn't dark. Switch it off under Picture effects for the softer light the game had.",
+        "The far woods are lit by the sun from the side it's on (Medium and up): each far tree's picture now knows which way it faces, so the distant tree line has light and shade across it instead of being one flat band, and the trees across a hole keep their lit side towards the sun as you move round them.",
+        "On the range the ball now sits on the right-hand side of the hitting mat for a right-hander, with room for your feet on the left, and on the left-hand side for a left-hander (each player's hand is in Players); the pyramid of balls stands on the other side. The mats change round as a left-hander steps up.",
+        "Ball flight: low-spin drives now fly the way the Omni and other simulators fly them - higher and further through the air, landing a little steeper and rolling out less - instead of flying low and short and then running on a long way. A 1500 rpm drive at 150 mph that used to carry 219 yards and roll 45 now carries about 237 and rolls about 34. Totals stay much the same; it is the split between carry and roll that has changed. Your lowest-spin Omni drives now carry within 1-3% of what the Omni shows.",
+        "Every drive flies a truer shape too: a tour-speed drive now peaks about 34 yards high and lands at 38 degrees, as on TrackMan, and spin fades through the flight at the rate measured in the wind tunnel. Higher launch with less spin carries further, as on the Omni - but a drive with next to no spin from a normal launch still falls out of the sky.",
+        "The ground was set again to go with it: on a normal fairway a drive still runs out 15-25 yards (a low-spin one about 30), firm ground about half as far again, soft ground and the first cut about half, the rough about a third - and a well-struck wedge still spins back on soft ground.",
+        "If you had matched A-Squared Golf to your Omni on the calibration page, that match is set aside with the new flight (it was made for the old one) - you should not need it now, but you can fit one again from fresh shots. Your older shots in My stats are brought into line with the new flight automatically.",
+        "Other launch monitors can play: choose yours in the menu (Launch monitor) or on the welcome screen, and the steps to set it up show underneath, with this PC's address and the port already filled in. Garmin R10, Rapsodo MLM2PRO, Uneekor, SkyTrak, Foresight GC2, ES16, PiTrac and anything else that talks to GSPro - plus Mevo+, R50, TrackMan, Full Swing KIT and SC4 through a community program that reads their app. The Square Omni still connects by itself over Bluetooth, as before.",
+        "A Garmin R10 needs no extra program: in the Garmin Golf app, connect E6 Connect to this PC's address and A² Golf plays each shot and gets the R10 ready for the next one.",
+        "The top bar waits for your launch monitor by name (Waiting for your Garmin Approach R10) and names it once it's connected (Garmin Approach R10 connected), and a radar's spin, which it works out rather than measures, is kept out of your spin tips.",
+        "Fixed for launch monitors that send their shots through a connector: Uneekor's shots no longer fly with no spin, shots some connectors mark oddly are no longer missed, club data sent after its shot is kept with it, and a shot a connector sends twice is played once. Connectors that wait to be told the game is ready for the next shot (the SkyTrak's, the community Square one) are now told.",
+        "Twice as much long grass on the course, and cheaper to draw: only the tufts within a dozen metres or so of you are drawn in full, every one further off as a single cheap card of blades that keeps its colour at any distance. From the air the grass and the ground between the tufts are one colour now - the long grass round the ball no longer shows as a darker ring, and the rough right under a high camera reads as standing grass rather than a flat carpet."
+      ]
+    },
+    {
+      "version": "3.0.549",
+      "date": "2026-10-16",
+      "notes": [
+        "The course's other holes are no longer cut off beside the hole you're playing: from the air a neighbouring fairway, green and tee run on whole, bunkers and all, through your hole's rough.",
+        "In the rain the rough no longer shines like the fairway, so trees along a hole don't look as if they're standing on a fairway.",
+        "Any box in the command centre can go in its side drawer: drag it onto the drawer (it opens while you arrange), press its → drawer, or use Arrange ▾ (← out takes one back out). The drawer has tabs too: + for another, ✎ to name it, and drop a box on a tab's name to put it there.",
+        "The command centre stays put: each box keeps its place instead of the whole screen rearranging itself when the ball reaches the green or a box comes or goes. Boxes are only packed again to make room, or when you open or close the drawer."
+      ]
+    },
+    {
+      "version": "3.0.546",
+      "date": "2026-10-16",
+      "notes": [
+        "No more pop-ups after a shot asking about it. A club that flew like another, a very short shot, a thin or fat strike on the range, a reading that didn't look right, a chip that went like another swing and the end of a session each just leave a message in the Messages box, saying what was kept - change the club or mark the shot in Shot history.",
+        "Boxes taken out of the command centre's side drawer can always go back: drag one back onto the drawer, press its → drawer while arranging, or use Arrange ▾ to put them all back. While arranging, a box in the drawer only comes out when it's dragged out.",
+        "Recording: the YouTube and Finish layouts are new. YouTube has a neat column down the left (the hole, the player, your cameras, and the flight path while the ball flies) and lighter numbers along the bottom. Finish shows the round card with your first camera in the corner. Layouts you never changed update by themselves.",
+        "Rain: the long grass and rough far off no longer turn a pale grey after rain, which made the trees on them look as if they were standing on a fairway.",
+        "Trees no longer hang over the next hole's fairway or green: each tree is kept clear of other holes by the reach of its crown, not just its trunk.",
+        "Grass tufts no longer grow on a neighbouring hole's green or fairway.",
+        "Trees look more natural: looking towards the sun, the leaves no longer glow a bright yellow-green that bled through the crowns, and the leaves have no pale rim round them. On Ultra the leaves, and the sun's rays through them, flicker less - in recordings too, where the picture is also shrunk more smoothly."
+      ]
+    },
+    {
+      "version": "3.0.542",
+      "date": "2026-10-16",
+      "notes": [
+        "Menu → Play → The round: Restart the round starts the same course again from the 1st tee, and End the round finishes it now - its scorecard comes up, the scores so far are kept, and the videos and the demo can play.",
+        "Command centre: the Game screen box has Game | Recording on its heading - switch it to see what's being recorded, live, right there. The small recording box no longer pops up on the game window while you arrange it (unless you've chosen it).",
+        "Command centre: the course's Options (gimmes, green speed, wind, sky and the rest) now sit in the drawer down the right with the keys and the shot history, out of the way of the other boxes."
+      ]
+    },
+    {
+      "version": "3.0.541",
+      "date": "2026-10-16",
+      "notes": [
+        "High and Ultra: pines, Scots pines, spruces and column conifers now have close-up versions too - branches under each tier of needles, the trunk showing up through the tiers and finer, denser needles - and dead trees get twigs, broken stubs and a splintered top. On Ultra every tree on the hole you are playing is drawn this way.",
+        "Messages no longer pop up in big words on the game screen and vanish: a small speech-bubble symbol pops up instead, and the words go to a new Messages box in the command centre that always shows the last few (up to eight, newest first, with the time, in 12pt). In one window, click the symbol to see them. The demo videos and the speed test still show their own words.",
+        "Pines, spruces and the other conifers (Medium and up) no longer have a solid green cone inside them showing between the branches - they're needles all the way through now, with needles under each tier and the trunk running up through the middle.",
+        "High and Ultra: the trees lining the hole now have the same leafy look as the nearest ones - each leaf its own shade and the sun showing through - so an oak 45 m away no longer looks a flat, dark green. And spruces are fuller: no more gaps between their upper tiers.",
+        "Recording: pressing Record now asks what to record - Full screen (the game window just as it shows, its own numbers, cards and messages too) or one of your scenes. Enter takes what you recorded last. To skip the question, set What to record in the Recording panel's Recording and sound.",
+        "Recording: see what's being recorded on the game screen. Shift + Q flicks the game window to the recording and back, and the Recording panel's On the game window can show it in a small box while you record (move and size it with Shift + B, like the other boxes).",
+        "Recording: the YouTube layout is new - the game to the right, and down the left the player, the hole and your cameras, with the flight path while the ball flies and the second camera close up after it lands; the mini map and ten numbers along the bottom. A YouTube layout you never changed becomes the new one.",
+        "Recording: scenes can now be saved to a file and brought in from one (Recording, then Scenes, then Scene files), to take your scenes to another PC.",
+        "Recording: the scene designer, a web page with the Recording panel's designer on it and nothing to install. Design scenes over a game picture with sample cameras and a sample shot, save them to a file, and bring them into the game.",
+        "Recording: two ready-made scenes come with the game, Broadcast and Broadcast with camera, beside the presets.",
+        "Recording: in the layer list, a long name no longer pushes the copy and remove buttons off the side.",
+        "Recording designer: boxes lock onto each other's edges (and the picture's) from further away, with a pink line showing where they meet, so they sit together cleanly.",
+        "Recording designer: type a box's left, top, width and height in pixels; Shift + click picks several to line up, make the same size, butt together with no gaps, or group so they move together.",
+        "Recording designer: outlines can be as thick as you like, a camera's border has a thickness and colour, and a new Background box sits behind other boxes.",
+        "Course designer: Make the course now finds the best course it can. It plays every hole in the head, tries other designs of the holes that are weak - no better side to drive to, nothing round a par 3's green that anyone finds - and keeps the best, then says which holes it changed and the review's score before and after. Pick how hard it looks with Best holes, or turn it off; Stop keeps the best so far.",
+        "Golf Sim Links: trees by the 13th's pond no longer sink a metre into the grass, and a tree seen past the 17th no longer floats above the ground. On designed courses, the trees round a hole now stand on the ground as it's drawn."
+      ]
+    },
+    {
+      "version": "3.0.538",
+      "date": "2026-10-15",
+      "notes": [
+        "Fixed: after playing shots on a hole, the next hole never loaded (hole 2 stayed on the loading card).",
+        "Ultra: every tree along the hole you are playing is now drawn at its finest the whole time, so the trees down the fairway no longer look rough or wait to improve as you play up the hole.",
+        "Ultra: the hole's flyover and the J replay are no longer blurred all over: the ball, the trees along the hole and the green ahead stay sharp, with only the grass right by the camera and the far distance softly out of focus.",
+        "Trees further off are now leafy, lighter versions of each kind (its own leaves, colour, season and sway) instead of chunky lumps. On High and Ultra none at all on the hole you are playing: the trees on the neighbouring holes nearby are real trees too.",
+        "Nine Oaks' greens now have Moderate slopes, with more to read than before. Nine Oaks Mountain has them too. The holes and pins are just as they were.",
+        "The ready-made courses are made again with today's course maker: Golf Sim Links' bunker walls are back on the bunkers by the 1st and 13th greens, and Sea Links' pot bunkers and cart paths are drawn as the game draws them now. A ready-made course you've changed is kept as your own copy.",
+        "On the courses laid out on hills, trees no longer stand on the cart paths, beside the tees or on another hole's fairway, green or tee, and the trees out past a hole stand on the ground rather than just above it. Courses on hills you've made yourself get the same as they load.",
+        "Behind the scenes: the game can be started on the newer graphics engine for testing it a piece at a time, with a tool that compares its picture with today's. Nothing should play differently."
+      ]
+    },
+    {
+      "version": "3.0.535",
+      "date": "2026-10-15",
+      "notes": [
+        "The ball is drawn its real size wherever it sits or rolls - on the course, the range, chipping and the Challenges - and grows only in the air, so you can still follow it.",
+        "Messages on the game screen are half the size they were, and the command centre's copy of them is as small as the rest of its text.",
+        "Recording: a long recording goes on in a new file every hour with nothing missed between them, and an earlier hour is never deleted to make room for the next. A Quality choice (Best, Standard, Compact) makes smaller files.",
+        "While recording, Ultra draws the picture at the screen's own size, which is much lighter on the graphics card. If the recording's encoder fails it says why and carries on in a new file, and it stops (saying so) only if it keeps failing.",
+        "Shot screen: every shot in its history has a Replay of that shot, and the last ten can be marked (thin, fat, ignore and the rest) or put down to another club, as in the command centre.",
+        "A camera replay never plays a shot from another day that happened to have the same number.",
+        "If the Omni stays connected but stops sending anything, the game says so and connects to it again. If it keeps going quiet (asleep, say), it tells you rather than trying again and again.",
+        "Problem reports now show the graphics card's name again, memory use through the session, any graphics card reset, and why a recording stopped.",
+        "Trees: each kind has its own leaves (oak, birch, poplar, willow and the rest), and birches and willows have new crowns. On Ultra the most detailed trees reach 120 m.",
+        "Replaying the hole just finished (J) shows it straight away, instead of building it again first.",
+        "Behind the scenes: groundwork for a newer graphics engine. Nothing should play differently.",
+        "While recording, a picture that stays slow is eased between shots even with Don't adjust automatically ticked (a message says so), and put back as you chose it when you stop - a slow picture while recording could stall the graphics card.",
+        "A long recording says, as each new hourly file starts, if older recordings are about to be deleted to make room.",
+        "Problem reports show how much each view really draws, the memory at any freeze, and whether the command centre's live game picture was on."
+      ]
+    },
+    {
+      "version": "3.0.531",
+      "date": "2026-10-14",
+      "notes": [
+        "New in the Menu: What's new - this version's changes at the top, and every version since 3.0 below it.",
+        "High graphics now has the same soft shadows as Ultra: sharp at a tree's foot, softer from its crown.",
+        "Far rough (Medium and up) is painted as standing grass past the long grass, rather than flat ground.",
+        "Behind the scenes: hole editing code tidied and the guide split into a page per subject. Nothing should play differently.",
+        "Voice: nothing pops up unless you've said the wake word, only one voice pop-up shows at a time, and a doubtful reading just gets a plain note.",
+        "From the air, the other holes on the course are drawn plainly, and the front row of trees is drawn in finer detail.",
+        "Behind the scenes: a course-wide height map (the first step towards drawing whole courses more efficiently) and faster green shaping. Nothing should play differently.",
+        "Past the hole you are playing, the ground follows the course, and nearby holes and the next hole show their greens, fairways, sand and simple trees. The hole itself looks the same, and so does the minimap.",
+        "Courses: trees never stand on another hole's fairway, green or tee, and every hole shows the same trees in the same places. The gap between two holes can still keep a narrow line of trees. In the hole editor, other holes' fairways and trees are shown in red: a tree can't be planted or moved onto another hole's fairway, green or tee, and tapping another hole's tree says 'Belongs to hole N'. Heather, gorse, rocks, flowers and bushes are no longer scattered on other holes' fairways, greens or tees either. You can now plant a tree by hand on a hole's own fairway, as long as it's at least 1 m from the line of play. A new Decor tool in the hole editor places, moves and removes heather, gorse, rocks, wildflowers and bushes. They're saved with the hole, look the same from every hole, and can go on the hole's own fairway but not on its green or tee, or on another hole's ground. Another hole's decor shows as 'Belongs to hole N'. Other holes seen from the one you're playing are now mown in their own stripes, so they look just as they do when you play them. The designer has a Fairway mowing and a Green mowing choice for each hole: Auto keeps the pattern it has now.",
+        "Around each hole, the ground is finer near play, a board at the next tee shows its number and par, the hole-change card shows par and yards, and the nearest trees look sharper on High and Ultra. Click the bay map to see the holes around this one."
+      ]
+    },
+    {
+      "version": "3.0.512",
+      "date": "2026-10-13",
+      "prs": [
+        307,
+        309,
+        310
+      ],
+      "notes": [
+        "New versions now come out when they're ready, rather than with every change.",
+        "Behind the scenes: the course and menu code tidied into smaller parts. Nothing should play differently."
+      ]
+    },
+    {
+      "version": "3.0.511",
+      "date": "2026-10-13",
+      "prs": [
+        306
+      ],
+      "notes": [
+        "Behind the scenes: building a hole's 3D split into its own parts. Nothing should play differently."
+      ]
+    },
+    {
+      "version": "3.0.510",
+      "date": "2026-10-13",
+      "prs": [
+        302,
+        304,
+        305
+      ],
+      "notes": [
+        "When nothing on screen is moving, the game rests sooner (after 1 second) and checks for changes a little more often.",
+        "Behind the scenes: course code tidied. Nothing should play differently."
+      ]
+    },
+    {
+      "version": "3.0.507",
+      "date": "2026-10-13",
+      "prs": [
+        301,
+        303
+      ],
+      "notes": [
+        "Smoother frames: the long grass round the ball is grown over a smaller area (20 m on High, 32 m on Ultra)."
+      ]
+    },
+    {
+      "version": "3.0.506",
+      "date": "2026-10-12",
+      "prs": [
+        298
+      ],
+      "notes": [
+        "The Solo play video's hole in one goes in again now that greens play with grain."
+      ]
+    },
+    {
+      "version": "3.0.505",
+      "date": "2026-10-12",
+      "prs": [
+        297
+      ],
+      "notes": [
+        "Fixed: recording the videos (show reel and the rest) skipped every course hole - they now wait for each hole to be built."
+      ]
+    },
+    {
+      "version": "3.0.504",
+      "date": "2026-10-12",
+      "prs": [
+        296
+      ],
+      "notes": [
+        "The code inside the installer is now scrambled, so it isn't readable source.",
+        "Only the newest releases are kept for download (10 betas and 2 stable)."
+      ]
+    },
+    {
+      "version": "3.0.503",
+      "date": "2026-10-12",
+      "stable": true,
+      "prs": [
+        295
+      ],
+      "notes": [
+        "Holes you've played before load faster: saved holes are reused properly now.",
+        "Every course's first hole is kept ready, so starting a round and its flyover is quicker.",
+        "Saved holes can be kept in a folder of your choice, such as another drive."
+      ]
+    },
+    {
+      "version": "3.0.502",
+      "date": "2026-10-12",
+      "prs": [
+        294
+      ],
+      "notes": [
+        "The game always opens on the driving range.",
+        "Who's playing now floats over the command centre when it opens.",
+        "Range balls can be hit as a warm-up before you press Play - nothing is recorded until then."
+      ]
+    },
+    {
+      "version": "3.0.501",
+      "date": "2026-10-12",
+      "prs": [
+        293
+      ],
+      "notes": [
+        "The speed test and demo runs build their holes before they start, with a \"Getting ready\" card, so there's no pause between holes."
+      ]
+    },
+    {
+      "version": "3.0.500",
+      "date": "2026-10-12",
+      "stable": true,
+      "prs": [
+        292
+      ],
+      "notes": [
+        "Holes are kept on this PC once built, so a hole built again loads much faster."
+      ]
+    },
+    {
+      "version": "3.0.498",
+      "date": "2026-10-12",
+      "prs": [
+        290
+      ],
+      "notes": [
+        "Hole builder: a new Brook tool - draw a brook, ditch or stream as a line of dots, then widen it, move it or add timber or brick walls to its banks.",
+        "Water runs downhill and plays as a yellow penalty area; a brook can pass under a cart path.",
+        "The next hole is built faster while you're on the green."
+      ]
+    },
+    {
+      "version": "3.0.489 - 3.0.496",
+      "date": "2026-10-11",
+      "versions": [
+        "3.0.489",
+        "3.0.490",
+        "3.0.491",
+        "3.0.492",
+        "3.0.494",
+        "3.0.495",
+        "3.0.496"
+      ],
+      "archived": true,
+      "prs": [
+        270,
+        271,
+        272,
+        277,
+        278,
+        286,
+        287
+      ],
+      "notes": [
+        "Who's playing is asked once per start, and asks before changing game.",
+        "Far fewer freezes as holes and greens come up, and between shots on Ultra.",
+        "Moving to a hole that isn't ready shows a \"Loading hole N...\" card instead of freezing.",
+        "Fixed a crash while a round's first hole loaded.",
+        "Faster start: no needless 15 second wait on the loading screen.",
+        "Putting grid turns to your aim after a moment, with bigger, brighter dots.",
+        "Problem reports cover the whole session and name what was slow."
+      ]
+    },
+    {
+      "version": "3.0.466 - 3.0.487",
+      "date": "2026-10-11",
+      "versions": [
+        "3.0.466",
+        "3.0.467",
+        "3.0.469",
+        "3.0.470",
+        "3.0.472",
+        "3.0.477",
+        "3.0.480",
+        "3.0.481",
+        "3.0.483",
+        "3.0.485",
+        "3.0.486",
+        "3.0.487"
+      ],
+      "archived": true,
+      "prs": [
+        254,
+        256,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        268,
+        269
+      ],
+      "notes": [
+        "Strategic courses on hills: the land is shaped round the holes, and routing follows the hills.",
+        "Ready-made courses rebuilt with the course designer (Golf Sim Links par 72, Nine Oaks par 36).",
+        "Course review in the designer scores a course out of 10, with notes on what to change.",
+        "Pot bunkers built as real ones; no cliffs down to water on steep ground, with Rock wall edges if you want one.",
+        "Putting distance challenge: no hole - finish in the half circle just past the line.",
+        "Command centre and shot screen fixes, and the shot tracer is no longer hidden by Ultra's clouds.",
+        "Fewer freezes moving to the next hole, including while recording; the highlight reel plays without freezes."
+      ]
+    },
+    {
+      "version": "3.0.449 - 3.0.458",
+      "date": "2026-10-11",
+      "versions": [
+        "3.0.449",
+        "3.0.450",
+        "3.0.452",
+        "3.0.453",
+        "3.0.454",
+        "3.0.457",
+        "3.0.458"
+      ],
+      "archived": true,
+      "prs": [
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253
+      ],
+      "notes": [
+        "Strategic courses: the course maker's new default, where every par 4 and 5 asks a question.",
+        "Career / season mode: a season of events against a field of made-up golfers.",
+        "Round highlight reel at the end of each round.",
+        "Penalty areas by the Rules, with stakes and lines; links burns and heathland waste areas.",
+        "Greens: visible grain, pins that change every day, varied fringes.",
+        "Bunkers: more variety by course type, and sand to suit each course.",
+        "Holes built on other CPU cores, so the game keeps drawing while they're made."
+      ]
+    },
+    {
+      "version": "3.0.427 - 3.0.440",
+      "date": "2026-10-10",
+      "versions": [
+        "3.0.427",
+        "3.0.430",
+        "3.0.432",
+        "3.0.433",
+        "3.0.434",
+        "3.0.437",
+        "3.0.438",
+        "3.0.439",
+        "3.0.440"
+      ],
+      "archived": true,
+      "prs": [
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244
+      ],
+      "notes": [
+        "Version 3: versions are now numbered 3.0.<build>.",
+        "Nine Oaks comes with the game and is kept up to date.",
+        "Command centre side drawer and an Arrange menu; cameras on the shot data screen, turned and cropped as set.",
+        "Scorecard pause after each hole, a range warm-up plan and a photo for each course while it loads.",
+        "Speed test uses three kinds of hole and finds what costs most; the sea can come right up to the holes.",
+        "Grass drawn more cheaply from height."
+      ]
+    }
+  ]
+}

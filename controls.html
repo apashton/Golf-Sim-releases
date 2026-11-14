@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- No icon file: an empty one stops the browser asking for one (a 404 in the console on every load). -->
+    <link rel="icon" href="data:," />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A² Golf - Controls</title>
+    <!-- First, so JavaScript errors anywhere on the page are caught (for reports to Claude). -->
+    <script src="errorreport.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="menu.css" />
+    <!-- For the side panel's look along a putt's line (sectionview.js). -->
+    <link rel="stylesheet" href="greenread.css" />
+    <!-- Finding a course: the course panel's picker (coursefinder.js). -->
+    <link rel="stylesheet" href="coursefinder.css" />
+    <link rel="stylesheet" href="theme.css" />
+    <!-- The menus' and buttons' new style, over the rest (uistyle.js). -->
+    <link rel="stylesheet" href="uistyle.css" />
+    <!-- The game's loading card, while it waits for the controls (earlyscreens.js). -->
+    <link rel="stylesheet" href="loading.css" />
+  </head>
+  <!--
+    The controls window, when the screens are separate (Shift + D): the sim
+    moves its own top bar, Shot details, side panel and
+    menus in here (public/screens.js), and back when this window closes.
+    Nothing runs here of its own: opened by itself, it only says where the
+    sim is.
+  -->
+  <body class="controls-window">
+    <p class="controls-empty muted">The controls come here from the sim when its screens are separate (Shift + D in the sim). <a href="/">Open the sim</a></p>
+    <div class="loading controls-coming" role="status">
+      <div class="loading-card">
+        <span class="brand-mark loading-mark" aria-hidden="true">A²</span>
+        <div class="loading-name">Command centre</div>
+        <div class="loading-bar"><div class="loading-fill"></div></div>
+        <div class="loading-words">Getting ready while the game loads...</div>
+      </div>
+    </div>
+    <script src="controlspage.js"></script>
+  </body>
+</html>

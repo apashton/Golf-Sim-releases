@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="data:," />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>My stats - A² Golf</title>
+    <!-- Play / At the range -> My stats (link.js, sim/devicelink.mjs): this
+         phone linked to the PC once - its shots go into the PC's stats by
+         themselves, and the PC's players, handicaps and stats come back,
+         shown here. -->
+    <link rel="stylesheet" href="/pocket/pocket.css" />
+  </head>
+  <body>
+    <main>
+      <div class="bar">
+        <a class="back" id="back" href="/" aria-label="Back">‹</a>
+        <h1>My stats</h1>
+      </div>
+      <div class="card">
+        <h2>Your PC</h2>
+        <p id="state" role="status" aria-live="polite" class="muted">Loading...</p>
+        <form id="link-form" class="buttons" hidden>
+          <input id="code" class="code" placeholder="PK7-Q2M" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="8" aria-label="The PC's link code" />
+          <button id="link" class="primary">Link</button>
+        </form>
+        <p id="link-help" class="small muted" hidden>On the PC: <b>My stats</b>, then <b>Your phones</b> - <b>Link a phone</b>. It shows a code: type it here (or point this phone's camera at its QR code). Do it once: after that your shots go to the PC by themselves, and your players, handicaps and stats come back - the same names are the same players on both.</p>
+        <div id="linked" class="buttons" hidden>
+          <button id="sync" class="primary">Sync now</button>
+          <button id="unlink">Unlink</button>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Still to go to the PC</h2>
+        <div id="waiting" class="muted">Loading...</div>
+      </div>
+      <div id="stats"></div>
+    </main>
+    <script type="module" src="/pocket/link.js"></script>
+  </body>
+</html>
