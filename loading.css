@@ -1,0 +1,144 @@
+/* The loading screen (loading.js): over the whole window from the first
+   paint until the first whole picture is drawn. The game's own background,
+   so the window goes from its frame's colour to this to the game with no
+   white or black between; the brand's mark and name, which stage is being
+   built, and a bar. Linked after theme.css so its colours are the game's. */
+
+.loading {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(1400px 600px at 8% -12%, rgba(28, 80, 50, 0.45), transparent 62%),
+    var(--bg, #07130d);
+  color: var(--text, #eaf4ec);
+  opacity: 1;
+  transition: opacity 400ms ease;
+  /* Clicks wait too: nothing under it is ready. */
+  cursor: progress;
+}
+.loading[hidden] {
+  display: none;
+}
+.loading.leaving {
+  opacity: 0;
+  pointer-events: none;
+}
+.loading-card {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  /* A little above the middle, where the eye goes. */
+  margin-bottom: 6vh;
+}
+.loading .loading-mark {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  font-size: 40px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 10px 40px rgba(0, 0, 0, 0.35);
+}
+.loading-name {
+  font: 700 26px/1.1 var(--font-display, system-ui, sans-serif);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.loading-bar {
+  position: relative;
+  width: min(320px, 70vw);
+  height: 6px;
+  margin-top: 8px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: rgba(143, 227, 166, 0.12);
+}
+/* Filled by a scale, not a width: drawn without laying the page out
+   again, and eased between stages. */
+.loading-fill {
+  position: absolute;
+  inset: 0;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: var(--accent, #ffd23f);
+  border-radius: inherit;
+  transition: transform 300ms ease-out;
+}
+/* A soft light running along the bar: moved by the compositor, so it
+   keeps going while the page is busy building. */
+.loading-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: translateX(-100%);
+  animation: loading-shine 1.4s ease-in-out infinite;
+}
+@keyframes loading-shine {
+  to {
+    transform: translateX(260%);
+  }
+}
+.loading-words {
+  min-height: 1.4em;
+  color: var(--muted, #8fac98);
+  font-size: 14px;
+}
+/* A picture of the game behind it all (loading.js picture): darkened, so
+   the mark, the bar and the words read over it, and fading in once it's
+   loaded; what it shows along the bottom. */
+.loading::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(7, 19, 13, 0.55) 0%, rgba(7, 19, 13, 0.35) 45%, rgba(7, 19, 13, 0.85) 100%),
+    var(--loading-shot, none) center / cover no-repeat;
+  opacity: 0;
+  transition: opacity 600ms ease;
+}
+.loading.with-shot::before {
+  opacity: 1;
+}
+.loading-card,
+.loading-shot {
+  position: relative;
+}
+.loading-shot {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 6vh;
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  padding: 0 24px;
+  text-align: center;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+.loading-shot b {
+  font: 700 20px/1.2 var(--font-display, system-ui, sans-serif);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.loading-shot span {
+  color: var(--text, #eaf4ec);
+  opacity: 0.85;
+  font-size: 15px;
+}
+.loading.with-shot .loading-words {
+  color: var(--text, #eaf4ec);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+@media (prefers-reduced-motion: reduce) {
+  .loading-bar::after {
+    animation: none;
+  }
+  .loading::before {
+    transition: none;
+  }
+}

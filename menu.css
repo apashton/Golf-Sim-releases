@@ -1,0 +1,800 @@
+/* The Clubhouse (menu.js): the one menu. A deep green shell with a faint
+   contour map behind it (a green being read), the pages down a rail on
+   the left, each setting a row: what it is and what it does on the left,
+   the control on the right. The type is the scoreboard's - Bahnschrift,
+   Windows' own DIN - with the flag's yellow for what's chosen. */
+
+:root {
+  --font-display: "Bahnschrift", "DIN Alternate", "Barlow Semi Condensed", "Roboto Condensed", "Arial Narrow", system-ui, sans-serif;
+  --ch-bg: #06120c;
+  --ch-rail: #081810;
+  --ch-card: rgba(20, 44, 30, 0.55);
+  --ch-card-line: rgba(143, 227, 166, 0.12);
+  --ch-green: #6fdc97;
+  --ch-green-deep: #1f6b43;
+  --ch-yellow: var(--accent, #ffd23f);
+  --ch-ink: #eaf5ec;
+  --ch-muted: #8fac98;
+  --ch-radius: 18px;
+}
+
+.clubhouse {
+  position: fixed;
+  inset: 0;
+  z-index: 1060;
+  display: grid;
+  place-items: center;
+  padding: clamp(8px, 2.5vh, 28px) clamp(8px, 2.5vw, 36px);
+  background:
+    radial-gradient(1200px 700px at 20% 0%, rgba(40, 110, 70, 0.28), transparent 60%),
+    rgba(2, 8, 5, 0.72);
+  backdrop-filter: blur(6px) saturate(1.1);
+  font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  color: var(--ch-ink);
+}
+.clubhouse[hidden] {
+  display: none;
+}
+
+.ch-shell {
+  width: min(1180px, 100%);
+  height: min(820px, 100%);
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  border-radius: var(--ch-radius);
+  overflow: hidden;
+  border: 1px solid rgba(143, 227, 166, 0.16);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  background-color: var(--ch-bg);
+  /* The contour map: rings round a hollow, very faint. */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='520' viewBox='0 0 520 520'%3E%3Cg fill='none' stroke='%236fdc97' stroke-opacity='0.07' stroke-width='1.2'%3E%3Cpath d='M260 90c110 0 190 70 190 170s-90 170-200 170S60 360 60 260 150 90 260 90z'/%3E%3Cpath d='M262 130c85 0 150 55 150 130s-72 132-158 132-152-56-152-132 75-130 160-130z'/%3E%3Cpath d='M265 170c62 0 110 40 110 92s-52 94-114 94-110-42-110-94 52-92 114-92z'/%3E%3Cpath d='M268 210c38 0 70 24 70 54s-32 58-72 58-70-26-70-58 34-54 72-54z'/%3E%3Cpath d='M0 40c120 30 200-20 300 10s160 60 220 30'/%3E%3Cpath d='M0 490c90-40 190 10 280-20s170-50 240-20'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(160deg, #0b2016 0%, #06120c 55%, #081a11 100%);
+  background-size: 520px 520px, cover;
+  background-position: right -120px top -80px, center;
+  background-repeat: no-repeat;
+}
+
+/* ---- The rail ------------------------------------------------------------------ */
+
+.ch-rail {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 18px 10px 12px;
+  background: linear-gradient(180deg, rgba(8, 26, 17, 0.92), rgba(5, 16, 10, 0.96));
+  border-right: 1px solid rgba(143, 227, 166, 0.1);
+}
+.ch-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 2px 10px 16px;
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+.ch-brand b {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.ch-brand small {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ch-green);
+  margin-top: 3px;
+}
+.ch-flag {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  background: radial-gradient(circle at 30% 25%, #2f8a57, #134a2d);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.ch-flag svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--ch-yellow);
+}
+.ch-nav {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: grid;
+  align-content: start;
+  gap: 2px;
+}
+.ch-nav-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--ch-ink);
+  cursor: pointer;
+}
+/* The phone app's Home, above the menu's pages: a gap before them. */
+.ch-apphome {
+  margin-bottom: 10px;
+}
+.ch-nav-item svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--ch-muted);
+  transition: fill 0.15s;
+}
+.ch-nav-item > span {
+  min-width: 0;
+}
+.ch-nav-item b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.ch-nav-item small {
+  display: block;
+  font-size: 11.5px;
+  color: var(--ch-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ch-nav-item:hover {
+  background: rgba(111, 220, 151, 0.07);
+}
+.ch-nav-item.on {
+  background: linear-gradient(90deg, rgba(255, 210, 63, 0.14), rgba(111, 220, 151, 0.05));
+  box-shadow: inset 0 0 0 1px rgba(255, 210, 63, 0.18);
+}
+.ch-nav-item.on::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 10px;
+  bottom: 10px;
+  width: 4px;
+  border-radius: 0 4px 4px 0;
+  background: var(--ch-yellow);
+}
+.ch-nav-item.on svg {
+  fill: var(--ch-yellow);
+}
+/* Quit (the Windows app): under the pages, whichever is open. */
+.ch-quit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px 4px 12px;
+}
+.ch-quit svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  fill: currentColor;
+}
+.ch-foot {
+  padding: 12px 10px 0;
+  font-size: 11.5px;
+  color: var(--ch-muted);
+  border-top: 1px solid rgba(143, 227, 166, 0.08);
+  line-height: 1.7;
+}
+
+/* ---- The page -------------------------------------------------------------- */
+
+.ch-main {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  min-height: 0;
+  min-width: 0;
+}
+.ch-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 300px) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 24px 14px;
+  border-bottom: 1px solid rgba(143, 227, 166, 0.08);
+}
+.ch-title h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+.ch-title h2 svg {
+  width: 28px;
+  height: 28px;
+  fill: var(--ch-green);
+}
+.ch-title p {
+  margin: 4px 0 0;
+  color: var(--ch-muted);
+  font-size: 13px;
+}
+.ch-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.ch-search svg {
+  position: absolute;
+  left: 12px;
+  width: 17px;
+  height: 17px;
+  fill: var(--ch-muted);
+  pointer-events: none;
+}
+.ch-search input {
+  width: 100%;
+  padding: 9px 38px 9px 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(143, 227, 166, 0.18);
+  background: rgba(3, 12, 7, 0.6);
+  color: var(--ch-ink);
+  font: inherit;
+  font-size: 14px;
+}
+.ch-search input:focus {
+  outline: none;
+  border-color: var(--ch-green);
+  box-shadow: 0 0 0 3px rgba(111, 220, 151, 0.18);
+}
+.ch-search kbd {
+  position: absolute;
+  right: 10px;
+  pointer-events: none;
+}
+.ch-close {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(143, 227, 166, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--ch-ink);
+  font-size: 16px;
+  cursor: pointer;
+}
+.ch-close:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+.ch-page {
+  overflow-y: auto;
+  padding: 18px 24px 24px;
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  outline: none;
+  scrollbar-color: rgba(111, 220, 151, 0.3) transparent;
+}
+.ch-status {
+  margin: 0;
+  min-height: 1.4em;
+  padding: 8px 24px 12px;
+  color: var(--ch-green);
+  font-size: 13px;
+  border-top: 1px solid rgba(143, 227, 166, 0.06);
+}
+.ch-status.bad {
+  color: var(--warn, #f4a259);
+}
+.ch-status:empty {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+/* ---- Cards and rows ------------------------------------------------------------ */
+
+.ch-card {
+  border-radius: 16px;
+  padding: 14px 18px 6px;
+  background: var(--ch-card);
+  border: 1px solid var(--ch-card-line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+.ch-card h3 {
+  margin: 0 0 2px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ch-green);
+}
+.ch-section-help {
+  margin: 4px 0 6px;
+  color: var(--ch-muted);
+  font-size: 13px;
+  max-width: 78ch;
+}
+.ch-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 42%);
+  align-items: center;
+  gap: 8px 22px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(143, 227, 166, 0.08);
+}
+.ch-card h3 + .ch-row,
+.ch-section-help + .ch-row {
+  border-top: 0;
+}
+.ch-row.wide {
+  grid-template-columns: 1fr;
+}
+.ch-label b {
+  font-size: 15px;
+  font-weight: 600;
+}
+.ch-label p {
+  margin: 3px 0 0;
+  color: var(--ch-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.ch-label .ch-note {
+  color: var(--ch-yellow);
+  font-size: 12.5px;
+  /* (A note of more than one line: the Level's distances and progress.) */
+  white-space: pre-line;
+}
+.ch-where {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ch-green);
+  margin-bottom: 2px;
+}
+.ch-keys {
+  margin-left: 8px;
+  white-space: nowrap;
+}
+.clubhouse kbd {
+  display: inline-block;
+  min-width: 1.6em;
+  padding: 1px 6px;
+  border-radius: 6px;
+  border: 1px solid rgba(143, 227, 166, 0.25);
+  border-bottom-width: 2px;
+  background: rgba(3, 12, 7, 0.55);
+  color: var(--ch-ink);
+  font: 600 11px/1.5 var(--font-display);
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+.ch-control {
+  display: flex;
+  justify-content: flex-end;
+  min-width: 0;
+}
+.ch-row.wide .ch-control {
+  justify-content: flex-start;
+}
+
+/* The controls. */
+.clubhouse button:not(.ch-nav-item):not(.ch-close) {
+  font: inherit;
+  font-size: 13.5px;
+  color: var(--ch-ink);
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(143, 227, 166, 0.28);
+  background: rgba(111, 220, 151, 0.06);
+  cursor: pointer;
+  transition:
+    background 0.12s,
+    border-color 0.12s;
+}
+.clubhouse button:not(.ch-nav-item):not(.ch-close):hover {
+  background: rgba(111, 220, 151, 0.14);
+  border-color: rgba(143, 227, 166, 0.5);
+}
+.clubhouse button.primary {
+  background: var(--ch-yellow) !important;
+  border-color: var(--ch-yellow) !important;
+  color: #13200f !important;
+  font-weight: 600;
+}
+.clubhouse button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.ch-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.ch-seg {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  padding: 3px;
+  border-radius: 999px;
+  background: rgba(3, 12, 7, 0.6);
+  border: 1px solid rgba(143, 227, 166, 0.16);
+}
+.clubhouse .ch-seg button {
+  border: 0 !important;
+  background: transparent !important;
+  padding: 6px 13px !important;
+  color: var(--ch-muted) !important;
+}
+.clubhouse .ch-seg button:hover {
+  color: var(--ch-ink) !important;
+  background: rgba(111, 220, 151, 0.1) !important;
+}
+.clubhouse .ch-seg button.on {
+  background: var(--ch-yellow) !important;
+  color: #13200f !important;
+  font-weight: 700;
+  box-shadow: 0 2px 10px rgba(255, 210, 63, 0.25);
+}
+
+.ch-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.ch-switch input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.ch-switch span {
+  position: relative;
+  width: 50px;
+  height: 28px;
+  border-radius: 999px;
+  background: rgba(3, 12, 7, 0.7);
+  border: 1px solid rgba(143, 227, 166, 0.25);
+  transition: background 0.18s;
+}
+.ch-switch span::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #9db3a4;
+  transition:
+    transform 0.18s,
+    background 0.18s;
+}
+.ch-switch input:checked + span {
+  background: linear-gradient(90deg, var(--ch-green-deep), #2f9a61);
+  border-color: var(--ch-green);
+}
+.ch-switch input:checked + span::after {
+  transform: translateX(22px);
+  background: #fff;
+}
+.ch-switch input:focus-visible + span {
+  box-shadow: 0 0 0 3px rgba(111, 220, 151, 0.3);
+}
+.ch-switch em {
+  font-style: normal;
+  font: 600 12px var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ch-muted);
+  min-width: 2.2em;
+}
+.ch-switch input:checked ~ em {
+  color: var(--ch-green);
+}
+
+.ch-range {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  max-width: 360px;
+}
+.ch-range input[type="range"] {
+  width: 100%;
+  accent-color: var(--ch-yellow);
+}
+.ch-range output {
+  justify-self: end;
+  font: 600 13px var(--font-display);
+  letter-spacing: 0.02em;
+  color: var(--ch-yellow);
+}
+.ch-number {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ch-muted);
+}
+.clubhouse input[type="number"],
+.clubhouse select,
+.clubhouse textarea,
+.clubhouse input[type="password"],
+.clubhouse input[type="text"] {
+  font: inherit;
+  color: var(--ch-ink);
+  background: rgba(3, 12, 7, 0.65);
+  border: 1px solid rgba(143, 227, 166, 0.22);
+  border-radius: 10px;
+  padding: 7px 10px;
+}
+.clubhouse input[type="number"] {
+  width: 90px;
+  font-family: var(--font-display);
+  font-size: 15px;
+}
+.clubhouse select {
+  min-width: 200px;
+}
+.clubhouse input:focus-visible,
+.clubhouse select:focus-visible,
+.clubhouse textarea:focus-visible,
+.clubhouse button:focus-visible {
+  outline: 2px solid var(--ch-green);
+  outline-offset: 2px;
+}
+
+/* The Windows app's parts (system.js) and the keys list, inside a row. */
+.ch-control .sys-part {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+}
+.ch-control .check {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.ch-control .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.ch-control table.programs {
+  width: 100%;
+  border-collapse: collapse;
+}
+.ch-control table.programs td {
+  padding: 6px 4px;
+  border-top: 1px solid rgba(143, 227, 166, 0.08);
+  vertical-align: top;
+}
+.ch-state {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ch-state .dot,
+.ch-control .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--off, #7d8b80);
+  flex: none;
+}
+.ch-state .dot.on,
+.ch-state .dot.ok,
+.ch-control .dot.on,
+.ch-control .dot.ok {
+  background: var(--ok, #57cc99);
+  box-shadow: 0 0 10px rgba(87, 204, 153, 0.6);
+}
+.ch-state .dot.warn,
+.ch-control .dot.warn {
+  background: var(--warn, #f4a259);
+}
+.ch-keys-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+.ch-keys-table td {
+  padding: 7px 8px;
+  border-top: 1px solid rgba(143, 227, 166, 0.08);
+  vertical-align: top;
+}
+.ch-keys-table td:first-child {
+  white-space: nowrap;
+  width: 1%;
+}
+
+/* ---- The Menu button in the top bar ------------------------------------------------- */
+
+.menu-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.menu-button svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+.menu-button.attention {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(255, 210, 63, 0.25);
+}
+
+/* ---- Narrow windows ------------------------------------------------------------------ */
+
+@media (max-width: 860px) {
+  .ch-shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+  .ch-rail {
+    padding: 10px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(143, 227, 166, 0.1);
+  }
+  .ch-brand,
+  .ch-foot {
+    display: none;
+  }
+  .ch-quit {
+    align-self: flex-end;
+    margin: 6px 0 0;
+  }
+  .ch-nav {
+    display: flex;
+    overflow-x: auto;
+    gap: 4px;
+  }
+  .ch-nav-item {
+    width: auto;
+    grid-template-columns: 22px auto;
+  }
+  .ch-nav-item small {
+    display: none;
+  }
+  .ch-nav-item.on::before {
+    display: none;
+  }
+  .ch-head {
+    grid-template-columns: 1fr auto;
+  }
+  .ch-search {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .ch-row {
+    grid-template-columns: 1fr;
+  }
+  .ch-control {
+    justify-content: flex-start;
+  }
+}
+
+/* Reports to Claude's note box, inside a row. */
+.ch-control .report-note {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+}
+.ch-control textarea {
+  width: 100%;
+  min-height: 70px;
+  resize: vertical;
+}
+.ch-control .report-token-row input {
+  flex: 1;
+  min-width: 220px;
+}
+.ch-control .report-msg.good {
+  color: var(--ch-green);
+}
+.ch-control .report-msg.bad,
+.ch-control .warn-line {
+  color: var(--warn, #f4a259);
+}
+
+/* The A² mark, bigger in the rail (theme.css draws it). */
+.ch-brand .brand-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  font-size: 20px;
+}
+.ch-brand b {
+  font-size: 17px;
+}
+.ch-maker {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 10.5px;
+  color: var(--ch-green);
+}
+
+/* ---- What's new: the update log (app/menus.js historyHtml) ---------------------- */
+
+.ch-log-now,
+.ch-log-wait {
+  margin: 4px 0 10px;
+  opacity: 0.8;
+  font-size: 13.5px;
+}
+.ch-log {
+  border-top: 1px solid rgba(143, 227, 166, 0.08);
+  padding: 8px 2px;
+}
+.ch-log summary {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+}
+.ch-log-date {
+  margin-left: auto;
+  opacity: 0.6;
+  font-size: 12.5px;
+}
+.ch-log-tag {
+  font-size: 11px;
+  padding: 1px 7px;
+  border-radius: 9px;
+  border: 1px solid rgba(143, 227, 166, 0.3);
+}
+.ch-log-tag.now {
+  background: rgba(87, 204, 153, 0.2);
+}
+.ch-log ul {
+  margin: 6px 0 2px;
+  padding-left: 20px;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+.ch-log-nums {
+  margin: 6px 0 0;
+  font-size: 12.5px;
+  opacity: 0.65;
+}
+.ch-log-list {
+  display: block;
+  flex: 1 1 100%;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Menu -> Help -> About: the licence, privacy and credits (legal.js). */
+.legal-buttons button.on { outline: 2px solid currentColor; }
+.legal-text {
+  max-height: 50vh;
+  overflow: auto;
+  white-space: pre-wrap;
+  font: 0.85rem/1.45 ui-monospace, Consolas, monospace;
+  padding: 0.8rem;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.25);
+}

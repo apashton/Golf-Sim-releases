@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script>window.a2web = true;</script>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0b1a12" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="A² Golf" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!-- No icon file: an empty one stops the browser asking for one (a 404 in the console on every load). -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Course Designer</title>
+    <!-- No icon of its own: this stops the browser asking for /favicon.ico. -->
+    <!-- First, so JavaScript errors anywhere on the page are caught (for reports to Claude). -->
+    <script>window.pocketBundled = true;</script><script src="/pocket/start.js"></script>
+    <script src="errorreport.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="designer.css" />
+    <!-- Finding a course in Your courses (coursefinder.js). -->
+    <link rel="stylesheet" href="coursefinder.css" />
+    <link rel="stylesheet" href="theme.css" />
+  </head>
+  <body class="designer">
+    <header>
+      <h1>Course designer</h1>
+      <span id="save-state" class="muted"></span>
+      <a href="/" class="button" id="back">Back to the sim</a>
+    </header>
+    <div class="designer-body">
+      <aside class="course-list">
+        <button id="new-course" class="primary" title="A course in a few clicks: a quick start, or styles by hole, water, cart paths and more - or from a scorecard">New course</button>
+        <button id="map-course">Real course from the map</button>
+        <!-- Always there in the side column; on a narrow screen (a phone: the column's on top) folded under its heading, so what's being made is first (designer.js foldList). -->
+        <details id="your-courses" open>
+          <summary><h3>Your courses</h3></summary>
+          <div id="courses"></div>
+          <button id="drive-courses" title="Keep the courses you make in your own Google Drive, so they're on every PC and browser you turn it on in - off unless you turn it on">Google Drive...</button>
+        </details>
+      </aside>
+      <main id="main"></main>
+    </div>
+    <script type="module" src="/game.designer.js"></script>
+  </body>
+</html>

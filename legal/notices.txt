@@ -1,0 +1,71 @@
+A-SQUARED GOLF - THIRD-PARTY NOTICES
+
+A-Squared Golf is built with other people's work. Thank you to all of
+them. Each part below is used under its own licence, and nothing in the
+game's licence agreement limits your rights under these.
+
+PROGRAMS AND LIBRARIES
+
+- Electron (MIT licence) - Copyright (c) Electron contributors,
+  Copyright (c) 2013-2020 GitHub Inc. Electron includes Chromium and
+  Node.js; their licences, and those of every library they use, are in
+  the files LICENSE and LICENSES.chromium.html in the folder the game is
+  installed in.
+- three.js (MIT licence) - Copyright (c) 2010-2026 three.js authors.
+- electron-updater and builder-util-runtime (MIT licence) - Copyright (c)
+  2015 Loopline Systems and electron-builder contributors.
+- js-yaml (MIT), fs-extra (MIT), jsonfile (MIT), universalify (MIT),
+  graceful-fs (ISC), semver (ISC), debug (MIT), ms (MIT), lazy-val (MIT),
+  lodash.escaperegexp and lodash.isequal (MIT), tiny-typed-emitter (MIT),
+  sax (Blue Oak Model Licence 1.0.0), argparse (Python Software
+  Foundation licence 2.0) - each copyright its authors. Their licence
+  texts are kept with them inside the installed game.
+
+The MIT licence, as these libraries give it:
+
+  Permission is hereby granted, free of charge, to any person obtaining a
+  copy of this software and associated documentation files (the
+  "Software"), to deal in the Software without restriction, including
+  without limitation the rights to use, copy, modify, merge, publish,
+  distribute, sublicense, and/or sell copies of the Software, and to
+  permit persons to whom the Software is furnished to do so, subject to
+  the following conditions:
+
+  The above copyright notice and this permission notice shall be included
+  in all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+  OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+  CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+SOUNDS
+
+The game's recorded sounds come from Freesound and Pixabay: public domain
+(CC0 1.0) clips, and clips under the Pixabay Content License. Every clip,
+its author and its source are listed in soundpack/CREDITS.md inside the
+game (in the game: Menu -> Help -> About -> Sound credits).
+
+MAPS AND GROUND HEIGHTS
+
+Courses imported from maps use:
+- Map data (c) OpenStreetMap contributors, available under the Open
+  Database Licence (ODbL) - https://www.openstreetmap.org/copyright.
+  Place search by Nominatim and Photon (komoot), map data through the
+  Overpass API.
+- Ground heights from Mapzen's terrain tiles on Amazon's open data
+  registry, which include data from: SRTM and GMTED (USGS), ETOPO1 (NOAA),
+  the US National Map 3DEP (USGS), the Environment Agency (England, Open
+  Government Licence), the Scottish Government's Remote Sensing Portal and
+  the Welsh Government (Open Government Licence), and others listed at
+  https://github.com/tilezen/joerd/blob/master/docs/attribution.md.
+- Contains public sector information licensed under the Open Government
+  Licence v3.0, where a course's ground heights come from UK LiDAR.
+
+NAMES
+
+Launch monitor and other product names belong to their owners. A-Squared
+Golf is not connected with, sponsored or endorsed by them.

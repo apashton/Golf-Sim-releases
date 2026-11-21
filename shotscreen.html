@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- No icon file: an empty one stops the browser asking for one (a 404 in the console on every load). -->
+    <link rel="icon" href="data:," />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shot data</title>
+    <!-- No icon of its own: this stops the browser asking for /favicon.ico. -->
+    <link rel="icon" href="data:," />
+    <!-- First, so JavaScript errors anywhere on the page are caught (for reports to Claude). -->
+    <script src="errorreport.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="shotscreen.css" />
+    <link rel="stylesheet" href="theme.css" />
+  </head>
+  <body class="shotscreen">
+    <header class="ss-head">
+      <div id="ss-club" class="ss-club"></div>
+      <div class="ss-title">
+        <div id="ss-shape" class="ss-shape">Waiting for a shot</div>
+        <div id="ss-sub" class="muted"></div>
+        <div id="ss-note" class="ss-note-line" hidden></div>
+      </div>
+      <div id="ss-strike" class="ss-badge strike" hidden></div>
+      <div id="ss-spin" class="ss-badge" hidden></div>
+      <div id="ss-link" class="ss-link muted"></div>
+      <button id="ss-history" class="ss-full" title="Every shot this session and each club's averages, in a drawer over the right of the screen (Esc closes it)">☰ Shot history</button>
+      <button id="ss-full" class="ss-full" title="Full screen or a window you can move (F11)">⛶ Full screen / window</button>
+    </header>
+    <section id="ss-tiles" class="ss-tiles"></section>
+    <section class="ss-panels">
+      <figure class="ss-panel"><figcaption>Club from above</figcaption><svg id="ss-above" viewBox="0 0 300 260"></svg><div id="ss-above-text" class="ss-note"></div></figure>
+      <figure class="ss-panel"><figcaption>Club from the side</figcaption><svg id="ss-side" viewBox="0 0 300 260"></svg><div id="ss-side-text" class="ss-note"></div></figure>
+      <figure class="ss-panel"><figcaption>Strike on the face</figcaption><svg id="ss-face" viewBox="0 0 300 260"></svg><div id="ss-face-text" class="ss-note"></div></figure>
+      <figure class="ss-panel"><figcaption>Ball launch and spin</figcaption><svg id="ss-launch" viewBox="0 0 300 260"></svg><div id="ss-launch-text" class="ss-note"></div></figure>
+    </section>
+    <section class="ss-panels ss-wide">
+      <figure class="ss-panel ss-flight"><figcaption>Flight from the side</figcaption><svg id="ss-flight" viewBox="0 0 640 240"></svg></figure>
+      <figure class="ss-panel"><figcaption>From above - this session</figcaption><svg id="ss-disp" viewBox="0 0 300 240"></svg></figure>
+      <figure class="ss-panel ss-table-wrap"><figcaption>This session</figcaption><table id="ss-table" class="ss-table"></table></figure>
+    </section>
+    <!-- The cameras (shotcams.js): live, then each shot's replay. Shown while a camera is chosen; the session table moves under them. -->
+    <div id="ss-cams" class="ss-cams" hidden></div>
+    <!-- The shot history drawer: opened from the button above, over the right of the screen. -->
+    <div id="ss-drawer" class="ss-drawer" hidden>
+      <div class="ss-drawer-head"><b>Shot history - this session</b><button id="ss-drawer-close" title="Close (Esc)">✕</button></div>
+      <div id="ss-drawer-body" class="ss-drawer-body"></div>
+    </div>
+    <script type="module" src="shotscreen.js"></script>
+  </body>
+</html>

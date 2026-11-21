@@ -1,0 +1,48 @@
+/* The frame rate on the picture (fps.js, Shift + F): in the top right
+   corner, above the hole map and the messages' symbol - not along the
+   foot, where the shot's numbers grew under it (the owner, 29 October
+   2026: "irregular overlays with some boxes"). Big and solid enough to read from across the room (the owner:
+   "it's really small... make it a bit bigger and clearer"); the game
+   screen's Arrange (Shift + B) moves it and sizes it further. Tabular
+   figures, so the numbers don't jitter as they change. Two lines: the
+   frame rate, then the draw calls and triangles. */
+.fps-readout {
+  position: absolute;
+  right: 0.6em;
+  top: 0.4em;
+  /* (Made bigger on Arrange, it grows from its corner - down and in - not
+     out over the top line.) */
+  transform-origin: top right;
+  z-index: 4;
+  pointer-events: none;
+  font: 700 clamp(15px, 1.35vw, 30px) / 1.3 system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  white-space: pre;
+  text-align: right;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  background: rgba(8, 16, 10, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 0.4em;
+  padding: 0.2em 0.6em;
+}
+.fps-readout[hidden] {
+  display: none;
+}
+/* In bay view (the game window, the projector) at the head of the column
+   down the right - under the top line, which keeps its whole width, so the
+   microphone and the connection stay at its right end (the owner, 2
+   November 2026: "I remember it being on the right hand side"); the hole
+   map, the scoreboard, the messages' symbol and the reactions start under
+   it (--fps-h, fps.js). */
+body.bay #view > .fps-readout {
+  top: calc(3vh + 4.8cqw);
+  right: 18px;
+}
+/* Just the frame rate till it's clicked (fps.js compact): the rest - the
+   frame time, the slowest frame, the draws and triangles, the picture and
+   the setting - while it's open, and a click shuts it again. */
+.fps-readout.compact {
+  pointer-events: auto;
+  cursor: pointer;
+}

@@ -1,0 +1,112 @@
+/* Looking along a putt's line a section at a time (public/sectionview.js):
+   the stops' buttons and the line's profile in the side panel (which can be
+   in the controls window, so controls.html has this sheet too), and the
+   profile big over the picture on the game screen while looking from a
+   stop. */
+
+.line-read[hidden] {
+  display: none;
+}
+.line-stops {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.line-stops button {
+  flex: 1;
+  min-width: 0;
+  padding: 5px 0;
+  font-size: 12px;
+}
+.line-stops button.active {
+  background: var(--accent);
+  color: #1b1b1b;
+  border-color: var(--accent);
+}
+.line-profile svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Over the picture at the bottom left, above the numbers: clear of the
+   line itself, which runs up the middle of the picture from any stop (or
+   across the middle, side-on, above it), of the course's hole map on the
+   right, and of the words - the lines down the left under the note, as
+   many and as big as the game window has them, and the guide lines
+   centred over the numbers in one window. On a dark plate, as everything
+   written over the picture is. */
+.green-profile {
+  position: absolute;
+  left: 2%;
+  bottom: 19%;
+  width: min(30%, 600px);
+  padding: 0.5vw 0.7vw;
+  border-radius: 10px;
+  background: rgba(10, 20, 12, 0.72);
+  pointer-events: none;
+}
+.green-profile svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* Only on the game screen: in the normal window the panel has it. */
+body:not(.bay) .green-profile,
+.green-profile[hidden] {
+  display: none;
+}
+
+/* The green's layout on screen during a round (sim/greenlook.mjs,
+   course/putting.js renderLook): its switches over the picture - Grid,
+   Colours - from on the green or within 40 yards of the pin. At the top
+   of the picture, in the middle: clear of the note (top left), the hole's
+   map (right) and the numbers (the foot), and big enough to press from
+   the mat or with a thumb. */
+.green-look {
+  position: absolute;
+  top: max(8px, 1.2vh);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+  padding: 0.3em 0.45em 0.3em 0.8em;
+  border-radius: 999px;
+  background: rgba(10, 20, 12, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #fff;
+  font-size: clamp(13px, 1.15vw, calc(22 * var(--up, 1)));
+  white-space: nowrap;
+}
+.green-look[hidden] {
+  display: none;
+}
+.green-look .gl-name {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.82em;
+  color: #9fe0b4;
+}
+.green-look button {
+  font: inherit;
+  font-weight: 700;
+  padding: 0.3em 0.85em;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  cursor: pointer;
+}
+.green-look button.on {
+  background: var(--accent, #ffd23f);
+  border-color: var(--accent, #ffd23f);
+  color: #13200f;
+}
+/* A phone held sideways: under the top bar's row, a little smaller. */
+html.pocket .green-look {
+  font-size: 13px;
+  top: 6px;
+}

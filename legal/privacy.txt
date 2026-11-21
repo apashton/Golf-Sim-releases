@@ -1,0 +1,89 @@
+A-SQUARED GOLF - PRIVACY NOTICE
+
+Short version: the game has no accounts and no adverts, and it doesn't
+track you. Your shots, stats, recordings and courses stay on your own
+computer. It only sends something over the internet when you use a
+feature that needs to, as listed below.
+
+WHO WE ARE
+A2 Games, the makers of A-Squared Golf ("we"). Contact us through Menu ->
+System -> Feedback in the game, or
+https://github.com/apashton/Golf-Sim-releases/issues
+
+WHAT STAYS ON YOUR COMPUTER
+- Players' names, shots, stats, rounds and scorecards.
+- Settings, courses you make or import, hole edits.
+- Webcam replays, recordings and pictures.
+- Logs of the launch monitor connection, kept to help fix problems.
+These are in the game's own folder on your PC (System -> When something's
+stuck shows where). We never see them unless you send them to us. Removing
+the game and that folder removes them.
+
+WHAT IS SENT, AND WHEN
+
+1. Online play (only when you host or join an online game).
+   The game's code, the players' names, the shots and scores of the
+   game, and messages and reactions in it are passed between the bays
+   through our relay, run on Cloudflare. The relay keeps nothing about a
+   game once its players have left. Your internet address is seen by
+   Cloudflare while you're connected, as with any website. Online match
+   ladders keep what their players report - names, challenges, scores and
+   rounds - for as long as the ladder is in use.
+
+2. Linking a phone (only when you link one).
+   Stats from a linked phone wait on the relay until your PC collects
+   them, then they're removed from there. The PC leaves its players'
+   names, handicaps and stats summed up there for its phones to collect.
+   Ending the link from the PC removes it and everything waiting on it.
+
+3. Updates.
+   The game asks GitHub (github.com) if there's a new version, and
+   downloads it from there. GitHub sees your internet address, as with any
+   download.
+
+4. Course maps (only when you import a course or search for a place).
+   The place you search for and the area you import are sent to public
+   map services: OpenStreetMap's search and data services (Nominatim,
+   Photon, Overpass), and ground height services (such as the
+   Environment Agency, Scottish and Welsh Government LiDAR, the US
+   National Map, and Amazon's open terrain tiles). They see your internet
+   address and the area, under their own privacy policies.
+
+5. Feedback (only when you choose to send it).
+   Menu -> System -> Feedback saves a report on your PC - your note, the
+   version, your settings, the screens, the graphics card, the launch
+   monitor's connection log and recent errors - and opens a page where you
+   can post it. Read it before you post: on GitHub's issues it is public.
+   Nothing is sent until you post it yourself.
+
+6. Online play from other houses with Tailscale (only if you set it up).
+   Tailscale is a separate program with its own privacy policy.
+
+7. The website (apashton.github.io/Golf-Sim-releases).
+   It counts visits and which of its links are clicked (the downloads,
+   the trailer) with GoatCounter, which sets no cookies and keeps nothing
+   that says who you are: the page, where you came from, your browser's
+   kind and screen size, and your country, counted. GitHub hosts the
+   site and the downloads, and counts how often each download is taken.
+
+WHAT WE DON'T DO
+- No accounts, no adverts, no tracking. The game itself counts nothing
+  about you; the website counts visits, as above.
+- We don't sell or share anything about you.
+- Voice commands are heard by Windows' own speech recogniser on your PC;
+  no sound leaves your computer.
+- Webcams are used only on your PC, for replays and recordings.
+
+CHILDREN
+The game has no accounts and collects nothing about who you are. Online,
+players see the names you type in: use a nickname if you'd rather.
+
+YOUR RIGHTS
+If you live in the UK or the EU you have rights over data about you
+(to see it, correct it, or have it removed). As almost everything stays on
+your own PC, you can see and remove it yourself. For anything held on the
+relay (an online ladder), contact us and we'll help.
+
+CHANGES
+If this notice changes, the new one comes with the update that changes
+it, and is in Menu -> Help -> About.

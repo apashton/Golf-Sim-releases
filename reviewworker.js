@@ -1,0 +1,1 @@
+import{d as t}from"./game.chunk-W7LV3QAU.js";import"./game.chunk-VJU3VP76.js";import"./game.chunk-JNSSRC4B.js";import"./game.chunk-73HNAIIT.js";import"./game.chunk-VTY2WQXR.js";self.onmessage=({data:{key:e,layout:a,own:l}})=>{let s;try{s=t(a,{own:l})}catch(r){self.postMessage({key:e,error:String(r?.stack??r)});return}self.postMessage({key:e,play:s})};

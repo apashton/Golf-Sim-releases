@@ -1,0 +1,706 @@
+/* The stats page: a scrolling page rather than the sim's full-screen view. */
+body.stats-page {
+  overflow: auto;
+  height: auto;
+  min-height: 100%;
+  display: block;
+  /* Readable across the room on a TV too: the text grows with the screen,
+     and everything else on the page is sized from it. */
+  font-size: clamp(14px, 0.35rem + 0.8vw, 24px);
+}
+.stats-page header .back {
+  margin-left: auto;
+}
+.stats-page a.button {
+  color: var(--text);
+  background: #203326;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 6px 10px;
+  text-decoration: none;
+}
+#players {
+  flex-wrap: wrap;
+}
+#players button.active {
+  background: var(--accent);
+  color: #1b1b1b;
+  border-color: var(--accent);
+}
+.stats-body {
+  padding: 16px;
+  display: grid;
+  gap: 18px;
+  max-width: min(1800px, 100%);
+}
+.stats-body section {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 16px;
+  min-width: 0;
+}
+.stats-body h2 {
+  margin: 0 0 10px;
+  font-size: 1.14em;
+}
+.stats-body h2 small {
+  font-weight: normal;
+  font-size: 0.93em;
+}
+.two {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 18px;
+}
+.table-wrap {
+  overflow-x: auto;
+}
+.table-wrap.scroll {
+  max-height: 24em;
+  overflow-y: auto;
+}
+table.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+table.stats-table th,
+table.stats-table td {
+  text-align: right;
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+table.stats-table th:first-child,
+table.stats-table td:first-child {
+  text-align: left;
+}
+table.stats-table th {
+  color: var(--muted);
+  font-weight: normal;
+  font-size: 0.86em;
+}
+.club-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+.up,
+.down {
+  font-size: 0.86em;
+  margin-left: 4px;
+}
+.better {
+  color: var(--ok);
+}
+.worse {
+  color: var(--warn);
+}
+.same {
+  color: var(--muted);
+}
+.notes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+}
+.note {
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--off);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: #1a2b1f;
+}
+.note.work {
+  border-left-color: var(--warn);
+}
+.note.good {
+  border-left-color: var(--ok);
+}
+.note h3 {
+  margin: 0 0 4px;
+  font-size: 1.07em;
+}
+.note .tag {
+  float: right;
+  font-size: 0.79em;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.note p {
+  margin: 4px 0 0;
+}
+.note .evidence {
+  color: var(--muted);
+  font-size: 0.93em;
+}
+.note .practice::before {
+  content: "Practise: ";
+  font-weight: 700;
+}
+.check-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--line);
+}
+.check-row span {
+  flex: 1 1 260px;
+}
+/* The "Wrong club?" review: a run of shots from one sitting, its buttons. */
+.wrong-run {
+  margin: 10px 0;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.wrong-run p {
+  margin: 4px 0;
+}
+.check-row .wrong-acts,
+.wrong-acts {
+  flex: 0 1 auto;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.wrong-moved {
+  margin-top: 10px;
+}
+/* The chart's text is in its own units, so it grows with the chart. */
+.gapping svg {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  display: block;
+}
+.gapping text {
+  fill: var(--text);
+  font: 14px system-ui, sans-serif;
+}
+.gapping .axis text {
+  fill: var(--muted);
+  font-size: 13px;
+}
+.gapping .grid line {
+  stroke: rgba(255, 255, 255, 0.08);
+}
+.gapping .overlap {
+  fill: rgba(244, 162, 89, 0.28);
+}
+.gapping .gap-label {
+  fill: var(--warn);
+  font-size: 13px;
+}
+.gapping .bar-hit {
+  fill: transparent;
+}
+/* Small print still has to be readable from the sofa. */
+.stats-page .small {
+  font-size: 0.86em;
+}
+.notes > p.muted {
+  grid-column: 1 / -1;
+}
+/* Each club's latest shots, a list that opens per club. */
+.recent details {
+  border-bottom: 1px solid var(--line);
+  padding: 4px 0;
+}
+.recent summary {
+  cursor: pointer;
+  padding: 4px 0;
+}
+.recent-shots select,
+.recent-shots button {
+  font-size: 0.86em;
+  padding: 2px 6px;
+}
+.recent-shots tr.removed td:not(:last-child) {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+.recent-shots tr.doubtful td:first-child::after {
+  content: " ?";
+  color: var(--warn);
+}
+/* A note said about a shot, on a row of its own under it: its tags as
+   small chips coloured by what they're about, then its words. */
+.recent-shots tr.noted td {
+  border-bottom: 0;
+}
+.recent-shots tr.shot-note td {
+  white-space: normal;
+  text-align: left;
+  padding-top: 0;
+}
+.recent-shots tr.shot-note q {
+  font-style: italic;
+  margin-right: 0.6em;
+}
+.tag-chip {
+  display: inline-block;
+  font-size: 0.79em;
+  line-height: 1.3;
+  padding: 0 0.55em;
+  margin: 0 0.35em 0.2em 0;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #203326;
+}
+.tag-chip.strike {
+  border-color: var(--warn);
+  color: var(--warn);
+}
+.tag-chip.shape {
+  border-color: #3cc4ff;
+  color: #3cc4ff;
+}
+.tag-chip.type {
+  border-color: #c7a6ff;
+  color: #c7a6ff;
+}
+.tag-chip.feel {
+  border-color: var(--ok);
+  color: var(--ok);
+}
+/* The power a part swing or chip was said to be. */
+.power-badge {
+  font-size: 0.79em;
+  padding: 0 0.45em;
+  margin-left: 0.3em;
+  border-radius: 6px;
+  background: var(--warn);
+  color: #1b1b1b;
+  font-weight: 700;
+}
+.stats-body h3.sub {
+  margin: 14px 0 8px;
+  font-size: 1em;
+}
+/* A special shot (a punch, something else on purpose): out of the club's
+   numbers, so its row is quieter. */
+.recent-shots tr.special td:not(:nth-last-child(-n + 2)) {
+  color: var(--muted);
+  font-style: italic;
+}
+/* What's counted: the days and the recording formats (statsview.js). */
+.view-bar {
+  display: grid;
+  gap: 8px;
+}
+.view-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+}
+.view-label {
+  min-width: 3.5em;
+  color: var(--muted);
+}
+.seg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.seg button.active {
+  background: var(--accent);
+  color: #1b1b1b;
+  border-color: var(--accent);
+  font-weight: 700;
+}
+.view-bar label.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.view-bar input[type="checkbox"],
+.days-table input[type="checkbox"] {
+  width: 1.1em;
+  height: 1.1em;
+}
+#view-note {
+  margin: 0;
+}
+/* Days: a row each; one left out is struck through and quiet, an
+   experimental one tagged amber, one being looked at on its own lit. */
+.days-table td {
+  vertical-align: top;
+}
+.days-table td.played,
+.days-table td.fmts,
+.days-table .what {
+  white-space: normal;
+  text-align: left;
+  min-width: 12em;
+}
+.days-table td.played div + div {
+  color: var(--muted);
+  font-size: 0.9em;
+}
+.days-table th:nth-child(3),
+.days-table th:nth-child(4) {
+  text-align: left;
+}
+.days-table label.check {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+}
+.days-table tr.out td:not(.actions) {
+  color: var(--muted);
+}
+.days-table tr.out label {
+  text-decoration: line-through;
+}
+.days-table tr.chosen td {
+  background: rgba(255, 210, 63, 0.08);
+}
+.days-table td.actions button {
+  font-size: 0.86em;
+  padding: 3px 8px;
+  margin: 1px 0;
+}
+.tag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 0 6px;
+  border-radius: 4px;
+  font-size: 0.79em;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  vertical-align: 1px;
+}
+.tag.out {
+  background: #4a2226;
+  color: #ffb3b6;
+}
+.tag.xday {
+  background: #f4a259;
+  color: #1b1b1b;
+}
+.fmt-x {
+  color: var(--warn);
+}
+.fmt-r {
+  color: #8cc4f0;
+}
+.day-msg:empty {
+  display: none;
+}
+.day-msg button {
+  font-size: 0.86em;
+  padding: 2px 8px;
+  margin-left: 6px;
+}
+/* Rounds: averages as tiles, then a row a round, its holes under it. */
+.round-avg {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11em, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.round-avg .tile {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #1a2b1f;
+  display: grid;
+  gap: 2px;
+}
+.round-avg .tile b {
+  font-size: 1.5em;
+  font-variant-numeric: tabular-nums;
+}
+.round-avg .tile span {
+  color: var(--muted);
+  font-size: 0.86em;
+}
+.round-avg > p {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+.rounds-table tr.round-holes > td {
+  padding: 0 0 10px 24px;
+  background: rgba(255, 255, 255, 0.02);
+}
+.holes-table {
+  width: auto;
+  min-width: 60%;
+}
+.rounds-table button {
+  font-size: 0.86em;
+  padding: 2px 8px;
+}
+/* Strokes gained a round by kind, then approach and putting by distance. */
+.sg-bars {
+  display: grid;
+  grid-template-columns: max-content 1fr 4em;
+  gap: 6px 10px;
+  align-items: center;
+  max-width: 40em;
+}
+.sg-bar {
+  position: relative;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 6px;
+}
+.sg-bar i {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 6px;
+}
+.sg-bar i.plus {
+  left: 50%;
+  background: var(--green, #6fdc97);
+}
+.sg-bar i.minus {
+  right: 50%;
+  background: #e0785c;
+}
+.sg-bar::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -3px;
+  bottom: -3px;
+  border-left: 1px solid var(--muted);
+}
+.sg-bars > b {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.deep-tables {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+}
+#rounds-deep h3,
+#rounds-other h3,
+#restart-wrap h3 {
+  font-size: 1em;
+  margin: 14px 0 6px;
+}
+/* Start again: a button that says it's serious, a confirmation that says
+   exactly what goes and how to get it back, and the archive. */
+button.danger {
+  background: #5a2327;
+  border-color: #a8454b;
+  color: #fff;
+  font-weight: 700;
+}
+button.danger:hover {
+  background: #6e2a2f;
+}
+.archive-table tr.mine td:first-child {
+  font-weight: 700;
+}
+.confirm-dialog {
+  max-width: min(36em, 92vw);
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-left: 6px solid #e0474c;
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+.confirm-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+.confirm-dialog h2 {
+  margin: 0 0 8px;
+  font-size: 1.2em;
+}
+.confirm-dialog .dialog-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 14px;
+}
+.rounds-table > tbody > tr > th:nth-child(2),
+.rounds-table > tbody > tr > td:nth-child(2) {
+  text-align: left;
+}
+
+/* Trends: a row a number, its little line, earlier against recent. */
+.trends-table {
+  table-layout: fixed;
+  width: 100%;
+}
+.trends-table th:nth-child(1) {
+  width: 34%;
+}
+.trends-table th:nth-child(2) {
+  width: 140px;
+}
+.trends-table th:nth-child(4) {
+  width: 12%;
+}
+.trends-table th:nth-child(5) {
+  width: 16%;
+}
+.spark polyline {
+  fill: none;
+  stroke: var(--link, #8fe3a6);
+  stroke-width: 1.5;
+}
+.spark circle {
+  fill: var(--link, #8fe3a6);
+}
+.trend-sum {
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+#trends h3 {
+  font-size: 1em;
+  margin: 14px 0 6px;
+}
+
+/* The two-week summary: the fortnight and its steps, then what improved
+   and what slipped side by side. */
+.fn-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.fn-when {
+  text-align: center;
+}
+.fn-played {
+  margin: 10px 0;
+}
+#fortnight h3 {
+  font-size: 1em;
+  margin: 10px 0 6px;
+}
+#fortnight.loading {
+  opacity: 0.6;
+}
+.fn-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.fn-list li {
+  padding: 4px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 10px;
+}
+.fn-figs {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.fn-msg:empty {
+  display: none;
+}
+
+/* Who strokes gained is against. */
+.sg-pick-row {
+  margin: 14px 0 4px;
+}
+
+/* Practise next: a card a drill, the first picked out. */
+.plans {
+  display: grid;
+  gap: 8px;
+}
+.plan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+.plan.first {
+  border-color: var(--accent, #ffd23f);
+}
+.plan .small {
+  margin-top: 3px;
+}
+.plan button {
+  flex: none;
+}
+
+/* Watching a shot's swing (shotvideo.js). */
+.recent-shots button.watch { padding: 0.1em 0.5em; }
+.recent-shots label.compare { margin-left: 0.3em; }
+.compare-bar { position: sticky; bottom: 0; padding: 0.5em 0.8em; margin-top: 0.5em; background: var(--panel, #1c2a22); border: 1px solid var(--line, #3a4a40); border-radius: 8px; display: flex; gap: 0.6em; align-items: center; flex-wrap: wrap; }
+dialog.shot-video { max-width: min(96vw, 900px); width: 96vw; padding: 0.8em; }
+dialog.shot-video.sv-two { max-width: 96vw; }
+dialog.shot-video .sv-views { display: grid; grid-template-columns: 1fr; gap: 0.8em; }
+dialog.shot-video.sv-two .sv-views { grid-template-columns: 1fr 1fr; }
+@media (max-width: 700px) { dialog.shot-video.sv-two .sv-views { grid-template-columns: 1fr; } }
+dialog.shot-video figure { margin: 0; }
+dialog.shot-video video { width: 100%; max-height: 70vh; background: #000; border-radius: 6px; }
+dialog.shot-video .sv-angles { display: flex; gap: 0.4em; flex-wrap: wrap; margin-top: 0.3em; }
+dialog.shot-video .sv-angles button.on { font-weight: bold; outline: 2px solid currentColor; }
+dialog.shot-video .sv-bar { display: flex; gap: 0.6em; justify-content: flex-end; margin-top: 0.6em; flex-wrap: wrap; }
+
+/* Rounds: where the fairways were missed, penalties by kind. */
+.round-breakdown { display: grid; grid-template-columns: repeat(auto-fit, minmax(18em, 1fr)); gap: 16px; margin-bottom: 12px; }
+.round-breakdown .tiles { display: flex; flex-wrap: wrap; gap: 8px; }
+.round-breakdown .tile { border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; background: #1a2b1f; display: grid; gap: 2px; min-width: 6em; }
+.round-breakdown .tile b { font-size: 1.3em; font-variant-numeric: tabular-nums; }
+.round-breakdown .tile span { color: var(--muted); font-size: 0.86em; }
+
+/* Your phones: the code to type on the phone, big enough to read across
+   the room, its QR code, and each linked phone with its Unlink. */
+.phone-code {
+  margin: 0.3em 0;
+  font-size: 2.4em;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+/* Your phones: its buttons in a row with room between. */
+#phone-wrap .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.link-open[hidden] {
+  display: none;
+}
+.link-open {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1em;
+}
+.link-qr svg {
+  width: 9em;
+  height: 9em;
+  border-radius: 6px;
+}
+.link-phones {
+  margin: 0.4em 0;
+  padding-left: 1.2em;
+}
+.link-phones li {
+  margin: 0.3em 0;
+}
+.link-phones button {
+  margin-left: 0.6em;
+}
+.day-msg.bad {
+  color: var(--bad, #f08070);
+}

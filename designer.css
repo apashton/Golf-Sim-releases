@@ -1,0 +1,837 @@
+body.designer {
+  height: auto;
+  min-height: 100%;
+  overflow: auto;
+}
+.designer header .button {
+  color: var(--text);
+  background: var(--button);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 6px 10px;
+  text-decoration: none;
+}
+.designer header #back {
+  margin-left: auto;
+}
+button.primary {
+  background: var(--accent);
+  color: #1b1b1b;
+  border-color: var(--accent);
+  font-weight: 700;
+}
+button.danger {
+  border-color: #7a2c2e;
+}
+.designer-body {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: calc(100vh - 52px);
+}
+.course-list {
+  width: auto;
+  overflow: visible;
+  background: var(--panel);
+  border-right: 1px solid var(--line);
+  padding: 14px;
+}
+.course-list h3,
+.designer main h3 {
+  margin: 16px 0 8px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+.course-list > button,
+.course-list details > button {
+  width: 100%;
+}
+/* Your courses: its heading as it always was in the side column. On a
+   narrow screen (a phone, where the column sits above what's being made)
+   it folds under the heading - Show, Hide - so the course is first. */
+#your-courses > summary {
+  list-style: none;
+  cursor: default;
+}
+#your-courses > summary::-webkit-details-marker {
+  display: none;
+}
+@media (min-width: 901px) {
+  #your-courses > summary {
+    pointer-events: none;
+  }
+}
+@media (max-width: 900px) {
+  #your-courses > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    margin-top: 12px;
+    padding: 2px 0;
+  }
+  #your-courses > summary h3 {
+    margin: 0;
+  }
+  #your-courses > summary::after {
+    content: "Show";
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text);
+  }
+  #your-courses[open] > summary::after {
+    content: "Hide";
+  }
+  #your-courses[open] > summary {
+    margin-bottom: 8px;
+  }
+}
+.designer main {
+  display: block;
+  padding: 18px 22px 40px;
+  min-width: 0;
+}
+.designer main h2 {
+  margin: 0 0 4px;
+}
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 8px 0;
+}
+.card-entry {
+  display: grid;
+  grid-template-columns: minmax(280px, 520px) minmax(260px, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+table.card {
+  border-collapse: collapse;
+  width: 100%;
+}
+table.card th,
+table.card td {
+  padding: 3px 6px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+table.card th {
+  color: var(--muted);
+  font-weight: normal;
+  font-size: 12px;
+}
+table.card input,
+table.card select {
+  width: 80px;
+  padding: 3px 6px;
+}
+textarea {
+  width: 100%;
+  min-height: 170px;
+  font: 13px ui-monospace, Consolas, monospace;
+  color: var(--text);
+  background: #203326;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 8px;
+}
+.error {
+  color: #ff8a80;
+}
+/* The hole being changed: picked from the list, or the arrows either side. */
+.hole-pick {
+  margin: 14px 0 10px;
+  align-items: center;
+}
+.hole-pick label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
+.hole-pick select {
+  min-width: 220px;
+  font-size: 15px;
+  padding: 5px 8px;
+}
+.hole-pick button {
+  min-width: 42px;
+}
+/* The course layout: a screen of its own over the page, closed with Done. */
+.layout-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow: auto;
+  padding: 14px 18px 24px;
+  background: var(--bg);
+}
+.layout-screen[hidden] {
+  display: none;
+}
+body.layout-open {
+  overflow: hidden;
+}
+.layout-head {
+  align-items: center;
+}
+.layout-head h2 {
+  margin: 0;
+}
+.layout-head .gap {
+  flex: 1;
+}
+/* As big as the screen allows, never stretched (its own shape kept). */
+.layout-screen canvas.cmap {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100vh - 230px);
+  margin: 0 auto;
+}
+.layout-tools:empty {
+  display: none;
+}
+.layout-tools button.on {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+/* Another hole's shape tapped on the hole's map (holeeditor.js). */
+.hand-context .other-hole {
+  color: #ff8a80;
+  font-weight: 600;
+}
+.layout-picked {
+  align-items: center;
+}
+/* A question or message in the page (askbox.js). */
+.ask-box {
+  width: min(460px, 92vw);
+}
+.ask-box .ask-text {
+  margin: 0 0 10px;
+  line-height: 1.4;
+}
+.ask-box .ask-answer {
+  width: 100%;
+  box-sizing: border-box;
+}
+.editor {
+  display: grid;
+  grid-template-columns: minmax(260px, 420px) 1fr;
+  gap: 22px;
+  align-items: start;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px;
+}
+.editor canvas {
+  width: 100%;
+  border-radius: 8px;
+}
+.editor label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  max-width: 360px;
+}
+.editor input[type="number"] {
+  width: 90px;
+}
+@media (max-width: 900px) {
+  .designer-body,
+  .card-entry,
+  .editor {
+    grid-template-columns: 1fr;
+  }
+}
+.course-list #map-course {
+  margin-top: 8px;
+}
+.map-results {
+  list-style: none;
+  padding: 0;
+}
+.map-results li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--line);
+}
+.map-results li button {
+  margin-left: auto;
+}
+.map-report {
+  border-collapse: collapse;
+  margin: 8px 0;
+}
+.map-report th,
+.map-report td {
+  padding: 4px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+.warn {
+  color: #ffb35c;
+}
+.ground {
+  margin: 12px 0;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.ground label.button {
+  cursor: pointer;
+}
+.ground details {
+  align-self: center;
+}
+.lidar-files {
+  list-style: none;
+  padding: 0;
+}
+.lidar-files li {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 3px 0;
+}
+
+/* Changing a hole by hand: big tool buttons over the map. */
+@media (min-width: 901px) {
+  .editor {
+    grid-template-columns: minmax(300px, 560px) 1fr;
+  }
+}
+.hand-tools {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.hand-tools .tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 2px 6px;
+  font-size: 14px;
+  min-height: 64px;
+}
+.hand button.on {
+  border-color: var(--accent);
+  background: #2e4634;
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.hand-modes,
+.hand-context {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin: 6px 0;
+  min-height: 34px;
+}
+.hand-modes button,
+.hand-context button,
+.hand-actions button {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+.hand-modes .gap,
+.hand-context .gap {
+  flex: 0 0 12px;
+}
+/* Starts a new row of buttons. */
+.hand-context .break {
+  flex-basis: 100%;
+  height: 0;
+}
+.hand-context button.big {
+  padding: 10px 14px;
+  font-size: 15px;
+  min-height: 44px;
+}
+.hand-context .depth-now {
+  min-width: 110px;
+  text-align: center;
+  font-weight: bold;
+}
+.hand-warn {
+  flex-basis: 100%;
+  margin: 2px 0 0;
+  color: var(--warn);
+  font-size: 14px;
+  /* Always one line, so the map below never moves when it changes. */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.hand-context input[type="range"] {
+  flex: 1;
+  min-width: 140px;
+}
+.hand-help {
+  margin: 4px 0 8px;
+  font-size: 15px;
+  /* Room for two lines whatever it says, so the map below moves less
+     when a tap changes it. */
+  min-height: 2.6em;
+}
+.hand-map {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.hand-map canvas {
+  display: block;
+  touch-action: none;
+  cursor: crosshair;
+  /* The tools above and the buttons below stay in view with it. */
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: max(360px, calc(100vh - 330px));
+  margin: 0 auto;
+}
+.hand-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0 6px;
+}
+.hand-bar .gap {
+  flex: 1;
+}
+.hand-bar button {
+  padding: 8px 12px;
+  font-size: 14px;
+  min-height: 38px;
+}
+/* Undo and Redo, with what they'd undo or do again under the word. */
+/* A fixed width, so a name appearing under one never moves the buttons
+   beside it: tapping Redo twice in the same place is two redos. */
+.hand-bar button.step {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: none;
+  width: 8em;
+  line-height: 1.15;
+  padding: 4px 12px;
+}
+.hand-bar button.step small {
+  font-size: 11px;
+  color: var(--muted, #93a897);
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hand-bar button.step small:empty {
+  display: none;
+}
+/* The last steps, newest first, over the top of the map: tap one to go
+   back to it. */
+.hand-steps {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 2;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  max-height: calc(100% - 12px);
+  overflow-y: auto;
+  min-width: 220px;
+  background: rgba(15, 26, 18, 0.95);
+  border: 1px solid #3c5a43;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+.hand-steps[hidden] {
+  display: none;
+}
+.hand-steps button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 10px;
+  margin: 2px 0;
+  font-size: 14px;
+}
+.hand-steps button.now {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.hand-steps button.undone {
+  opacity: 0.6;
+  font-style: italic;
+}
+.hand-steps small {
+  color: var(--muted, #93a897);
+  font-style: normal;
+}
+.hand-bar #zoom-in,
+.hand-bar #zoom-out {
+  min-width: 42px;
+  font-size: 18px;
+  padding: 4px 10px;
+}
+.depth {
+  display: inline-flex;
+  border: 1px solid #3c5a43;
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 12px;
+}
+.depth span {
+  padding: 6px 7px;
+  color: #9fb5a4;
+  border-right: 1px solid #3c5a43;
+}
+.depth span:last-child {
+  border-right: 0;
+}
+.depth span.past {
+  background: #4a4230;
+}
+.depth span.on {
+  background: #c9b47a;
+  color: #1b1b1b;
+  font-weight: bold;
+}
+.hole-hint {
+  margin: 4px 0 8px;
+}
+.hand-note {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  margin: 0;
+  padding: 8px 12px;
+  background: rgba(15, 26, 18, 0.92);
+  border: 1px solid var(--warn);
+  border-radius: 6px;
+  font-size: 14px;
+}
+.hand-modes[hidden] {
+  display: none;
+}
+@media (max-width: 520px) {
+  .hand-tools {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+/* A line of words among the buttons is as tall as a row of buttons, so
+   swapping one for the other (picking a cart path) doesn't move the map. */
+.hand-context .muted {
+  display: inline-flex;
+  align-items: center;
+  min-height: 37.5px;
+}
+
+/* ---- The whole course on one map (coursewide.js) ---------------------------- */
+
+.course-map-sec {
+  margin: 10px 0 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+.cmap-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.cmap-bar h3 {
+  margin: 0;
+}
+.cmap-bar .gap {
+  flex: 1;
+}
+canvas.cmap {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.cmap-note {
+  margin: 6px 0 0;
+  color: #ffcf85;
+}
+.cmap-cross {
+  display: grid;
+  gap: 6px;
+  margin-top: 8px;
+}
+.cmap-bad,
+.cmap-ok {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+}
+.cmap-bad b {
+  color: #ff8a80;
+}
+.cmap-pair {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* The tree key (the Trees tool): each kind on the hole, its colour on the
+   map and how many. */
+.hand-context .tree-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  font-size: 0.85em;
+}
+.hand-context .tree-key-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+.hand-context .tree-key-item i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.hand-context .tree-key-item small {
+  opacity: 0.7;
+}
+
+/* ---- The course maker (New course) ------------------------------------------- */
+
+.presets {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 8px;
+  margin: 6px 0 10px;
+}
+.preset {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 600;
+}
+.preset.on {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.preset .swatches {
+  display: flex;
+  gap: 3px;
+}
+.preset .swatches i {
+  width: 26px;
+  height: 8px;
+  border-radius: 4px;
+}
+/* Each hole's style at a glance: 1 to 18 in their colours. */
+.strip {
+  display: flex;
+  gap: 3px;
+  margin: 4px 0 8px;
+  flex-wrap: wrap;
+}
+.strip span {
+  min-width: 26px;
+  padding: 3px 0;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #10180f;
+}
+details.maker {
+  margin-top: 14px;
+  border-top: 1px solid var(--line);
+  padding-top: 8px;
+}
+details.maker summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 4px 0;
+}
+details.maker h4 {
+  margin: 14px 0 4px;
+}
+table.sections td {
+  padding: 3px 8px 3px 0;
+}
+table.sections input[type="number"] {
+  width: 64px;
+}
+.maker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 8px 16px;
+}
+.maker-grid label {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+}
+.maker-grid label.check {
+  justify-content: flex-start;
+}
+table.card .dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+#patterns button.on {
+  border-color: var(--accent);
+}
+
+/* The course review (reviewpanel.js): its score, then each part's score
+   and notes - to fix, worth a look, good - each with its holes' buttons. */
+.review-top {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  margin: 8px 0 14px;
+}
+.review-top p {
+  margin: 0 0 6px;
+  line-height: 1.4;
+}
+.review-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 88px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+}
+.review-score b {
+  font-size: 34px;
+  line-height: 1;
+}
+.review-score small {
+  color: var(--muted);
+}
+.review-parts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 14px;
+}
+.review-part {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+}
+.review-part h3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0 0 6px;
+}
+.review-part-score b {
+  font-size: 20px;
+}
+.review-part-score small {
+  color: var(--muted);
+}
+.review-bar {
+  display: block;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--line);
+  overflow: hidden;
+}
+.review-bar span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+.review-part > p {
+  margin: 6px 0;
+}
+.review-notes {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+.review-notes li {
+  padding: 6px 0 6px 10px;
+  border-left: 3px solid var(--line);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.review-notes li.review-fix {
+  border-left-color: #ff7a6b;
+}
+.review-notes li.review-look {
+  border-left-color: #ffb35c;
+}
+.review-notes li.review-good {
+  border-left-color: #7ccf86;
+}
+.review-notes li.review-info {
+  color: var(--muted);
+}
+.review-level {
+  font-weight: 600;
+}
+.review-fix .review-level {
+  color: #ff7a6b;
+}
+.review-look .review-level {
+  color: #ffb35c;
+}
+.review-good .review-level {
+  color: #7ccf86;
+}
+.review-notes button.go,
+.review-top button.go {
+  padding: 1px 8px;
+  font-size: 12px;
+}
+
+/* The course maker's search for the best course (searchrunner.js): its
+   progress under Make the course. */
+.searching progress {
+  width: 220px;
+  height: 10px;
+  vertical-align: middle;
+}
+.searching #search-msg {
+  min-width: 26em;
+}
+
+/* Your courses: Google Drive... (coursedrivebox.js), under the list. */
+#drive-courses {
+  margin-top: 12px;
+}

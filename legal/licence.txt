@@ -1,0 +1,93 @@
+A-SQUARED GOLF - END USER LICENCE AGREEMENT
+
+Please read this before installing. By installing or using A-Squared Golf
+("the game") you agree to these terms. If you don't agree, don't install
+it, and remove it if you already have.
+
+1. Who this is between
+   This agreement is between you and A2 Games, the makers of A-Squared
+   Golf ("we", "us").
+
+2. What you may do
+   We give you a personal, non-exclusive, non-transferable licence to
+   install and use the game on the computers and phones you own or
+   control, for playing, practising and recording your own golf.
+   You may share recordings, pictures and videos you make with the game.
+
+3. What you may not do
+   You may not:
+   - sell, rent, lend or sublicense the game, or pass it on as part of
+     another product;
+   - copy the game except as needed to install and use it, and to keep a
+     backup;
+   - take the game apart, decompile it or undo its scrambling, except
+     where the law allows you to whatever this agreement says;
+   - remove or change any notice of ownership or credit in the game;
+   - use the online play service to harm, harass or deceive other
+     players, or to overload or attack the service.
+
+4. Ownership
+   The game is licensed to you, not sold. We (and the people we license
+   from) keep all rights in it. Parts of the game are other people's work,
+   used under their own licences: see "Third-party notices" (in the game:
+   Menu -> Help -> About). Those licences
+   apply to those parts, and nothing here limits your rights under them.
+
+5. Launch monitors and other products
+   The game works with launch monitors and other products made by other
+   companies. We are not connected with, sponsored or endorsed by those
+   companies, and their names belong to them. A launch monitor's readings
+   are its own: we don't promise any device works with the game, or that
+   the game's flights match any other program's.
+
+6. Online play and course maps
+   Online play uses a service we run, which we may change, limit or stop
+   at any time. Course maps and ground heights you import come from public
+   map services (such as OpenStreetMap), under their own terms and
+   credits; you are responsible for what you import and share.
+
+7. Updates
+   The game checks for updates and installs them. Some updates may be
+   needed to keep playing online. These terms apply to every update.
+
+8. Safety
+   Golf in a simulator means swinging a club indoors. Make sure the space
+   is big enough, the screen and projector are protected, and no one is
+   near you when you swing. You use the game at your own risk.
+
+9. No warranty
+   The game is provided "as is". As far as the law allows, we give no
+   promise that it will work without errors or interruption, or that it
+   suits any particular purpose.
+
+10. Our liability
+   As far as the law allows, we are not liable for any loss of data,
+   profit or business, or for any indirect loss, arising from the game.
+   Nothing in this agreement limits liability that the law does not allow
+   to be limited, such as for death or personal injury caused by
+   negligence, or fraud, and nothing takes away your statutory rights as
+   a consumer.
+
+11. Ending
+   This licence ends if you break these terms. When it ends you must stop
+   using the game and remove it. You may end it at any time by removing
+   the game.
+
+12. Privacy
+   What the game keeps and what it sends is described in the privacy
+   note (in the game: Menu -> Help -> About).
+
+13. Law
+   This agreement is governed by the law of England and Wales, and its
+   courts have jurisdiction, unless the law where you live gives you the
+   right to bring a claim there.
+
+14. Changes
+   We may change these terms for later versions. The version that comes
+   with each version of the game is the one that applies to it.
+
+Questions and feedback: Menu -> System -> Feedback in the game, or
+https://github.com/apashton/Golf-Sim-releases/issues
+
+Copyright (c) 2026 A2 Games, the makers of A-Squared Golf.
+All rights reserved.

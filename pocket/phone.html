@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="data:," />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Phone check - A² Golf</title>
+    <!-- The Android test app's Phone check (docs/ANDROID.md): what the phone
+         can do, the Omni over the app's Bluetooth, a controller, and what
+         the game logged - all copied in one report to send back. -->
+    <link rel="stylesheet" href="/pocket/pocket.css" />
+  </head>
+  <body>
+    <main>
+      <h1><span class="brand">A²</span>Phone check</h1>
+      <div class="buttons">
+        <a class="button" href="/">Back</a>
+        <button id="copy" class="primary">Copy the report</button>
+      </div>
+      <p id="copied" class="small muted"></p>
+      <div class="columns">
+        <div class="card">
+          <h2>This phone</h2>
+          <table class="facts" id="facts"></table>
+        </div>
+        <div class="card">
+          <h2>The Omni over Bluetooth</h2>
+          <p class="small muted">Switch the Omni on, close any other app using it, then look for it. The game does the same by itself when you press Play.</p>
+          <div class="buttons">
+            <button id="scan">Look for devices</button>
+            <button id="connect">Connect to the Omni</button>
+            <button id="letgo">Let go</button>
+          </div>
+          <p id="omni-state" class="muted">Not started</p>
+          <div class="log" id="ble-log"></div>
+          <h2>Shots heard</h2>
+          <div class="log" id="shots">None yet - hit one once it says Connected.</div>
+        </div>
+        <div class="card">
+          <h2>Game controller</h2>
+          <p class="small muted">Pair a controller with the phone, then press any button on it.</p>
+          <div class="log" id="pads">None yet.</div>
+        </div>
+        <div class="card">
+          <h2>From the game</h2>
+          <p class="small muted">The Omni's last messages and the game's last errors, from playing.</p>
+          <div class="log" id="game-log"></div>
+          <div class="log" id="game-errors"></div>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="/pocket/phone.js"></script>
+  </body>
+</html>

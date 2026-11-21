@@ -1,0 +1,224 @@
+/* The Tour (tourpanel.js, tourplay.js): its tab in the top bar, its panel,
+   and the card on a green while one of its events is played. */
+
+/* The tab: beside the modes, picked out - it's where the week's played
+   for (the owner: "really obvious"). Ringed while its panel's open, a dot
+   while one of its events is on. */
+header.topbar nav button.tour-tab {
+  position: relative;
+  color: var(--accent);
+  font-weight: 700;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 60%, transparent);
+}
+header.topbar nav button.tour-tab:hover {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+}
+header.topbar nav button.tour-tab.on {
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+header.topbar nav button.tour-tab.live::before {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 0.55em;
+  margin-right: 0.35em;
+  border-radius: 50%;
+  background: #4cd964;
+  vertical-align: 0.05em;
+}
+/* Two more tabs than there were: a little tighter where the bar's short
+   of room, so its tools stay on the one row. */
+@media (max-width: 1480px) {
+  header.topbar nav button {
+    padding: 5px 9px;
+  }
+}
+@media (max-width: 1200px) {
+  header.topbar nav button {
+    padding: 5px 7px;
+    letter-spacing: 0;
+  }
+}
+
+/* The panel: the Online panel's box and cards (style.css .online-box). */
+.tour-box .tour-who button {
+  margin-right: 6px;
+}
+.tour-box .tour-event-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.tour-box .tour-event-head h3 {
+  font-size: 15px;
+}
+.tour-box .tour-mine {
+  font-size: 15px;
+}
+.tour-box .tour-mine b {
+  color: var(--accent);
+}
+.tour-box table.tour-board {
+  width: 100%;
+  border-collapse: collapse;
+}
+.tour-box table.tour-board th,
+.tour-box table.tour-board td {
+  padding: 5px 8px 5px 0;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+.tour-box table.tour-board th {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 13px;
+}
+.tour-box table.tour-board td:first-child,
+.tour-box table.tour-board th:first-child {
+  width: 3.5em;
+}
+.tour-box table.tour-board td:last-child,
+.tour-box table.tour-board th:last-child {
+  width: 5em;
+  text-align: right;
+  padding-right: 0;
+}
+/* The season screen (seasonscreen.js): who won each event on one line. */
+.tour-box table.season-events td:first-child,
+.tour-box table.season-events th:first-child {
+  width: 2em;
+}
+.tour-box table.season-events td:last-child,
+.tour-box table.season-events th:last-child {
+  width: auto;
+  white-space: nowrap;
+}
+/* Each event's two boards side by side (the most made, the longest
+   streak) - one over the other where there isn't room. */
+.tour-box .tour-boards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 6px 18px;
+}
+.tour-box .tour-boards h4 {
+  margin: 6px 0 2px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.tour-box table.tour-board tr.near td {
+  color: var(--accent);
+}
+.tour-box .worse {
+  color: #ff9b8a;
+}
+
+/* On a green set from outside (putting.js setFixed): its card at the top
+   of the panel, and the games' tabs put away - the green isn't to be
+   changed while it's on. */
+aside section.fixed-green {
+  display: grid;
+  gap: 6px;
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+}
+aside section.fixed-green[hidden] {
+  display: none;
+}
+aside section.fixed-green h3 {
+  margin: 0;
+  color: var(--accent);
+}
+aside section.fixed-green p {
+  margin: 0;
+}
+aside section.fixed-green .worse {
+  color: #ff9b8a;
+}
+aside section.fixed-green .streak-now {
+  margin: 2px 0 0;
+}
+.green-fixed > section.tabs {
+  display: none;
+}
+
+/* Keeping it honest (step 4): a held entry's note, a row's Report, the
+   owner's page, the Tour id. */
+.tour-box .tour-held {
+  color: #ffc46b;
+  font-size: 13px;
+}
+.tour-box button.tour-report {
+  font-size: 12px;
+  padding: 1px 6px;
+  opacity: 0.55;
+}
+.tour-box button.tour-report:hover,
+.tour-box button.tour-report:focus-visible {
+  opacity: 1;
+}
+.tour-box .tour-owner {
+  border-color: var(--accent);
+}
+.tour-box .tour-owner-acts {
+  white-space: nowrap;
+  text-align: right;
+}
+.tour-box .tour-owner-acts button {
+  margin-left: 4px;
+}
+.tour-box .tour-id code {
+  user-select: all;
+  word-break: break-all;
+}
+
+/* The week's course and the next weeks' (tourpanel.js aheadHtml): an
+   update needed is amber, a course ready here ticked. */
+.tour-update {
+  color: #ffc24a;
+  font-weight: 700;
+}
+.tour-update-line {
+  margin: 6px 0;
+  padding: 6px 10px;
+  border-left: 3px solid #ffc24a;
+  background: rgba(255, 194, 74, 0.1);
+}
+.tour-ahead {
+  margin: 6px 0;
+}
+.tour-ahead ul {
+  margin: 2px 0 0;
+  padding-left: 18px;
+  font-size: 13px;
+}
+.tour-ahead li.tour-update {
+  font-weight: 600;
+}
+.tour-ready {
+  color: #6fd08c;
+  font-weight: 700;
+}
+
+/* Everyone's boards or your friends' (tourpanel.js scopeHtml). */
+.tour-scope {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  margin: 8px 0;
+}
+.tour-scope button {
+  padding: 3px 12px;
+  border-radius: 999px;
+}
+.tour-scope button.on {
+  background: var(--accent, #ffd23f);
+  border-color: var(--accent, #ffd23f);
+  color: #13200f;
+}
