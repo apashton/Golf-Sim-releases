@@ -420,10 +420,12 @@ details pre { margin: 12px 0 0; white-space: pre-wrap; font: 400 13px/1.55 var(-
     <p>In the game, Menu → System → Feedback saves a report of what happened and opens the support page for you. Launch monitor names belong to their makers; A² Golf isn't connected with or endorsed by them.</p>
     <details id="privacy"><summary>Privacy</summary><pre><!-- legal:privacy -->A-SQUARED GOLF - PRIVACY NOTICE
 
-Short version: the game has no accounts and no adverts, and it doesn't
-track you. Your shots, stats, recordings and courses stay on your own
-computer. It only sends something over the internet when you use a
-feature that needs to, as listed below.
+Short version: the game has no adverts, and it doesn't sell or share
+anything about you. You sign in so A² Golf knows who you are on this
+device and on the Tour. Your shots, stats, recordings and courses stay
+on your own computer (and, if you choose, in your own Google Drive).
+It only sends something over the internet when you use a feature that
+needs to, as listed below.
 
 WHO WE ARE
 A2 Games, the makers of A-Squared Golf ("we"). Contact us through Menu -&gt;
@@ -433,15 +435,27 @@ https://github.com/apashton/Golf-Sim-releases/issues
 WHAT STAYS ON YOUR COMPUTER
 - Players' names, shots, stats, rounds and scorecards.
 - Settings, courses you make or import, hole edits.
+- Which accounts are signed in on this device, kept beside the stats.
 - Webcam replays, recordings and pictures.
 - Logs of the launch monitor connection, kept to help fix problems.
 These are in the game's own folder on your PC (System -&gt; When something's
 stuck shows where). We never see them unless you send them to us. Removing
-the game and that folder removes them.
+the game and that folder removes what's on this computer, but not an
+account or anything already on the Tour or a ladder (see Your rights).
 
 WHAT IS SENT, AND WHEN
 
-1. Online play (only when you host or join an online game).
+1. Signing in (asked the first time A² Golf opens, on the PC, the phone
+   or the web version).
+   Signing in is through Google's Firebase, on the A2 Golf project:
+   Continue with Google, or an email and a password. With Google, your
+   email and name as Google has them are used to sign you in. Friends,
+   children and guests can play on this device without a login of their
+   own. After you sign in, the game opens as you every time, including
+   offline. Signing out on a device does not delete the account, or
+   what's already on the Tour or a ladder.
+
+2. Online play (only when you host or join an online game).
    The game's code, the players' names, the shots and scores of the
    game, and messages and reactions in it are passed between the bays
    through our relay, run on Cloudflare. The relay keeps nothing about a
@@ -450,18 +464,34 @@ WHAT IS SENT, AND WHEN
    ladders keep what their players report - names, challenges, scores and
    rounds - for as long as the ladder is in use.
 
-2. Linking a phone (only when you link one).
+3. The Tour (only when you play the Tour).
+   Your account is known to the relay only as a hash of its id, never
+   your email. Your scores, your cards, and the name you choose to show
+   (your player name in the game, or "A player") are kept for the week's
+   boards and the season's table. Those boards are public, on the web
+   too.
+
+4. Linking a phone (only when you link one).
    Stats from a linked phone wait on the relay until your PC collects
    them, then they're removed from there. The PC leaves its players'
    names, handicaps and stats summed up there for its phones to collect.
    Ending the link from the PC removes it and everything waiting on it.
 
-3. Updates.
+5. Stats in your Google Drive (only if you sign in for them on My stats).
+   The player showing's stats are kept in your own Google Drive, in a
+   folder A² Golf makes, so they can follow you to another computer.
+   A² Golf can only see the files it made, never anything else in that
+   Drive. Signing out stops the sync; it does not delete the files.
+   You can take A² Golf's access back from Google's Security -&gt;
+   Third-party access page, and remove the A² Golf folder in Drive
+   yourself.
+
+6. Updates.
    The game asks GitHub (github.com) if there's a new version, and
    downloads it from there. GitHub sees your internet address, as with any
    download.
 
-4. Course maps (only when you import a course or search for a place).
+7. Course maps (only when you import a course or search for a place).
    The place you search for and the area you import are sent to public
    map services: OpenStreetMap's search and data services (Nominatim,
    Photon, Overpass), and ground height services (such as the
@@ -469,40 +499,50 @@ WHAT IS SENT, AND WHEN
    National Map, and Amazon's open terrain tiles). They see your internet
    address and the area, under their own privacy policies.
 
-5. Feedback (only when you choose to send it).
+8. Feedback (only when you choose to send it).
    Menu -&gt; System -&gt; Feedback saves a report on your PC - your note, the
    version, your settings, the screens, the graphics card, the launch
    monitor's connection log and recent errors - and opens a page where you
    can post it. Read it before you post: on GitHub's issues it is public.
    Nothing is sent until you post it yourself.
 
-6. Online play from other houses with Tailscale (only if you set it up).
+9. Online play from other houses with Tailscale (only if you set it up).
    Tailscale is a separate program with its own privacy policy.
 
-7. The website (apashton.github.io/Golf-Sim-releases).
-   It counts visits and which of its links are clicked (the downloads,
-   the trailer) with GoatCounter, which sets no cookies and keeps nothing
-   that says who you are: the page, where you came from, your browser's
-   kind and screen size, and your country, counted. GitHub hosts the
-   site and the downloads, and counts how often each download is taken.
+10. Phone alerts (only if they're turned on, and only when you allow them).
+    A challenge, an answer or a Postal round on a ladder can be sent to
+    your phone, even with the app closed, through Firebase Cloud
+    Messaging. The app asks once whether it may. Until the feature is
+    set up, the app never asks and no alert is sent.
+
+11. The website (apashton.github.io/Golf-Sim-releases).
+    It counts visits and which of its links are clicked (the downloads,
+    the trailer) with GoatCounter, which sets no cookies and keeps nothing
+    that says who you are: the page, where you came from, your browser's
+    kind and screen size, and your country, counted. GitHub hosts the
+    site and the downloads, and counts how often each download is taken.
 
 WHAT WE DON'T DO
-- No accounts, no adverts, no tracking. The game itself counts nothing
-  about you; the website counts visits, as above.
-- We don't sell or share anything about you.
+- No adverts, no selling or sharing of anything about you.
+- The website counts visits and link clicks as above, with no cookies.
+  The game itself has no advertising, and no extra tracking beyond
+  what's listed here.
 - Voice commands are heard by Windows' own speech recogniser on your PC;
   no sound leaves your computer.
 - Webcams are used only on your PC, for replays and recordings.
 
 CHILDREN
-The game has no accounts and collects nothing about who you are. Online,
-players see the names you type in: use a nickname if you'd rather.
+Children and guests can play without a login of their own, as players on
+a signed-in person's device. Online, people see the names you choose to
+show: use a nickname if you'd rather.
 
 YOUR RIGHTS
 If you live in the UK or the EU you have rights over data about you
-(to see it, correct it, or have it removed). As almost everything stays on
-your own PC, you can see and remove it yourself. For anything held on the
-relay (an online ladder), contact us and we'll help.
+(to see it, correct it, or have it removed). Almost everything stays on
+your own PC, and you can see and remove that yourself. For an account,
+Tour or ladder entries, or anything else we hold, contact us through
+Menu -&gt; System -&gt; Feedback or the support page above, and we'll help.
+Signing out on a device does not delete your account or those records.
 
 CHANGES
 If this notice changes, the new one comes with the update that changes
@@ -612,6 +652,29 @@ All rights reserved.<!-- /legal --></pre></details>
   // - goes here, and until it does nothing is counted or loaded. Each link
   // counted has a data-goatcounter-click name (download-windows-hero...).
   const GOATCOUNTER = "a2golf";
+  // Tagged links (utm_source, utm_campaign and so on in this page's address):
+  // each counted click is marked campaign/source/content so a download can
+  // be told from the post that brought someone here, and the same tags are
+  // passed on to Play in your browser. GitHub download links are left as
+  // they are. Nothing is stored; no cookies.
+  const q = location.search;
+  if (q.length > 1) {
+    const p = new URLSearchParams(q);
+    const campaign = (p.get("utm_campaign") || p.get("campaign") || "").trim();
+    const source = (p.get("utm_source") || p.get("ref") || p.get("src") || p.get("source") || "").trim();
+    const content = (p.get("utm_content") || "").trim();
+    if (campaign || source) {
+      const referrer = [campaign, source, content].filter((s) => s).join("/");
+      for (const el of document.querySelectorAll("[data-goatcounter-click]")) el.setAttribute("data-goatcounter-referrer", referrer);
+    }
+    for (const a of document.querySelectorAll('a[data-goatcounter-click^="play-web-"]')) {
+      try {
+        const u = new URL(a.href, location.href);
+        if (!u.search) u.search = q;
+        a.href = u.href;
+      } catch {}
+    }
+  }
   if (GOATCOUNTER && location.protocol.startsWith("http")) {
     const gc = document.createElement("script");
     gc.async = true;
