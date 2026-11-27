@@ -1,0 +1,257 @@
+/* Finding a course (coursefinder.js): the course panel's course - a button
+   that opens the course picker - the picker card over the game, and the
+   finder itself (the words box, the filters as chips, the order, the
+   courses), in the picker and in the designer's list. One steady size of
+   text, as the Online card has. */
+
+/* The course panel's course: its name and line, Change at the right. */
+.course-choose {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  padding: 8px 10px;
+  margin: 2px 0 8px;
+}
+.course-choose-what {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+.course-choose-what b {
+  font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.course-choose-what small {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+.course-choose-change {
+  flex: none;
+  font-size: 12px;
+  padding: 2px 8px;
+  border: 1px solid var(--edge-strong, var(--line));
+  border-radius: 999px;
+  color: var(--link, var(--accent));
+}
+
+/* The picker: in the middle of the screen, over the Online play panel and
+   the menu as the levels card is; its list scrolls, the rest stays put. */
+.corner-card.course-picker {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  z-index: 1020;
+  width: min(720px, calc(100vw - 24px));
+  height: fit-content;
+  max-height: calc(100vh - 24px);
+  max-width: none;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  background: #0c1a10;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  font-size: 15px;
+  line-height: 1.45;
+}
+.course-picker[hidden] {
+  display: none;
+}
+.cp-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px 6px;
+}
+.cp-head h2 {
+  margin: 0;
+  font-size: 20px;
+  flex: 1;
+}
+.cp-x {
+  font-size: 22px;
+  line-height: 1;
+  padding: 4px 10px;
+}
+.cp-finder {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1;
+  padding: 0 16px;
+}
+.cp-new {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px 14px;
+  border-top: 1px solid var(--line);
+}
+
+/* The finder. */
+.course-finder {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  gap: 8px;
+}
+.cf-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.cf-words {
+  flex: 1 1 220px;
+  min-width: 0;
+  font-size: 15px;
+  padding: 8px 10px;
+}
+.cf-sort {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+}
+.cf-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+}
+.cf-filters:empty {
+  display: none;
+}
+.cf-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+.cf-group-name {
+  font-size: 12px;
+  color: var(--muted);
+  margin-right: 2px;
+}
+.course-finder .cf-chip {
+  font-size: 13px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  width: auto;
+}
+.cf-chip small {
+  color: var(--muted);
+  margin-left: 2px;
+}
+/* Would leave nothing, with the words and other filters as they are. */
+.course-finder .cf-chip.none {
+  opacity: 0.45;
+}
+.course-finder .cf-chip.on {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #1b1b1b;
+}
+.cf-chip.on small {
+  color: #1b1b1b;
+}
+.cf-count {
+  margin: 0;
+  font-size: 13px;
+}
+.course-finder .cf-clear,
+.cf-none button {
+  width: auto;
+  font-size: 12px;
+  padding: 1px 8px;
+  margin-left: 6px;
+}
+.cf-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: auto;
+  min-height: 0;
+  padding-bottom: 12px;
+}
+.course-picker .cf-list {
+  max-height: 56vh;
+}
+.course-finder .cf-course {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 6px;
+}
+.course-finder .cf-course:hover,
+.course-finder .cf-course:focus-visible {
+  background: var(--button-hover, #203326);
+}
+.course-finder .cf-course.chosen {
+  border-color: var(--accent);
+}
+.cf-name {
+  font-weight: 600;
+}
+.cf-course small {
+  color: var(--muted);
+  font-size: 12px;
+}
+.cf-mark {
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 600;
+  color: #1b1b1b;
+  background: var(--accent);
+  border-radius: 999px;
+  padding: 0 7px;
+  margin-left: 6px;
+  vertical-align: 1px;
+}
+.cf-none {
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+/* The filters folded under their own heading (the designer's list). */
+.cf-fold > summary {
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--muted);
+  padding: 2px 0;
+}
+.cf-fold[open] > summary {
+  margin-bottom: 6px;
+}
+.cf-fold .cf-filters {
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* In the designer's narrow list: the order under the words box. */
+.course-list .cf-top {
+  flex-direction: column;
+  align-items: stretch;
+}
+.course-list .cf-words {
+  flex: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+.course-list .cf-list {
+  max-height: none;
+  overflow: visible;
+}

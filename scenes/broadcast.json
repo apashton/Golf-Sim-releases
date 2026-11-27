@@ -1,0 +1,30 @@
+{
+  "format": "a2golf-scenes",
+  "version": 1,
+  "name": "Broadcast",
+  "scenes": [
+    {
+      "name": "Broadcast",
+      "layers": [
+        { "id": "game", "kind": "game", "x": 0, "y": 0, "w": 1, "h": 1 },
+        { "id": "info", "kind": "info", "x": 0.02, "y": 0.03, "w": 0.26, "h": 0.12 },
+        { "id": "flight", "kind": "flight", "when": "flight", "view": "above", "x": 0.74, "y": 0.03, "w": 0.24, "h": 0.36 },
+        { "id": "map", "kind": "minimap", "when": "address", "x": 0.79, "y": 0.6, "w": 0.19, "h": 0.36 },
+        { "id": "who", "kind": "field", "field": "playerClub", "x": 0.02, "y": 0.83, "w": 0.26, "h": 0.07, "textScale": 1.2 },
+        { "id": "pin", "kind": "field", "field": "pin", "when": "address", "x": 0.02, "y": 0.91, "w": 0.2, "h": 0.06 },
+        { "id": "tiles", "kind": "tiles", "when": "after", "tiles": ["carry", "total", "ballSpeed", "launch", "spin", "offline"], "arrange": "row", "x": 0.3, "y": 0.86, "w": 0.68, "h": 0.11 }
+      ]
+    },
+    {
+      "name": "Broadcast with camera",
+      "layers": [
+        { "id": "game", "kind": "game", "x": 0, "y": 0, "w": 1, "h": 1 },
+        { "id": "cam-1", "kind": "camera", "slot": 0, "when": "address", "x": 0.74, "y": 0.03, "w": 0.24, "h": 0.42, "radius": 16, "border": true },
+        { "id": "flight", "kind": "flight", "when": "flight", "view": "above", "x": 0.74, "y": 0.03, "w": 0.24, "h": 0.36 },
+        { "id": "info", "kind": "info", "x": 0.02, "y": 0.03, "w": 0.26, "h": 0.12 },
+        { "id": "who", "kind": "field", "field": "playerClub", "x": 0.02, "y": 0.83, "w": 0.26, "h": 0.07, "textScale": 1.2 },
+        { "id": "tiles", "kind": "tiles", "when": "after", "tiles": ["carry", "total", "ballSpeed", "launch", "spin", "offline"], "arrange": "row", "x": 0.3, "y": 0.86, "w": 0.68, "h": 0.11 }
+      ]
+    }
+  ]
+}

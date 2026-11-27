@@ -1,0 +1,525 @@
+/* The menus' and buttons' new style (Menu, Screens, Menus and buttons: New -
+   uistyle.js). Every rule here is under [data-ui="new"] or the menu's own
+   .ui-new, so Legacy is the look as it was.
+
+   On the PC: the menu's pages in three groups down a slimmer rail, each
+   setting's line cut to two with More for the rest, and bigger buttons.
+   On the phone: the menu a page at a time - the pages as a list of big
+   tiles, then the page with Menu to go back - every control sized for a
+   thumb (44 px and up), no keys; and a top bar of a few big buttons, the
+   five modes folded into one. */
+
+/* The phone's mode picker (index.html): nowhere else. */
+.mode-pick {
+  display: none;
+}
+
+/* ---- The menu, PC and phone ------------------------------------------------------ */
+
+.clubhouse.ui-new .ch-shell {
+  grid-template-columns: 244px minmax(0, 1fr);
+}
+.clubhouse.ui-new .ch-brand {
+  padding-bottom: 8px;
+}
+.clubhouse.ui-new .ch-group {
+  margin: 10px 12px 3px;
+  font: 700 11px var(--font-display);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ch-muted);
+}
+.clubhouse.ui-new .ch-group:first-child {
+  margin-top: 0;
+}
+/* (Each page's row as tall as its name: a long one wraps rather than
+   running into the next.) */
+.clubhouse.ui-new .ch-nav {
+  gap: 1px;
+  grid-auto-rows: max-content;
+}
+.clubhouse.ui-new .ch-nav-item {
+  grid-template-columns: 24px minmax(0, 1fr) auto;
+  min-height: 38px;
+  padding: 7px 12px;
+}
+.clubhouse.ui-new .ch-nav-item small,
+.clubhouse.ui-new .ch-go,
+.clubhouse.ui-new .ch-head .ch-back {
+  display: none;
+}
+.clubhouse.ui-new .ch-title h2 {
+  font-size: 27px;
+}
+/* A setting's line: two lines, and More for the rest. */
+.clubhouse.ui-new .ch-help {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+.clubhouse.ui-new .open .ch-help {
+  display: block;
+  overflow: visible;
+}
+.clubhouse.ui-new .ch-sechelp {
+  margin: 4px 0 6px;
+}
+.clubhouse.ui-new .ch-sechelp .ch-section-help {
+  margin: 0;
+}
+.clubhouse.ui-new button.ch-more {
+  display: none;
+  margin: 2px 0 0;
+  padding: 2px 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--ch-green);
+  font-size: 13px;
+  font-weight: 600;
+}
+.clubhouse.ui-new button.ch-more:hover {
+  background: transparent;
+  text-decoration: underline;
+}
+.clubhouse.ui-new .long button.ch-more {
+  display: inline-block;
+}
+/* Bigger buttons and choices. */
+.clubhouse.ui-new .ch-control button {
+  min-height: 36px;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+.clubhouse.ui-new .ch-seg button {
+  min-height: 32px;
+  padding: 7px 14px !important;
+}
+.clubhouse.ui-new select {
+  min-height: 36px;
+}
+/* A page's lists one width down its right-hand side, whatever each one's
+   longest choice (they were as wide as their words: a ragged column). */
+.clubhouse.ui-new:not(.stacked) .ch-control > select {
+  min-width: 230px;
+}
+/* A short window (a 720p laptop): the rail's rows closer, so its last page
+   isn't half under the foot of the rail. */
+@media (max-height: 800px) {
+  .clubhouse.ui-new:not(.stacked) .ch-rail {
+    padding-top: 12px;
+  }
+  .clubhouse.ui-new:not(.stacked) .ch-nav-item {
+    min-height: 33px;
+    padding: 5px 12px;
+  }
+  .clubhouse.ui-new:not(.stacked) .ch-group {
+    margin-top: 6px;
+  }
+}
+
+/* ---- A page at a time (the phone, or a narrow window) ----------------------------- */
+
+.clubhouse.ui-new.stacked {
+  padding: 0;
+  place-items: stretch;
+}
+.clubhouse.ui-new.stacked .ch-shell {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-areas: "head" "body" "status";
+}
+/* The header, the list of pages or the page, and the status line straight
+   in the shell's grid. */
+.clubhouse.ui-new.stacked .ch-main {
+  display: contents;
+}
+.clubhouse.ui-new.stacked .ch-head {
+  grid-area: head;
+  grid-template-columns: auto minmax(0, 1fr) minmax(150px, 280px) auto;
+  gap: 10px;
+  padding: 8px 12px;
+  padding-top: max(8px, env(safe-area-inset-top));
+}
+.clubhouse.ui-new.stacked.at-home .ch-head {
+  grid-template-columns: minmax(0, 1fr) minmax(150px, 320px) auto;
+}
+.clubhouse.ui-new.stacked .ch-search {
+  grid-column: auto;
+  grid-row: auto;
+}
+.clubhouse.ui-new.stacked .ch-search input {
+  min-height: 44px;
+  font-size: 16px;
+}
+.clubhouse.ui-new.stacked .ch-search kbd {
+  display: none;
+}
+.clubhouse.ui-new.stacked .ch-close {
+  width: 46px;
+  height: 46px;
+  font-size: 18px;
+}
+.clubhouse.ui-new.stacked:not(.at-home) .ch-head .ch-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 44px;
+  padding: 6px 14px 6px 6px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.clubhouse.ui-new.stacked .ch-back svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+/* The page's name on one line (Menu, to its left, says where it is). */
+.clubhouse.ui-new.stacked .ch-title h2 {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 22px;
+}
+.clubhouse.ui-new.stacked .ch-title h2 svg {
+  display: none;
+}
+.clubhouse.ui-new.stacked:not(.at-home) .ch-title p {
+  display: none;
+}
+.clubhouse.ui-new.stacked .ch-status {
+  grid-area: status;
+}
+/* Held upright: the search under the name. */
+@media (max-width: 600px) {
+  .clubhouse.ui-new.stacked .ch-head,
+  .clubhouse.ui-new.stacked.at-home .ch-head {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+  .clubhouse.ui-new.stacked.at-home .ch-head {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .clubhouse.ui-new.stacked .ch-search {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .clubhouse.ui-new.stacked .ch-title h2 {
+    font-size: 19px;
+  }
+}
+
+/* The list of pages: big tiles, two or three to a row on a phone held
+   sideways, one under another held upright. */
+.clubhouse.ui-new.stacked .ch-rail {
+  grid-area: body;
+  display: none;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 4px 12px 18px;
+  border: 0;
+  background: transparent;
+}
+.clubhouse.ui-new.stacked.at-home .ch-rail {
+  display: block;
+}
+.clubhouse.ui-new.stacked .ch-brand,
+.clubhouse.ui-new.stacked .ch-foot {
+  display: none;
+}
+.clubhouse.ui-new.stacked .ch-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 8px;
+  overflow: visible;
+}
+.clubhouse.ui-new.stacked .ch-group {
+  grid-column: 1 / -1;
+  margin: 10px 4px 0;
+}
+.clubhouse.ui-new.stacked .ch-group:first-child {
+  margin-top: 2px;
+}
+.clubhouse.ui-new.stacked .ch-nav-item {
+  grid-template-columns: 30px minmax(0, 1fr) 18px;
+  gap: 12px;
+  min-height: 66px;
+  padding: 10px 12px 10px 14px;
+  border-radius: 14px;
+  background: var(--ch-card);
+  border: 1px solid var(--ch-card-line);
+  box-shadow: none;
+}
+.clubhouse.ui-new.stacked .ch-nav-item.on::before {
+  display: none;
+}
+.clubhouse.ui-new.stacked .ch-nav-item:active {
+  background: rgba(111, 220, 151, 0.14);
+}
+.clubhouse.ui-new.stacked .ch-nav-item svg {
+  width: 26px;
+  height: 26px;
+  fill: var(--ch-green);
+}
+.clubhouse.ui-new.stacked .ch-nav-item b {
+  font-size: 17px;
+}
+.clubhouse.ui-new.stacked .ch-nav-item small {
+  display: block;
+  margin-top: 2px;
+  font-size: 12.5px;
+  line-height: 1.35;
+  white-space: normal;
+}
+.clubhouse.ui-new.stacked .ch-go {
+  display: block;
+}
+.clubhouse.ui-new.stacked .ch-go svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--ch-muted);
+}
+.clubhouse.ui-new.stacked .ch-quit {
+  min-height: 48px;
+  margin: 16px 0 0;
+}
+
+/* The page: each setting its name and line, the control under them (a
+   switch beside them), every control big enough for a thumb. */
+.clubhouse.ui-new.stacked .ch-page {
+  grid-area: body;
+  padding: 10px 12px 22px;
+  gap: 12px;
+}
+.clubhouse.ui-new.stacked.at-home .ch-page {
+  display: none;
+}
+.clubhouse.ui-new.stacked .ch-card {
+  border-radius: 14px;
+  padding: 12px 14px 4px;
+}
+.clubhouse.ui-new.stacked .ch-row {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+  padding: 14px 0;
+}
+.clubhouse.ui-new.stacked .ch-row.kind-toggle {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+.clubhouse.ui-new.stacked .ch-control {
+  justify-content: flex-start;
+}
+.clubhouse.ui-new.stacked .ch-label b {
+  font-size: 16.5px;
+}
+.clubhouse.ui-new.stacked .ch-label p {
+  font-size: 14px;
+}
+.clubhouse.ui-new.stacked button.ch-more {
+  min-height: 32px;
+  font-size: 14px;
+}
+.clubhouse.ui-new.stacked .ch-buttons {
+  justify-content: flex-start;
+  gap: 8px;
+}
+.clubhouse.ui-new.stacked .ch-control button {
+  min-height: 46px;
+  padding: 10px 18px;
+  font-size: 15.5px;
+}
+.clubhouse.ui-new.stacked .ch-seg {
+  gap: 4px;
+  padding: 4px;
+  border-radius: 16px;
+}
+.clubhouse.ui-new.stacked .ch-seg button {
+  min-height: 42px;
+  padding: 8px 16px !important;
+  border-radius: 12px;
+  font-size: 15px;
+}
+.clubhouse.ui-new.stacked .ch-switch span {
+  width: 60px;
+  height: 34px;
+}
+.clubhouse.ui-new.stacked .ch-switch span::after {
+  width: 26px;
+  height: 26px;
+}
+.clubhouse.ui-new.stacked .ch-switch input:checked + span::after {
+  transform: translateX(26px);
+}
+.clubhouse.ui-new.stacked .ch-switch em {
+  display: none;
+}
+.clubhouse.ui-new.stacked select {
+  width: 100%;
+  min-height: 46px;
+  font-size: 16px;
+}
+.clubhouse.ui-new.stacked input[type="number"] {
+  min-height: 46px;
+  width: 110px;
+  font-size: 17px;
+}
+.clubhouse.ui-new.stacked .ch-range {
+  max-width: none;
+}
+.clubhouse.ui-new.stacked .ch-range input[type="range"] {
+  height: 36px;
+}
+/* A phone has no keys. */
+html.pocket .clubhouse.ui-new kbd,
+html.pocket .clubhouse.ui-new .ch-keys {
+  display: none;
+}
+
+/* ---- The phone's top bar ------------------------------------------------------------ */
+
+/* A few big buttons: where you are (the modes in a list under it), the
+   club, who's hitting, then sound and the menu. The A² mark, the recording
+   switch and the voice button aren't for a phone; nor, swinging on the
+   touch screen, is the launch monitor's connection. */
+html.pocket[data-ui="new"] header.topbar {
+  position: relative;
+  gap: 8px;
+  padding: 6px 10px;
+  padding-top: max(6px, env(safe-area-inset-top));
+}
+html.pocket[data-ui="new"] header.topbar h1,
+html.pocket[data-ui="new"] #rec-wrap,
+html.pocket[data-ui="new"] #voice-toggle,
+html.pocket[data-ui="new"] #bar-clock,
+html.pocket[data-ui="new"] body.touch-play #status {
+  display: none !important;
+}
+html.pocket[data-ui="new"] .mode-pick {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 44px;
+  padding: 6px 10px 6px 18px;
+  border-radius: 999px;
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #13200f;
+  font: 700 16px var(--font-display);
+  letter-spacing: 0.02em;
+}
+html.pocket[data-ui="new"] .mode-pick svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+html.pocket[data-ui="new"] header.topbar nav {
+  display: none;
+}
+html.pocket[data-ui="new"] header.topbar.modes-open nav {
+  display: grid;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 10px;
+  z-index: 60;
+  min-width: 240px;
+  gap: 4px;
+  padding: 8px;
+  border-radius: 18px;
+  background: rgba(8, 24, 15, 0.97);
+  border: 1px solid var(--edge-strong);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+}
+html.pocket[data-ui="new"] header.topbar.modes-open nav button {
+  min-height: 50px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  text-align: left;
+  font-size: 17px;
+  color: var(--text);
+}
+html.pocket[data-ui="new"] header.topbar select,
+html.pocket[data-ui="new"] header.topbar button,
+html.pocket[data-ui="new"] header #status {
+  min-height: 44px;
+}
+html.pocket[data-ui="new"] header.topbar select {
+  padding: 6px 10px;
+  font-size: 16px;
+}
+/* Sound and the menu at the right (the connection, when it shows, fills
+   the room between). */
+html.pocket[data-ui="new"] #sound-toggle {
+  min-width: 44px;
+  margin-left: auto;
+}
+html.pocket[data-ui="new"] #menu-open {
+  padding: 6px 16px;
+  font-size: 16px;
+}
+html.pocket[data-ui="new"] #menu-open span {
+  display: inline;
+}
+/* Held upright: Menu its icon, who's hitting narrower, so it all fits. */
+@media (max-width: 520px) {
+  html.pocket[data-ui="new"] header.topbar {
+    gap: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  html.pocket[data-ui="new"] .mode-pick {
+    padding-left: 14px;
+  }
+  html.pocket[data-ui="new"] #hitter {
+    max-width: 24vw;
+  }
+  html.pocket[data-ui="new"] header.topbar select {
+    padding: 6px 6px;
+  }
+  html.pocket[data-ui="new"] #menu-open {
+    padding: 6px 12px;
+  }
+  html.pocket[data-ui="new"] #menu-open span {
+    display: none;
+  }
+}
+/* A tap shows as the button pressed in, not the browser's blue box. */
+html.pocket[data-ui="new"] {
+  -webkit-tap-highlight-color: transparent;
+}
+html.pocket[data-ui="new"] button:active:not(:disabled) {
+  transform: scale(0.97);
+  filter: brightness(1.15);
+}
+
+/* ---- The phone's panels and cards ----------------------------------------------------- */
+
+/* The side panel and the cards over the picture (the welcome, online play,
+   the course list...): every button, choice and box big enough for a
+   thumb. */
+html.pocket[data-ui="new"] aside button,
+html.pocket[data-ui="new"] aside select,
+html.pocket[data-ui="new"] aside input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+html.pocket[data-ui="new"] .bay-help-box button,
+html.pocket[data-ui="new"] .bay-help-box select,
+html.pocket[data-ui="new"] .bay-help-box input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+html.pocket[data-ui="new"] dialog button,
+html.pocket[data-ui="new"] dialog select,
+html.pocket[data-ui="new"] dialog input:not([type="checkbox"]):not([type="radio"]):not([type="range"]) {
+  min-height: 44px;
+  font-size: 15.5px;
+}
+html.pocket[data-ui="new"] aside input[type="checkbox"],
+html.pocket[data-ui="new"] .bay-help-box input[type="checkbox"],
+html.pocket[data-ui="new"] dialog input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+}
+html.pocket[data-ui="new"] .bay-help-box {
+  border-radius: 18px;
+}

@@ -1,0 +1,158 @@
+body.diag {
+  overflow: auto;
+  height: auto;
+  min-height: 100%;
+}
+.diag header .button {
+  margin-left: auto;
+}
+a.button {
+  color: var(--text);
+  background: #203326;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 6px 10px;
+  text-decoration: none;
+}
+.diag-body {
+  padding: 16px;
+  display: grid;
+  gap: 16px;
+  max-width: 1200px;
+}
+.checks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+}
+.check-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--off);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+.check-card.ok {
+  border-left-color: var(--ok);
+}
+.check-card.warn {
+  border-left-color: var(--warn);
+}
+.check-card.bad {
+  border-left-color: #e5484d;
+}
+.check-card h4 {
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: normal;
+}
+.check-card b {
+  display: block;
+  font-size: 17px;
+}
+.check-card p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+.advice {
+  background: #1d2f22;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 16px;
+}
+.advice:empty {
+  display: none;
+}
+.advice ol {
+  margin: 6px 0;
+  padding-left: 20px;
+}
+.tools {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
+.tools h3,
+.log h3 {
+  margin: 0 0 6px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+.tools p {
+  margin: 0 0 8px;
+}
+.log-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.log-bar h3 {
+  margin: 0 auto 0 0;
+}
+.log-bar h3 small {
+  text-transform: none;
+  letter-spacing: 0;
+}
+.log-bar label.check {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.small {
+  font-size: 12px;
+}
+#log {
+  width: 100%;
+  border-collapse: collapse;
+  font: 12px/1.45 ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+#log td {
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+#log td.t {
+  white-space: nowrap;
+  color: var(--muted);
+}
+#log td.k {
+  white-space: nowrap;
+  font-weight: bold;
+}
+#log td.x {
+  white-space: pre-wrap;
+  word-break: break-all;
+  width: 100%;
+}
+.k-in {
+  color: #4cc9f0;
+}
+.k-out {
+  color: var(--accent);
+}
+.k-info {
+  color: var(--muted);
+}
+@media (max-width: 800px) {
+  .tools {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Send to Claude */
+.send-report textarea {
+  display: block;
+  width: 100%;
+  margin: 6px 0;
+}
+.send-report .good {
+  color: var(--ok);
+}
+.send-report .bad {
+  color: var(--warn);
+}

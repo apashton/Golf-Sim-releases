@@ -1,0 +1,202 @@
+/* The phone app held upright (html.pocket.upright: upright.js; sim/upright.mjs
+   says why). The picture is the top of the screen and the swing pad and the
+   touch strip are in a dock under it, under the thumb - never over the
+   ball: the pad at one side of the dock (⇄ swaps it), its Shot and ½ beside
+   it, the strip at the other side. The side panel, when it's out, takes the
+   dock's place, the same height, so the picture doesn't change size with
+   it (and the pad's under it till it's folded: the tab on the picture's
+   right edge). Held sideways, none of this: phoneplay.css. */
+
+/* The page never wider than the phone: the top bar has the whole game's
+   buttons for a moment as it starts (till uistyle.js folds the modes into
+   one), which widened the page held upright and put the loading screen off
+   to the side. Nothing in the bar goes past its sides (what drops down from
+   it still can). */
+html.pocket header.topbar {
+  overflow-x: clip;
+}
+html.pocket {
+  overflow-x: hidden;
+  --cut-top: env(safe-area-inset-top, 0px);
+  --cut-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html.pocket.upright {
+  /* The dock's height: most of a thumb's pull, the rest the picture's. */
+  --dock: clamp(270px, 42vh, 420px);
+  /* The pad's width, and the room beside it for its Shot and ½. */
+  --pad-w: 132px;
+  --pad-room: 60px;
+}
+
+/* ---- The picture over the dock ---------------------------------------------- */
+
+html.pocket.upright #view {
+  min-height: 0;
+}
+html.pocket.upright body.touch-play.pad-shown:is(.side-folded, .bay) main {
+  box-sizing: border-box;
+  padding-bottom: var(--dock);
+}
+html.pocket.upright body.touch-play.pad-shown:is(.side-folded, .bay)::after {
+  /* The dock's own ground, a line between it and the picture. */
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--dock);
+  background: var(--bg, #07130d);
+  border-top: 1px solid var(--line);
+  z-index: 1;
+  pointer-events: none;
+}
+/* The side panel out: in the dock's place, the same height. (Bay view has
+   none to be out.) */
+html.pocket.upright body:not(.side-folded):not(.bay) main > aside {
+  flex: none;
+  height: var(--dock);
+  border-top: 1px solid var(--line);
+}
+html.pocket.upright body:not(.side-folded):not(.bay) :is(.swing-pad, .touch-strip) {
+  display: none !important;
+}
+
+/* ---- The swing pad, in the dock ----------------------------------------------- */
+
+html.pocket.upright .swing-pad {
+  top: auto;
+  bottom: calc(10px + var(--cut-bottom));
+  height: calc(var(--dock) - 20px - var(--cut-bottom));
+  width: var(--pad-w);
+}
+html.pocket.upright .swing-pad:not(.right) {
+  left: calc(12px + var(--cut-left));
+}
+html.pocket.upright .swing-pad.right {
+  left: auto;
+  right: calc(12px + var(--cut-right));
+}
+/* What the swing did: at the top of the dock beside the pad, past its Shot
+   and ½, above the strip. */
+html.pocket.upright .swing-pad-result {
+  top: 4px;
+  left: calc(100% + var(--pad-room));
+  width: calc(100vw - var(--pad-w) - var(--pad-room) - 36px);
+}
+html.pocket.upright .swing-pad.right .swing-pad-result {
+  left: auto;
+  right: calc(100% + var(--pad-room));
+}
+
+/* ---- The touch strip, in the dock at the pad's other side ---------------------- */
+
+html.pocket.upright .touch-strip {
+  position: fixed;
+  top: auto;
+  bottom: calc(10px + var(--cut-bottom));
+  width: auto;
+  max-height: calc(var(--dock) - 20px - var(--cut-bottom));
+  overflow-y: auto;
+  z-index: 9;
+}
+html.pocket.upright .touch-strip:not(.left) {
+  left: calc(12px + var(--cut-left) + var(--pad-w) + var(--pad-room));
+  right: calc(12px + var(--cut-right));
+}
+html.pocket.upright .touch-strip.left {
+  left: calc(12px + var(--cut-left));
+  right: calc(12px + var(--cut-right) + var(--pad-w) + var(--pad-room));
+}
+/* The club and the aim side by side, the buttons for just now in two
+   columns: a shorter strip, the swing's words above it. */
+html.pocket.upright .touch-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+}
+html.pocket.upright .touch-strip .ts-club,
+html.pocket.upright .touch-strip .ts-aim {
+  grid-column: span 1;
+}
+/* (The aim as the club is: its word over its two buttons.) */
+html.pocket.upright .touch-strip .ts-aim {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+html.pocket.upright .touch-strip .ts-aim span {
+  order: -1;
+  flex-basis: 100%;
+}
+html.pocket.upright .touch-strip .ts-actions,
+html.pocket.upright .touch-strip .ts-more {
+  grid-column: 1 / -1;
+}
+html.pocket.upright .touch-strip .ts-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ---- Over the picture: the whole width is the picture's ------------------------ */
+
+/* The words along the top and the shot's numbers along the bottom go
+   across the picture: nothing stands at its sides upright. */
+html.pocket.upright body.touch-play,
+html.pocket.upright body.touch-play.pad-shown:not(.pad-at-right),
+html.pocket.upright body.touch-play.pad-shown.pad-at-right,
+html.pocket.upright body.touch-play.play-idle {
+  --pp-left: calc(10px + var(--cut-left));
+  --pp-right: calc(44px + var(--cut-right));
+}
+html.pocket.upright body.touch-play.pad-shown .bay-stats,
+html.pocket.upright body.touch-play.pad-shown.pad-at-right .bay-stats {
+  padding-left: 8px;
+  padding-right: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 0;
+}
+/* (Steer, over its two buttons upright: the size of the word beside it.) */
+html.pocket.upright .touch-strip.driving .ts-aim span {
+  font-size: 13px;
+}
+/* (Between holes, the last hole's Replay card, at the picture's right, keeps clear
+   above the bar - the bar lay over half of it.) */
+html.pocket #view:has(.ride-bar:not([hidden])) .corner-card.flyover-offer {
+  bottom: max(16vh, 104px);
+}
+/* The top bar clear of the camera's hole at the top. */
+html.pocket.upright header.topbar {
+  padding-top: calc(4px + var(--cut-top));
+}
+/* (No aim to turn - the range's target is its own button: the club the
+   strip's width; the range session's button too.) */
+html.pocket.upright .touch-strip:has(.ts-aim[hidden]) .ts-club,
+html.pocket.upright .touch-strip .phone-range-open.docked {
+  grid-column: 1 / -1;
+}
+
+/* No swing pad just now (no dock - a list over the picture, a launch
+   monitor's play): the strip at the top right, as held sideways, not over
+   the foot of what's shown. */
+html.pocket.upright body.touch-play:not(.pad-shown) .touch-strip {
+  display: flex;
+  top: calc(10px + var(--bar-room, 0px));
+  bottom: auto;
+  left: auto;
+  right: calc(50px + var(--cut-right));
+  width: 136px;
+}
+
+/* ---- Cards ------------------------------------------------------------------- */
+
+/* The range session's card: across the screen from a third of the way
+   down, over the dock - the swing waits while it's read. */
+html.pocket.upright .phone-range {
+  top: 30vh;
+  bottom: calc(8px + var(--cut-bottom));
+  left: 8px;
+  right: 8px;
+  width: auto;
+}

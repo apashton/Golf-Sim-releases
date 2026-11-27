@@ -1,0 +1,297 @@
+/* The phone app's start screen and its routes' homes (phonehome.js), over
+   the game page as it loads: the two routes side by side (one above the
+   other held upright), filling the screen, then a route's home - a grid of
+   big buttons, each a thing to do with a line saying what it is. Over the
+   loading screen too, when Home brings it over the game. The app opens
+   straight into the game (no start screen). The app's alone. */
+
+html.pocket .phone-home {
+  --home-bg: #07130d;
+  --home-panel: #0b1d14;
+  --home-line: #1d3627;
+  --home-text: #eaf4ec;
+  --home-muted: #8fac98;
+  --home-button: #11281b;
+  --home-green: #6fdc97;
+  --home-accent: #ffd23f;
+  position: fixed;
+  inset: 0;
+  z-index: 2147483100;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  background:
+    radial-gradient(1200px 500px at 8% -12%, rgba(28, 80, 50, 0.45), transparent 62%),
+    var(--home-bg);
+  color: var(--home-text);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-user-select: none;
+  user-select: none;
+}
+html.pocket .phone-home[hidden] {
+  display: none;
+}
+/* (The swing pad and the strip stand over the picture: not over this.) */
+html.pocket.home-up .swing-pad,
+html.pocket.home-up .touch-strip {
+  visibility: hidden;
+}
+html.pocket .phone-home * {
+  box-sizing: border-box;
+}
+html.pocket .phone-home main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 8px max(16px, env(safe-area-inset-left));
+}
+html.pocket .phone-home h1 {
+  font-family: var(--font-display, system-ui);
+  font-size: 26px;
+  margin: 0.2em 0 0.4em;
+}
+html.pocket .phone-home .brand {
+  display: inline-block;
+  background: var(--home-accent);
+  color: var(--home-bg);
+  font-weight: 800;
+  padding: 0 8px;
+  border-radius: 6px;
+  margin-right: 6px;
+}
+html.pocket .phone-home .muted {
+  color: var(--home-muted);
+}
+html.pocket .phone-home .small {
+  font-size: 13px;
+}
+html.pocket .phone-home a {
+  color: #8fe3a6;
+}
+html.pocket .phone-home button {
+  font: inherit;
+  color: var(--home-text);
+}
+html.pocket .phone-home .routes {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-auto-rows: minmax(150px, 1fr);
+  gap: 14px;
+  margin-top: 10px;
+}
+html.pocket .phone-home .route,
+html.pocket .phone-home .tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px;
+  text-align: left;
+  padding: 14px 16px;
+  min-height: 0;
+  border-radius: 14px;
+  background: var(--home-panel);
+  border: 1px solid var(--home-line);
+  cursor: pointer;
+}
+html.pocket .phone-home .route {
+  min-height: 150px;
+  justify-content: flex-end;
+  padding: 18px 20px;
+  background:
+    linear-gradient(160deg, rgba(111, 220, 151, 0.18), transparent 60%),
+    var(--home-panel);
+}
+html.pocket .phone-home .route.route-range {
+  background:
+    linear-gradient(160deg, rgba(255, 210, 63, 0.16), transparent 60%),
+    var(--home-panel);
+}
+html.pocket .phone-home .route b {
+  font-family: var(--font-display, system-ui);
+  font-size: 34px;
+  line-height: 1.1;
+}
+html.pocket .phone-home .route .glyph {
+  width: 52px;
+  height: 52px;
+  margin-bottom: auto;
+  color: var(--home-green);
+}
+html.pocket .phone-home .route.route-range .glyph {
+  color: var(--home-accent);
+}
+html.pocket .phone-home .route span,
+html.pocket .phone-home .tile span {
+  color: var(--home-muted);
+  font-weight: 400;
+}
+html.pocket .phone-home .route .last,
+html.pocket .phone-home .tile .soon {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 210, 63, 0.16);
+  color: var(--home-accent);
+}
+html.pocket .phone-home .tile .soon {
+  position: static;
+  margin-top: 4px;
+  background: rgba(143, 172, 152, 0.16);
+  color: var(--home-muted);
+}
+/* Match ladders' tile: what's waiting there (a challenge, a match, a round in). */
+html.pocket .phone-home .tile .waiting {
+  margin-top: 6px;
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 10px;
+  background: rgba(255, 210, 63, 0.16);
+  color: var(--home-accent);
+}
+/* Back to the game (once it's been played): first, the whole width. */
+html.pocket .phone-home .resume {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 2px 12px;
+  width: 100%;
+  margin: 10px 0 4px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--home-accent);
+  background: linear-gradient(160deg, rgba(255, 210, 63, 0.2), transparent 70%), var(--home-panel);
+  color: var(--home-text);
+  text-align: left;
+  cursor: pointer;
+}
+html.pocket .phone-home .resume b {
+  font-family: var(--font-display, system-ui);
+  font-size: 22px;
+}
+html.pocket .phone-home .resume span {
+  grid-row: 2;
+  color: var(--home-muted);
+}
+html.pocket .phone-home .resume i {
+  grid-row: 1 / span 2;
+  grid-column: 2;
+  font-style: normal;
+  font-size: 34px;
+  color: var(--home-accent);
+}
+html.pocket .phone-home .route:active,
+html.pocket .phone-home .tile:active:not(:disabled) {
+  border-color: var(--home-accent);
+}
+html.pocket .phone-home .tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+  margin: 8px 0;
+}
+html.pocket .phone-home .tile b {
+  font-size: 17px;
+}
+html.pocket .phone-home .tile:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+/* Your level: the four to pick from, each with its drives (no Power
+   points to Power maxed), and the one picked's distances in words. */
+html.pocket .phone-home .tile-level {
+  grid-column: 1 / -1;
+  cursor: default;
+}
+html.pocket .phone-home .levels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+html.pocket .phone-home .levels button {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 4px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--home-line);
+  background: var(--home-button);
+  line-height: 1.2;
+}
+html.pocket .phone-home .levels button small {
+  font-size: 11px;
+  color: var(--home-muted);
+}
+html.pocket .phone-home .levels button.chosen {
+  background: var(--home-accent);
+  border-color: var(--home-accent);
+  color: var(--home-bg);
+}
+html.pocket .phone-home .levels button.chosen small {
+  color: var(--home-bg);
+}
+html.pocket .phone-home .tile .distances {
+  color: var(--home-text);
+}
+/* How far towards the next level ("Anna: 1 of 2 good rounds towards
+   Amateur"). */
+html.pocket .phone-home .tile .climb {
+  color: var(--home-accent);
+}
+html.pocket .phone-home .bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+html.pocket .phone-home .bar h1 {
+  margin: 0;
+}
+html.pocket .phone-home .back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid var(--home-line);
+  background: var(--home-button);
+  color: var(--home-text);
+  font-size: 28px;
+  line-height: 1;
+  text-decoration: none;
+}
+html.pocket .phone-home .home-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 max(16px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+}
+
+/* Lobby at the start of the top bar once an online game's started
+   (lobbybutton.js): a big button (held upright, just its arrow: style.css). */
+html.pocket #lobby-open:not([hidden]) {
+  justify-content: center;
+  min-height: 44px;
+  padding: 5px 9px;
+}
+html.pocket #lobby-open svg {
+  width: 20px;
+  height: 20px;
+}

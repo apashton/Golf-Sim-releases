@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- No icon file: an empty one stops the browser asking for one (a 404 in the console on every load). -->
+    <link rel="icon" href="data:," />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Stats</title>
+    <!-- No icon of its own: this stops the browser asking for /favicon.ico. -->
+    <link rel="icon" href="data:," />
+    <!-- First, so JavaScript errors anywhere on the page are caught (for reports to Claude). -->
+    <script src="errorreport.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="stats.css" />
+    <link rel="stylesheet" href="theme.css" />
+  </head>
+  <body class="stats-page">
+    <header>
+      <h1>My stats</h1>
+      <nav id="players" aria-label="Players"></nav>
+      <a href="/" class="button back">Back to the sim</a>
+    </header>
+    <div class="stats-body">
+      <p id="summary" class="muted">Loading...</p>
+      <section id="view-wrap" class="view-bar" aria-label="What's counted">
+        <div class="view-row">
+          <span class="view-label">Days</span>
+          <div class="seg" id="period" role="group" aria-label="Days">
+            <button data-period="today">Today</button>
+            <button data-period="7">Last 7 days</button>
+            <button data-period="30">Last 30 days</button>
+            <button data-period="3m">3 months</button>
+            <button data-period="6m">6 months</button>
+            <button data-period="12m">12 months</button>
+            <button data-period="all">All time</button>
+            <button data-period="days">Chosen days</button>
+          </div>
+        </div>
+        <div class="view-row">
+          <span class="view-label">Shots</span>
+          <label class="check"><input type="checkbox" data-format="p" /> Practice</label>
+          <label class="check"><input type="checkbox" data-format="r" /> Round</label>
+          <label class="check"><input type="checkbox" data-format="x" /> Experimental</label>
+        </div>
+        <p id="view-note" class="muted small"></p>
+      </section>
+      <section id="fortnight-wrap">
+        <h2>Two weeks <small class="muted">what improved and what slipped this fortnight, against the last one played</small></h2>
+        <div id="fortnight"><p class="muted">Loading...</p></div>
+      </section>
+      <section id="days-wrap">
+        <h2>Days <small class="muted">every day with shots - tick days to look at just those, leave one out, or make it experimental</small></h2>
+        <p id="days-msg" class="small day-msg" role="status" aria-live="polite"></p>
+        <div class="table-wrap scroll"><table class="stats-table days-table" id="days"></table></div>
+        <p class="muted small"><i>Leave out</i>: the whole day counts nowhere - no club numbers, tips, games or bests - until it's put back. <i>Make experimental</i>: every shot and game that day is treated as experimental, left out unless <i>Experimental</i> is ticked above. Both can be taken back, and the shots themselves are never changed.</p>
+      </section>
+      <section id="sessions-wrap">
+        <h2>Sessions <small class="muted">each range visit, practice, challenge and round - take out one that was just testing</small></h2>
+        <p id="sessions-msg" class="small day-msg" role="status" aria-live="polite"></p>
+        <div class="table-wrap scroll"><table class="stats-table days-table" id="sessions"></table></div>
+        <p class="muted small"><i>Leave out</i>: nothing from that session counts - its shots, its game, its best. <i>Just testing</i>: it's kept as experimental, left out unless <i>Experimental</i> is ticked above. You're asked as each session ends (the System menu, Recording, can turn that off). Both can be taken back.</p>
+      </section>
+      <section id="plans-wrap">
+        <h2>Practise next <small class="muted">ten scored shots at the part of your game your stats say costs most</small></h2>
+        <div id="plans" class="plans"></div>
+        <p id="plans-msg" class="muted small"></p>
+      </section>
+      <section id="trends-wrap">
+        <h2>Trends <small class="muted">which way each number is going over the period in view - earlier half against the recent half</small></h2>
+        <div id="trends"></div>
+      </section>
+      <section id="notes-wrap">
+        <h2>Tips from your shots</h2>
+        <div id="notes" class="notes"></div>
+      </section>
+      <section id="wrong-wrap" hidden>
+        <h2>Wrong club? <small class="muted">shots that flew like another club than the one selected</small></h2>
+        <p class="muted small">Forgot to change club? These are found again across all your shots, against how your clubs go now, and runs of them from one sitting are grouped - move a whole run to the club it was in one go, say they were right, or mark them bad hits or misreads. Until you say, a shot that was asked about is left out of its club's numbers.</p>
+        <p id="wrong-msg" class="small day-msg" role="status" aria-live="polite"></p>
+        <div id="wrong"></div>
+      </section>
+      <section id="odd-wrap" hidden>
+        <h2>Readings to check</h2>
+        <p class="muted small">No real strike gives these numbers - the launch monitor may have misread them. Until you say, they're left out of everything.</p>
+        <div id="odd"></div>
+      </section>
+      <section id="tidy-wrap" hidden>
+        <h2>Suggested tidy-up <small class="muted">shots more than 2 standard deviations from the club's average</small></h2>
+        <p class="muted small">Each is a long way from the rest of that club's shots - by carry or ball speed, against the average and spread of the others. If it was a misfit (a misread, or not a real swing), leave it ticked and take it out; untick any that were real. Taken out is the same as a misread: it stays under <i>Latest shots</i> and can be put back.</p>
+        <p id="tidy-msg" class="small day-msg" role="status" aria-live="polite"></p>
+        <div id="tidy"></div>
+        <div class="buttons"><button id="tidy-go" class="primary">Take out the ticked shots</button></div>
+      </section>
+      <section>
+        <h2>Clubs <small class="muted">full swings</small></h2>
+        <div class="table-wrap"><table class="clubs stats-table" id="clubs"></table></div>
+        <p class="muted small">Typical: the middle 80% of your shots. Left / right: where the middle 80% finish. The arrows compare your last 20 shots with the ones before.</p>
+        <p class="muted small">Thin, fat, topped: how often each club's full swings are struck that way. They're counted here but left out of the club's carry and everything else above, as they're not what you'd expect the club to go - and so are shots taken out as misreads, which count nowhere.</p>
+        <p class="muted small">Special shots - a punch, a part swing or anything else on purpose - count nowhere here: not in the carry, not in thin / fat, not in the gapping or the tips. They're listed under <i>Special shots</i> below.</p>
+        <p class="muted small">Ball speed: how fast the ball leaves the club. Launch: how steeply it takes off. Spin: backspin, in turns a minute - more makes it climb and stop, less makes it run. The way a shot curves comes from the ball's spin being tilted, like a spinning top leaning over.</p>
+      </section>
+      <section>
+        <h2>Latest shots <small class="muted">by club - spot an odd one</small></h2>
+        <div id="recent" class="recent"></div>
+        <div id="compare-bar" class="compare-bar" hidden><span id="compare-msg"></span> <button id="compare-go">Watch side by side</button> <button id="compare-clear">Clear</button></div>
+        <p class="muted small">Mark a full swing thin, fat or topped (or good, if it was worked out wrong), say it was a punch, a part swing or something else on purpose (it then stays out of the club's numbers), or take any shot out as a misread - the launch monitor got it wrong. A shot taken out stays listed here and can be put back. <i>Not answered</i>: a shot well short of the club's usual that you were asked about - out of the club's numbers until you say what it was. A note said about a shot ("shot note, pulled it") shows under it, its tags as chips; a power said for it shows beside how it was struck. <b>▶</b> on a shot plays its swing - its saved replay, or the session recording that was running when it was hit; tick two to watch them side by side (a thin one beside a good one).</p>
+      </section>
+      <section>
+        <h2>Gapping <small class="muted">carry, the middle 80% of each club</small></h2>
+        <div id="gapping" class="gapping"></div>
+      </section>
+      <section>
+        <h2>Part swings, pitches and chips</h2>
+        <div class="table-wrap"><table class="clubs stats-table" id="short"></table></div>
+        <div id="power-wrap" hidden>
+          <h3 class="sub">By power <small class="muted">part swings and chips said at a power - Shift + E, the chipping panel, or "power next fifty"</small></h3>
+          <div class="table-wrap"><table class="clubs stats-table" id="power"></table></div>
+        </div>
+      </section>
+      <section id="special-wrap" hidden>
+        <h2>Special shots <small class="muted">punches and other shots on purpose - kept out of the club numbers</small></h2>
+        <div class="table-wrap"><table class="clubs stats-table" id="special"></table></div>
+      </section>
+      <div class="two">
+        <section>
+          <h2>Putting</h2>
+          <div class="table-wrap"><table class="clubs stats-table" id="putting"></table></div>
+        </section>
+        <section>
+          <h2>Chipping <small class="muted">how close they finish</small></h2>
+          <div class="table-wrap"><table class="clubs stats-table" id="chipping"></table></div>
+        </section>
+      </div>
+      <div class="two">
+        <section>
+          <h2>Bests</h2>
+          <div class="table-wrap"><table class="clubs stats-table" id="bests"></table></div>
+        </section>
+        <section>
+          <h2>Games and rounds</h2>
+          <div class="table-wrap scroll"><table class="clubs stats-table" id="games"></table></div>
+        </section>
+      </div>
+      <section id="rounds-wrap">
+        <h2>Rounds <small class="muted">course rounds, and any play recorded as Round</small></h2>
+        <div id="rounds-avg" class="round-avg"></div>
+        <div class="table-wrap"><table class="stats-table rounds-table" id="rounds"></table></div>
+        <p id="rounds-msg" class="muted small"></p>
+        <div class="sg-pick-row">
+          <label title="Strokes gained measures each shot against someone playing from the same spot. Against your own handicap, above nothing is better than your usual and below is where you lose strokes to golfers of your level"
+            >Strokes gained against
+            <select id="sg-pick">
+              <option value="mine">Your handicap</option>
+              <option value="tour">A tour pro</option>
+              <option value="0">A scratch golfer</option>
+              <option value="5">A 5 handicap</option>
+              <option value="10">A 10 handicap</option>
+              <option value="15">A 15 handicap</option>
+              <option value="20">A 20 handicap</option>
+              <option value="25">A 25 handicap</option>
+              <option value="30">A 30 handicap</option>
+            </select></label
+          >
+        </div>
+        <div id="rounds-deep"></div>
+        <div id="rounds-other"></div>
+        <p class="muted small"><i>Fairways</i>: tee shots on par 4s and 5s that finished on the fairway. <i>Greens</i>: on the green (or in) in par less two strokes, penalties counted. <i>Putts</i>: strokes from the green - a gimme counts as one. <i>Up and down</i>: after missing the green, in the hole in two from the first chip or pitch. <i>Penalties</i>: water and lost balls. <i>SG</i>: strokes gained against the golfer chosen below (your handicap to start with). <i>Diff</i>: the round's handicap score differential; <i>net</i>: the score less the course handicap it was played off. Every stroke counts as it did on the scorecard, a misread too.</p>
+        <p id="rounds-old" class="muted small" hidden></p>
+      </section>
+      <section id="google-wrap" hidden>
+        <h2>Your Google account <small class="muted">this player's stats kept in their own Google Drive - the true copy, in step on every computer they sign in on</small></h2>
+        <p id="google-who" class="small"></p>
+        <p id="google-state" class="muted small" role="status" aria-live="polite"></p>
+        <div class="buttons"><button id="google-in" class="primary">Sign in with Google</button><button id="google-sync" hidden>Sync now</button><button id="google-out" hidden>Sign out</button></div>
+        <p id="google-msg" class="small day-msg" role="status" aria-live="polite"></p>
+        <p class="muted small">Shots played offline wait here and go to Drive once it's back. Signing out stops that - nothing's deleted, here or in Drive. Google's <i>Security, Third-party access</i> page takes A² Golf's access away.</p>
+      </section>
+      <section id="phone-wrap">
+        <h2>Your phones <small class="muted">link the phone app once: its shots come into these stats by themselves, and your players, handicaps and stats go to the phone</small></h2>
+        <p class="muted small">Press <b>Link a phone</b>, then on the phone: Play (or At the range), <b>My stats</b>, and type the code shown here (or point the phone's camera at it). Do it once: after that they keep in step by themselves through the online server, so the phone can be anywhere with the internet and the two needn't be on at the same time. The same names are the same players on both.</p>
+        <div id="link-open" class="link-open" hidden>
+          <p id="link-code" class="phone-code"></p>
+          <div id="link-qr" class="link-qr"></div>
+        </div>
+        <ul id="link-phones" class="link-phones"></ul>
+        <div class="buttons"><button id="link-get" class="primary">Link a phone</button><button id="link-sync" hidden>Sync now</button><button id="link-end" class="danger" hidden>Unlink every phone</button></div>
+        <p id="link-msg" class="small day-msg" role="status" aria-live="polite"></p>
+      </section>
+      <section id="restart-wrap">
+        <h2>Start again</h2>
+        <p class="muted small">Starts this player's stats from nothing: every shot, game and best on this page moves into the archive, never deleted - and can be brought back below, at any time. (Everyone's at once: the System menu, Recording.)</p>
+        <div class="buttons"><button id="restart" class="danger">Start my stats again...</button></div>
+        <p id="restart-msg" class="small day-msg" role="status" aria-live="polite"></p>
+        <h3>Archived stats</h3>
+        <div class="table-wrap"><table class="stats-table archive-table" id="archive"></table></div>
+      </section>
+    </div>
+    <dialog id="restart-dialog" class="confirm-dialog">
+      <form method="dialog">
+        <h2>Start <span data-who></span> stats again?</h2>
+        <p data-what></p>
+        <p>Nothing is deleted: <b>Archived stats</b>, at the bottom of this page, brings them back at any time - swapping them with whatever has been recorded since.</p>
+        <p class="muted small">The challenge panels' personal bests and the course list's best rounds aren't part of the stats, and stay as they are.</p>
+        <div class="dialog-buttons"><button value="restart" class="danger">Yes, start again</button><button value="cancel" autofocus>Cancel</button></div>
+      </form>
+    </dialog>
+    <script type="module" src="stats.js"></script>
+  </body>
+</html>
